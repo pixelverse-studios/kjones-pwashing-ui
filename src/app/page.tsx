@@ -38,8 +38,8 @@ export default function Home() {
         <Image
           src={Logo}
           alt="Kyle Jones Pressure Washing"
-          width={750}
-          height={500}
+          width={900}
+          height={550}
           priority={true}
         />
       </div>
