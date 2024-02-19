@@ -1,7 +1,9 @@
-import Image from 'next/image'
+'use client'
+import { useEffect, useCallback, useState } from 'react'
 import Link from 'next/link'
 import styles from './page.module.css'
-import { Logo, Driveway, Roof, Patio, Sidewalk } from '../../public/image'
+import useScrollPosition from './utls/useScrollPosition'
+import { Logo, Houses, Roof, Patio, Sidewalk } from '../../public/image'
 
 interface InfoImage {
   title: string
@@ -11,55 +13,48 @@ interface InfoImage {
 
 const infoImages: InfoImage[] = [
   {
+    title: 'Houses',
+    ...Houses
+  },
+  {
     title: 'Roofs',
-    src: Roof
+    ...Roof
   },
   {
     title: 'Patio/Decks',
-    src: Patio
-  },
-  {
-    title: 'Driveways',
-    src: Driveway
+    ...Patio
   },
   {
     title: 'Sidewalks/Walkways',
-    src: Sidewalk
+    ...Sidewalk
   }
 ]
 
 export default function Home() {
+  const isShowing = useScrollPosition(70)
+
   return (
     <main className={styles.main}>
-      {/* Coming Soon Banner */}
-      <div className={styles.comingSoon}>More Coming Soon!</div>
-
-      <div className={styles.logoContainer}>
-        <Image
-          src={Logo}
-          alt="Kyle Jones Pressure Washing"
-          width={900}
-          height={550}
-          priority={true}
-        />
+      <div
+        className={`${styles.comingSoon} ${
+          isShowing ? styles.show : styles.hide
+        }`}>
+        More Coming Soon!
       </div>
+      <img
+        className={styles.logo}
+        src={Logo.src}
+        alt="Kyle Jones Pressure Washing"
+      />
       <div className={styles.infoContainer}>
-        <h2 className={styles.header}>Pressure & Soft Washing</h2>
+        <h2 className={styles.offering}>Pressure & Soft Washing</h2>
         <div className={styles.imagesContainer}>
-          {infoImages.map((image, index) => {
-            return (
-              <div className={styles.imageHolder} key={index}>
-                <div className={styles.title}>{image.title}</div>
-                <Image
-                  src={image.src}
-                  alt={image.title}
-                  width={200}
-                  height={150}
-                  className={styles.image}
-                />
-              </div>
-            )
-          })}
+          {infoImages.map((image, index) => (
+            <div className={styles.imageHolder} key={index}>
+              <div className={styles.title}>{image.title}</div>
+              <img className={styles.img} src={image.src} alt={image.title} />
+            </div>
+          ))}
         </div>
         <div className={styles.contactContainer}>
           <div className={styles.contact}>
@@ -82,7 +77,7 @@ export default function Home() {
           </div>
           <div className={styles.contact}>
             <Link
-              href={'mailto:Kyle@JonesPressureWashingNJ.com'}
+              href="mailto:Kyle@JonesPressureWashingNJ.com"
               className={styles.contactIcon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +94,7 @@ export default function Home() {
               </svg>
             </Link>
             <Link
-              href={'mailto:Kyle@JonesPressureWashingNJ.com'}
+              href="mailto:Kyle@JonesPressureWashingNJ.com"
               className={styles.contactDetail}>
               Kyle@JonesPressureWashingNJ.com
             </Link>

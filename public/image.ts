@@ -1,7 +1,7 @@
-import Logo from "./logo.png"
-import Driveway from "./driveway.png"
-import Patio from "./patio.jpg"
-import Roof from "./roof.jpeg"
-import Sidewalk from "./sidewalk.jpg"
+import Houses from './assets/Houses.jpg'
+import Patio from './assets/patio.jpg'
+import Roof from './assets/roof.jpeg'
+import Sidewalk from './assets/sidewalk.jpg'
+import Logo from './assets/logo.png'
 
-export { Logo, Driveway, Patio, Roof, Sidewalk }
+export { Logo, Houses, Patio, Roof, Sidewalk }
