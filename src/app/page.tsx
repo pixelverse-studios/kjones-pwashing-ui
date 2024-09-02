@@ -1,13 +1,14 @@
 'use client'
-import { useEffect, useCallback, useState } from 'react'
+import { useRef } from 'react'
 import Link from 'next/link'
-import styles from './page.module.css'
+import { FaAngleDown, FaAngleUp } from 'react-icons/fa6'
+
 import useScrollPosition from './utls/useScrollPosition'
 import { Logo, Houses, Roof, Patio, Sidewalk } from '../../public/image'
+import styles from './page.module.css'
 
 interface InfoImage {
   title: string
-  //yea yea i know its an any but its gonna be a string when we pull from the db so just be happy i typed something when i didnt need to
   src: any
 }
 
@@ -31,22 +32,43 @@ const infoImages: InfoImage[] = [
 ]
 
 export default function Home() {
-  const isShowing = useScrollPosition(70)
+  const topRef = useRef<any>(null)
+  const infoRef = useRef<any>(null)
+  const showingBanner = useScrollPosition(70)
+
+  const onScrollDown = () =>
+    infoRef?.current !== null
+      ? infoRef.current.scrollIntoView({
+          behavior: 'smooth'
+        })
+      : null
+  const onScrollUp = () =>
+    topRef?.current !== null
+      ? topRef.current.scrollIntoView({
+          behavior: 'smooth'
+        })
+      : null
 
   return (
     <main className={styles.main}>
       <div
         className={`${styles.comingSoon} ${
-          isShowing ? styles.show : styles.hide
+          showingBanner ? styles.show : styles.hide
         }`}>
         More Coming Soon!
       </div>
       <img
+        ref={topRef}
         className={styles.logo}
         src={Logo.src}
         alt="Kyle Jones Pressure Washing"
       />
-      <div className={styles.infoContainer}>
+      <button
+        onClick={showingBanner ? onScrollDown : onScrollUp}
+        className={styles.floatingButton}>
+        {showingBanner ? <FaAngleDown /> : <FaAngleUp />}
+      </button>
+      <div ref={infoRef} className={styles.infoContainer}>
         <h2 className={styles.offering}>Pressure & Soft Washing</h2>
         <div className={styles.imagesContainer}>
           {infoImages.map((image, index) => (
@@ -94,9 +116,9 @@ export default function Home() {
               </svg>
             </Link>
             <Link
-              href="mailto:Kyle@JonesPressureWashingNJ.com"
+              href="mailto:Hello@JonesPressureWashingNJ.com"
               className={styles.contactDetail}>
-              Kyle@JonesPressureWashingNJ.com
+              Hello@JonesPressureWashingNJ.com
             </Link>
           </div>
         </div>

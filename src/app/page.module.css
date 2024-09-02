@@ -30,15 +30,38 @@
   }
 
   .logo {
-    width: min(75%, 70rem);
-    height: 100%;
+    width: min(80%, 70rem);
+    height: 100svh;
     padding: 3rem;
     margin: 0 auto;
+    object-fit: contain;
 
     @media screen and (max-width: 525px) {
       padding: 4rem 2rem;
       margin-top: 2rem;
     }
+  }
+
+  .floatingButton {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 2px solid gold;
+    background-color: transparent;
+    color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: 0.35s ease-in-out;
+    cursor: pointer;
+  }
+  .floatingButton:hover {
+    background-color: gold;
+    color: black;
   }
 
   .infoContainer {
@@ -50,7 +73,7 @@
 
     .offering {
       font-size: clamp(1.8rem, 10vw, 2.4rem);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .imagesContainer {
@@ -70,8 +93,8 @@
         }
 
         .img {
-          border-radius: 0.9rem;
-          height: 25rem;
+          border-radius: 0.2rem;
+          height: 22rem;
           max-width: 35rem;
           width: 100%;
           object-fit: cover;
@@ -104,6 +127,14 @@
       justify-content: flex-start;
       align-items: center;
       gap: 0.5rem;
+
+      @media screen and (max-width: 700px) {
+        width: 70%;
+        word-break: break-all;
+        text-align: left;
+        line-height: 1.2rem;
+        align-items: flex-start;
+      }
     }
 
     .contactIcon {
