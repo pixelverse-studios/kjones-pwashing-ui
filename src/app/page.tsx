@@ -1,40 +1,61 @@
 'use client'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa6'
 
 import useScrollPosition from './utls/useScrollPosition'
-import { Logo, Houses, Roof, Patio, Sidewalk } from '../../public/image'
-import styles from './page.module.css'
+import {
+  Logo,
+  Houses,
+  Roof,
+  Patio,
+  Sidewalk,
+  HouseLights
+} from '../../public/image'
+import styles from './page.module.scss'
 
 interface InfoImage {
   title: string
+  category: string
   src: any
 }
 
 const infoImages: InfoImage[] = [
   {
     title: 'Houses',
+    category: 'Pressure Washing',
     ...Houses
   },
   {
     title: 'Roofs',
+    category: 'Pressure Washing',
     ...Roof
   },
   {
     title: 'Patio/Decks',
+    category: 'Pressure & Washing',
     ...Patio
   },
   {
     title: 'Sidewalks/Walkways',
+    category: 'Pressure Washing',
     ...Sidewalk
+  },
+  {
+    title: 'Holiday Decorating',
+    category: 'Decor',
+    ...HouseLights
   }
 ]
+
+const DEFAULT = { category: '', title: '' }
 
 export default function Home() {
   const topRef = useRef<any>(null)
   const infoRef = useRef<any>(null)
   const showingBanner = useScrollPosition(70)
+
+  const [current, setCurrent] = useState(DEFAULT)
 
   const onScrollDown = () =>
     infoRef?.current !== null
@@ -49,6 +70,7 @@ export default function Home() {
         })
       : null
 
+  const today = new Date().getFullYear()
   return (
     <main className={styles.main}>
       <div
@@ -69,16 +91,29 @@ export default function Home() {
         {showingBanner ? <FaAngleDown /> : <FaAngleUp />}
       </button>
       <div ref={infoRef} className={styles.infoContainer}>
-        <h2 className={styles.offering}>Pressure & Soft Washing</h2>
-        <div className={styles.imagesContainer}>
-          {infoImages.map((image, index) => (
-            <div className={styles.imageHolder} key={index}>
-              <div className={styles.title}>{image.title}</div>
-              <img className={styles.img} src={image.src} alt={image.title} />
-            </div>
-          ))}
+        <div className={styles.offerings}>
+          <h2>Offerings</h2>
+          <div
+            className={`${current.category === '' ? '' : styles.show} ${
+              styles.identifiers
+            }`}>
+            <p>
+              {current.category} {current.title}
+            </p>
+          </div>
+          <div className={styles.imagesContainer}>
+            {infoImages.map((image, index) => (
+              <div
+                className={styles.offering}
+                key={index}
+                onMouseEnter={() => setCurrent(image)}
+                onMouseLeave={() => setCurrent(DEFAULT)}>
+                <img src={image.src} alt={image.title} />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.contactContainer}>
+        <footer>
           <div className={styles.contact}>
             <div className={styles.contactIcon}>
               <svg
@@ -121,7 +156,8 @@ export default function Home() {
               Hello@JonesPressureWashingNJ.com
             </Link>
           </div>
-        </div>
+          <div className={styles.copyright}>&copy; {today}, Jones Pressure Washing NJ</div>
+        </footer>
       </div>
     </main>
   )

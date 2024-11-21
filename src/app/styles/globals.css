@@ -29,10 +29,7 @@ body {
   padding: 0;
   background-color: var(--dark-background);
   color: var(--primary-color);
-}
-
-body {
-  line-height: 20px;
+  line-height: 1.2;
 }
 
 a {
