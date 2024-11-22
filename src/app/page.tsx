@@ -42,20 +42,16 @@ const infoImages: InfoImage[] = [
     ...Sidewalk
   },
   {
-    title: 'Holiday Decorating',
-    category: 'Decor',
+    title: 'Holiday Lighting',
+    category: 'Installation',
     ...HouseLights
   }
 ]
-
-const DEFAULT = { category: '', title: '' }
 
 export default function Home() {
   const topRef = useRef<any>(null)
   const infoRef = useRef<any>(null)
   const showingBanner = useScrollPosition(70)
-
-  const [current, setCurrent] = useState(DEFAULT)
 
   const onScrollDown = () =>
     infoRef?.current !== null
@@ -93,21 +89,14 @@ export default function Home() {
       <div ref={infoRef} className={styles.infoContainer}>
         <div className={styles.offerings}>
           <h2>Offerings</h2>
-          <div
-            className={`${current.category === '' ? '' : styles.show} ${
-              styles.identifiers
-            }`}>
-            <p>
-              {current.category} {current.title}
-            </p>
-          </div>
           <div className={styles.imagesContainer}>
             {infoImages.map((image, index) => (
-              <div
-                className={styles.offering}
-                key={index}
-                onMouseEnter={() => setCurrent(image)}
-                onMouseLeave={() => setCurrent(DEFAULT)}>
+              <div className={styles.offering} key={index}>
+                <div className={styles.identifiers}>
+                  {image.category}
+                  <br />
+                  {image.title}
+                </div>
                 <img src={image.src} alt={image.title} />
               </div>
             ))}
@@ -156,7 +145,9 @@ export default function Home() {
               Hello@JonesPressureWashingNJ.com
             </Link>
           </div>
-          <div className={styles.copyright}>&copy; {today}, Jones Pressure Washing NJ</div>
+          <div className={styles.copyright}>
+            &copy; {today}, Jones Pressure Washing NJ
+          </div>
         </footer>
       </div>
     </main>
