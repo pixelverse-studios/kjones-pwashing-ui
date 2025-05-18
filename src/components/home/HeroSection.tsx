@@ -4,7 +4,7 @@ import CtaModal from '../cta/CtaModal'
 
 const HeroSection = () => {
   return (
-    <div className="relative h-screen w-full pt-[7rem] side-padding flex items-center">
+    <div className="relative h-screen w-full nav-offset side-padding flex items-center">
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{

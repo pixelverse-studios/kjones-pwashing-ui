@@ -104,7 +104,7 @@ const Navbar = () => {
                 {navLinks.map(link => {
                   if (link.label === 'Services') {
                     return (
-                      <div className="mt-4 space-y-2">
+                      <div className="mt-4 space-y-2" key="mobile-service-item">
                         <Link
                           href="/services"
                           onClick={() => setOpen(false)}

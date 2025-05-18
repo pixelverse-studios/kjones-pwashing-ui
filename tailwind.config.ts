@@ -18,12 +18,11 @@ const config: Config = {
         },
         secondary: {
           DEFAULT: 'var(--gray)',
+          lite: '#9b9b9b',
           foreground: 'hsl(var(--secondary-foreground))'
         },
         accent: {
-          DEFAULT: 'var(--blue)',
-          white: 'var(--white)',
-          black: 'var(--black)'
+          DEFAULT: 'var(--blue)'
         },
         black: {
           DEFAULT: 'var(--black)',

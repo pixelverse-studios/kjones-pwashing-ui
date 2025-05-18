@@ -1,56 +1,88 @@
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import CtaModal from '@/components/cta/CtaModal'
 import Image from 'next/image'
+import {
+  FaQuoteLeft,
+  FaBullseye,
+  FaHouse,
+  FaClock,
+  FaAward
+} from 'react-icons/fa6'
+
+interface HighlightItemProps {
+  title: string
+  description: string
+  Icon: any
+}
+
+function HighlightItem({ title, description, Icon }: HighlightItemProps) {
+  return (
+    <div className="flex flex-col items-center gap-4">
+      <Icon size={40} className="text-primary" />
+      <h3 className="mb-0 text-white">{title}</h3>
+      <p className="text-secondary-lite">{description}</p>
+    </div>
+  )
+}
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-
-      <main className="bg-primary-black text-white px-8 md:px-16 lg:px-24 py-20">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="font-poppins text-4xl md:text-5xl font-bold text-primary mb-6">
-            Our Story
+    <main>
+      <section className="bg-black page nav-offset">
+        <div className="mx-auto max-w-custom h-full text-center pt-12">
+          <h1>
+            BUILT ON DETAILING.
+            <br />
+            BACKED BY RELIABILITY
           </h1>
-
-          <p className="text-white/90 text-lg mb-10">
-            What started as a personal obsession with keeping things spotless
-            quickly grew into a business focused on bringing the same level of
-            detail and pride to our community. At Jones Pressure Washing, we
-            don’t just clean — we care. We believe every home and property
-            deserves to be treated with the same respect we’d give our own.
+          <p className="text-white mt-8 mb-20 max-w-xl mx-auto">
+            A pressure washing service created by a homeowner who takes pride in
+            keeping things spotless — and showing up when it matters.
           </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <h2 className="font-poppins text-2xl md:text-3xl font-semibold mb-4 text-primary">
-                Built on Detailing. Backed by Reliability.
-              </h2>
-              <p className="text-white/80 mb-4">
-                From showing up on time to leaving your property sparkling
-                clean, our mission is to make sure every interaction exceeds
-                expectations. We proudly serve Bergen and Essex County and have
-                become known for our commitment to customer satisfaction and
-                consistent results.
-              </p>
-              <p className="text-white/80">
-                When you hire Jones Pressure Washing, you&apos;re not just
-                getting a cleaning service — you&apos;re partnering with someone
-                who truly cares about doing things the right way.
-              </p>
-            </div>
-            <div className="relative w-full h-80">
-              <Image
-                src="/about-image.jpg"
-                alt="About Jones Pressure Washing"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
+          <div className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
+            <FaQuoteLeft size={40} className="text-primary" />
+            <p className="text-xl text-white">
+              "I started off with an obsession for detailing my car — and that
+              passion eventually extended to my home. I take pride in keeping
+              everything spotless, and I knew I could bring that same care to
+              others. Too many contractors are unreliable. I'm here to change
+              that."
+            </p>
+            <span className="text-primary text-xl">— JPW Owner</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+            <HighlightItem
+              title="Precision-Focused"
+              description="We treat every job like it’s our own driveway or deck."
+              Icon={FaBullseye}
+            />
+            <HighlightItem
+              title="Locally Owned"
+              description="Rooted in Bergen & Essex — serving our neighbors with care."
+              Icon={FaHouse}
+            />
+            <HighlightItem
+              title="Always On Time"
+              description="Reliable scheduling. No ghosting. Just results."
+              Icon={FaClock}
+            />
+            <HighlightItem
+              title="Pride in Every Job"
+              description="We take our work personally — your home reflects our name."
+              Icon={FaAward}
+            />
+          </div>
+          <div className="my-16 space-y-6">
+            <p className="text-white">
+              Ready to work with someone who cares about the details?
+            </p>
+            <CtaModal
+              label="Request Your Free Estimate"
+              variant="default"
+              buttonClass="rounded-full"
+            />
           </div>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+    </main>
   )
 }

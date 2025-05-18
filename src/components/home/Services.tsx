@@ -4,13 +4,11 @@ import { FaHouse, FaBuilding, FaDroplet, FaLayerGroup } from 'react-icons/fa6'
 const ServiceCard = ({
   title,
   description,
-  icon: Icon,
-  iconBgColor = 'bg-primary'
+  icon: Icon
 }: {
   title: string
   description: string
   icon: any
-  iconBgColor?: string
 }) => {
   return (
     <div className="bg-black border-primary border p-8 rounded-lg flex flex-col gap-6 h-full shadow-md text-center items-center">
@@ -51,19 +49,16 @@ const ServicesSection = () => {
             title="Commercial Pressure Washing"
             description="Make a great first impression with spotless sidewalks, storefronts, driveways, and commercial buildings."
             icon={FaBuilding}
-            iconBgColor="bg-primary"
           />
           <ServiceCard
             title="Soft Washing"
             description="Our soft washing safely removes algae, mold, and stains from roofs and siding without damaging delicate surfaces."
             icon={FaDroplet}
-            iconBgColor="bg-primary"
           />
           <ServiceCard
             title="Other Services"
             description="We also offer help with holiday lighting and roof & gutter cleaning."
             icon={FaLayerGroup}
-            iconBgColor="bg-primary"
           />
         </div>
       </div>
