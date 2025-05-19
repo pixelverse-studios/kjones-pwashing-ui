@@ -27,8 +27,8 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="bg-transparent text-white w-full font-inter z-50 fixed top-0">
-      <div className="bg-nav flex items-center justify-between side-padding">
+    <header className="bg-nav text-white w-full font-inter z-50 fixed top-0">
+      <div className="flex items-center justify-between side-padding max-w-custom mx-auto">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo-gray.png"

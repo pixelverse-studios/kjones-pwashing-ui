@@ -137,7 +137,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="py-4 px-8 md:px-16 lg:px-24 border-t border-white/10 text-center">
+      <div className="max-w-custom mx-auto py-4">
         <div className="flex justify-between items-center">
           <p className="text-white/60 text-xs">
             © {new Date().getFullYear()} Jones Pressure Washing. All rights
