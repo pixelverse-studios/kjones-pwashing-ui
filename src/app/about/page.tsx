@@ -1,5 +1,4 @@
 import CtaModal from '@/components/cta/CtaModal'
-import Image from 'next/image'
 import {
   FaQuoteLeft,
   FaBullseye,
@@ -28,7 +27,7 @@ export default function AboutPage() {
   return (
     <main>
       <section className="bg-black page nav-offset">
-        <div className="mx-auto max-w-custom h-full text-center pt-12">
+        <div className="page-content text-center">
           <h1>
             BUILT ON DETAILING.
             <br />

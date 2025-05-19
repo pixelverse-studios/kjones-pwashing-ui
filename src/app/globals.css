@@ -77,7 +77,11 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-inter leading-snug;
+    @apply bg-background text-white font-inter leading-snug;
+  }
+
+  main {
+    @apply min-h-screen;
   }
 
   h1,
@@ -110,7 +114,11 @@
   }
 
   .page {
-    @apply p-8 w-full h-full;
+    @apply p-8 w-full h-full min-h-screen;
+  }
+
+  .page-content {
+    @apply mx-auto max-w-custom h-full pt-12;
   }
 
   .nav-offset {

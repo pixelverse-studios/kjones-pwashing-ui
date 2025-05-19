@@ -6,7 +6,7 @@ import CtaModal from './cta/CtaModal'
 
 const Footer = () => {
   return (
-    <footer className="page bg-secondary text-white">
+    <footer className="p-8 w-full h-full bg-secondary text-white">
       <div className="max-w-custom mx-auto py-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           <div>
