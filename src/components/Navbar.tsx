@@ -19,7 +19,7 @@ import CtaModal from './cta/CtaModal'
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Gallery', href: '/gallery' },
+  // { label: 'Gallery', href: '/gallery' },
   { label: 'FAQs', href: '/faqs' }
 ]
 
@@ -48,23 +48,30 @@ const Navbar = () => {
                 if (link.label === 'Services') {
                   return (
                     <NavigationMenuItem key={link.label}>
-                      <NavigationMenuTrigger className="transition-all duration-200 ease-in-out text-white hover:text-primary px-2 py-1 rounded-md bg-transparent hover:bg-white/10 focus:bg-white/10 font-normal">
+                      <NavigationMenuTrigger className="transition-all duration-200 ease-in-out text-white hover:text-primary p-3 rounded-md bg-transparent hover:bg-accent font-normal">
                         Services
                       </NavigationMenuTrigger>
-                      <NavigationMenuContent className="bg-secondary-black text-white rounded-lg mt-2 p-2 min-w-[200px] shadow-md border border-white/10">
+                      <NavigationMenuContent className="bg-secondary-black text-white rounded-lg mt-2 p-2 pb-4  min-w-[200px] shadow-md">
                         <ul className="flex flex-col gap-2">
                           <li>
                             <Link
                               href="/services/pressure-washing"
-                              className="block px-4 py-2 rounded-md hover:bg-white/10 transition-all duration-200 ease-in-out">
+                              className="block px-4 py-2 rounded-md hover:bg-white hover:text-primary transition-all duration-200 ease-in-out">
                               Pressure Washing
                             </Link>
                           </li>
                           <li>
                             <Link
                               href="/services/soft-washing"
-                              className="block px-4 py-2 rounded-md hover:bg-white/10 transition-all duration-200 ease-in-out">
+                              className="block px-4 py-2 rounded-md hover:bg-white hover:text-primary transition-all duration-200 ease-in-out">
                               Soft Washing
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              href="/services/additional"
+                              className="block px-4 py-2 rounded-md hover:bg-white hover:text-primary transition-all duration-200 ease-in-out">
+                              Additional Services
                             </Link>
                           </li>
                         </ul>
@@ -75,7 +82,7 @@ const Navbar = () => {
                 return (
                   <NavigationMenuItem key={link.href}>
                     <Link href={link.href} legacyBehavior passHref>
-                      <NavigationMenuLink className="transition-all duration-200 ease-in-out text-white hover:text-primary px-2 py-1 rounded-md">
+                      <NavigationMenuLink className="transition-all duration-200 ease-in-out text-white hover:bg-accent hover:text-primary p-3 rounded-md">
                         {link.label}
                       </NavigationMenuLink>
                     </Link>
