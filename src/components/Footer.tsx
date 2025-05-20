@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FaInstagram, FaFacebook } from 'react-icons/fa6'
 
+import { ContactMap } from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
 
 const Footer = () => {
@@ -42,17 +43,27 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <h4 className="text-white">Services</h4>
+              </li>
+              <li className="pl-4">
                 <Link
-                  href="/services"
+                  href="/services/pressure-washing"
                   className="text-white hover:text-primary transition-colors">
-                  Services
+                  Pressure Washing
                 </Link>
               </li>
-              <li>
+              <li className="pl-4">
                 <Link
-                  href="/gallery"
+                  href="/services/soft-washing"
                   className="text-white hover:text-primary transition-colors">
-                  Gallery
+                  Soft Washing
+                </Link>
+              </li>
+              <li className="pl-4">
+                <Link
+                  href="/services/additional"
+                  className="text-white hover:text-primary transition-colors">
+                  Additional Services
                 </Link>
               </li>
               <li>
@@ -81,9 +92,9 @@ const Footer = () => {
                 />
               </svg>
               <a
-                href="tel:(555) 555-1234"
+                href={`tel:${ContactMap.get('phone')}`}
                 className="text-white hover:text-primary transition-colors">
-                (555) 555-1234
+                {ContactMap.get('phone')}
               </a>
             </div>
             <div className="flex items-center md:justify-end gap-2 mb-6">
@@ -101,16 +112,16 @@ const Footer = () => {
                 />
               </svg>
               <a
-                href="mailto:contact@jonespwash.com"
+                href={`mailto:${ContactMap.get('email')}`}
                 className="text-white hover:text-primary transition-colors">
-                contact@jonespwash.com
+                {ContactMap.get('email')}
               </a>
             </div>
             <div>
               <h4 className="">Follow Us</h4>
               <div className="flex gap-3 md:justify-end mb-4">
                 <a
-                  href="https://instagram.com"
+                  href={ContactMap.get('instagram')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-secondary p-2 rounded-full border border-primary hover:bg-primary transition-colors group">
@@ -120,7 +131,7 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href={ContactMap.get('facebook')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-secondary p-2 rounded-full border border-primary hover:bg-primary transition-colors group">

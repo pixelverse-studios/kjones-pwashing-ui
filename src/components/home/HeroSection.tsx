@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Button } from '../ui/button'
 import CtaModal from '../cta/CtaModal'
 
 const HeroSection = () => {
@@ -9,9 +8,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
           backgroundImage: "url('/Homepage.jpg')"
-        }}>
-        {/* <div className="absolute inset-0 bg-primary z-0"></div> */}
-      </div>
+        }}></div>
 
       {/* Content */}
       <div className="bg-black-clear text-white relative z-10 h-fit flex flex-col justify-center p-8 max-w-xl shadow-xl rounded-lg">

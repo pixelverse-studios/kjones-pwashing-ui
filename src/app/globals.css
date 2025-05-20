@@ -114,11 +114,15 @@
   }
 
   .page {
-    @apply p-8 w-full h-full min-h-screen;
+    @apply w-full h-full min-h-screen;
   }
 
   .page-content {
     @apply mx-auto max-w-custom h-full pt-12;
+  }
+
+  .page-padding {
+    @apply p-8;
   }
 
   .nav-offset {
