@@ -110,7 +110,7 @@
 
 @layer components {
   .side-padding {
-    @apply px-8 md:px-12;
+    @apply px-6;
   }
 
   .page {

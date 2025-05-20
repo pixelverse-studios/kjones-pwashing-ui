@@ -34,6 +34,7 @@ export default function SoftWashingServicePage() {
         }
         description="Low-pressure soft wash cleaning for siding, fences, roofs, and decks in Bergen, Essex, and surrounding counties."
         explanation={<HeroExplanation />}
+        height="h-[75vh]"
       />
       <ServiceExamples
         h2="Some surfaces we soft wash include"
@@ -46,7 +47,8 @@ export default function SoftWashingServicePage() {
       />
       <ServiceCta
         header="Ready to Safely Clean Your Home Exterior?"
-        description="Serving Bergen, Essex, and surrounding New Jersey Counties"
+        description=""
+        showAfter
         cta="Request a Free Estimate"
         buttonLabel="Contact Us"
       />

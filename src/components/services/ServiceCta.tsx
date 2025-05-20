@@ -9,13 +9,15 @@ interface ServiceCtaProps {
   description: string
   cta: string
   buttonLabel: string
+  showAfter?: boolean
 }
 
 export default function ServiceCta({
   header,
   description,
   cta,
-  buttonLabel
+  buttonLabel,
+  showAfter = false
 }: ServiceCtaProps) {
   const onEmailClick = () => {
     const subject = 'General Inquiry for JonesPressureWashingNJ'
@@ -38,6 +40,11 @@ export default function ServiceCta({
             {buttonLabel}
           </Button>
         </div>
+        {showAfter ? (
+          <p className="text-sm text-gray-400">
+            Serving Bergen, Essex, and surrounding New Jersey counties.
+          </p>
+        ) : null}
       </div>
     </section>
   )
