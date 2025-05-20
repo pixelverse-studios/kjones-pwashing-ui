@@ -1,8 +1,7 @@
 'use client'
 
-import { FaLightbulb, FaHouse, FaArrowRight } from 'react-icons/fa6'
+import { FaLightbulb, FaHouse } from 'react-icons/fa6'
 
-import { Button } from '@/components/ui/button'
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'

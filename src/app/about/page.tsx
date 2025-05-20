@@ -40,11 +40,11 @@ export default function AboutPage() {
           <div className="flex flex-col items-center gap-6 max-w-2xl mx-auto">
             <FaQuoteLeft size={40} className="text-primary" />
             <p className="text-xl text-white">
-              "I started off with an obsession for detailing my car — and that
-              passion eventually extended to my home. I take pride in keeping
-              everything spotless, and I knew I could bring that same care to
-              others. Too many contractors are unreliable. I'm here to change
-              that."
+              &quot;I started off with an obsession for detailing my car — and
+              that passion eventually extended to my home. I take pride in
+              keeping everything spotless, and I knew I could bring that same
+              care to others. Too many contractors are unreliable. I&apos;m here
+              to change that.&quot;
             </p>
             <span className="text-primary text-xl">— JPW Owner</span>
           </div>

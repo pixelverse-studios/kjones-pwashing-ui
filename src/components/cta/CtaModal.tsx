@@ -1,7 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import Script from 'next/script'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
@@ -10,7 +8,6 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger

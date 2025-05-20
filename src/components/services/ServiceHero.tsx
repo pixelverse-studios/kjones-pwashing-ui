@@ -21,7 +21,7 @@ const ServiceHero = ({
   dimHeroContent = false,
   height = 'h-screen'
 }: ServiceHeroProps) => {
-  const showExplanation = useMemo(() => explanation != null, [])
+  const showExplanation = useMemo(() => explanation != null, [explanation])
 
   return (
     <section className="page bg-black">
