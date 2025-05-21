@@ -49,8 +49,8 @@ const faqs = [
 export default function FaqsPage() {
   return (
     <main>
-      <section className="bg-black page nav-offset">
-        <div className="page-content text-center">
+      <section className="bg-black nav-offset">
+        <div className="max-w-custom mx-auto px-6 py-10 text-center">
           <h1>Frequently Asked Questions</h1>
           <p className="text-white mt-8 mb-20 max-w-xl mx-auto">
             Got questions before booking your service? Here's everything you
@@ -63,7 +63,7 @@ export default function FaqsPage() {
               <AccordionItem
                 value={faq.question}
                 key={faq.question}
-                className="border border-accent rounded-lg">
+                className="border border-accent rounded-lg mb-0">
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
                 <AccordionContent>{faq.answer}</AccordionContent>
               </AccordionItem>

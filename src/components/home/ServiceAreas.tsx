@@ -23,8 +23,8 @@ const CountyCard = ({
 
 const ServiceAreas = () => {
   return (
-    <section className="page bg-black">
-      <div className="mx-auto max-w-custom">
+    <section className="bg-black">
+      <div className="mx-auto max-w-custom px-6 py-8">
         <h2 className="font-poppins text-3xl md:text-4xl font-bold text-white text-center mb-2">
           Proudly Serving <span className="text-primary">New Jersey</span>
         </h2>

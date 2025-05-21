@@ -26,8 +26,8 @@ const ServiceCard = ({
 
 const ServicesSection = () => {
   return (
-    <section className="page bg-black">
-      <div className="max-w-custom mx-auto">
+    <section className="bg-black">
+      <div className="max-w-custom mx-auto px-6 py-8">
         <div className="text-center mb-12">
           <h2 className="text-white mb-4">
             Our Pressure & Soft Washing Services

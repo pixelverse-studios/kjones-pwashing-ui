@@ -14,8 +14,8 @@ const TrustFeature = ({ text }: { text: string }) => {
 
 const TrustSection = () => {
   return (
-    <section className="bg-secondary page">
-      <div className="max-w-custom mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="bg-secondary">
+      <div className="max-w-custom mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col justify-center gap-6">
           <h2 className="text-white text-balance max-w-md">
             Why Homeowners and Businesses Trust Us

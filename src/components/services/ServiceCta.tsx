@@ -31,7 +31,7 @@ export default function ServiceCta({
       <div className="max-w-custom mx-auto px-6 py-20 flex flex-col gap-6">
         <h2 className="text-white">{header}</h2>
         <p>{description}</p>
-        <div className="flex flex-col sm:flex-row gap-6 mx-auto">
+        <div className="flex flex-col sm:flex-row gap-6 mx-auto w-full sm:w-fit">
           <CtaModal label={cta} variant="default" />
           <Button
             variant="ghost"

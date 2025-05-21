@@ -26,8 +26,8 @@ function HighlightItem({ title, description, Icon }: HighlightItemProps) {
 export default function AboutPage() {
   return (
     <main>
-      <section className="bg-black page nav-offset">
-        <div className="page-content text-center">
+      <section className="bg-black nav-offset">
+        <div className="max-w-custom mx-auto px-6 py-8 text-center">
           <h1>
             BUILT ON DETAILING.
             <br />
