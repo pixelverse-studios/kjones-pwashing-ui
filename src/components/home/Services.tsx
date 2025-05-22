@@ -44,7 +44,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           <ServiceCard
             title="Residential Pressure Washing"
-            description="Refresh your home's exterior with our specialized service. We clean driveways, decks, concrete, and more — safe, effective, and cost-applied easily."
+            description="Refresh your home's exterior with our specialized service. We clean driveways, decks, concrete, and more — safe, effective, and cost-efficient."
             icon={FaHouse}
             route="/services/pressure-washing"
           />

@@ -16,7 +16,7 @@ const HeroSection = () => {
         <div className="h-fit w-fit max-w-xl flex flex-col justify-center shadow-xl rounded-lg p-8 bg-black-clear">
           <h1 className="text-white mb-2">
             Professional <span className="text-primary">Pressure</span>
-            <span className="text-primary">& Soft Washing</span> For <br />
+            <span className="text-primary"> & Soft Washing</span> For <br />
             Homes and Businesses <br />
             in New Jersey
           </h1>
