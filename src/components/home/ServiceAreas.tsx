@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { FaHouse } from 'react-icons/fa6'
 
-import { Button } from '../ui/button'
+import CtaModal from '../cta/CtaModal'
 
 const CountyCard = ({
   county,
@@ -53,7 +53,7 @@ const ServiceAreas = () => {
               Don't see your county listed? Reach out — we may still serve your
               area.
             </p>
-            <Button>Check Service Availability</Button>
+            <CtaModal label="Check Service Availability" />
           </div>
           <Image
             src="/NjGraphic.png"

@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { CheckCircle } from 'lucide-react'
-
-import { Button } from '../ui/button'
+import CtaModal from '../cta/CtaModal'
 
 const TrustFeature = ({ text }: { text: string }) => {
   return (
@@ -34,7 +33,7 @@ const TrustSection = () => {
             <TrustFeature text="On-time & reliable service" />
             <TrustFeature text="100% satisfaction guaranteed" />
           </ul>
-          <Button variant="ghost">Request a Quote Today</Button>
+          <CtaModal variant="ghost" label="Request a Quote Today" />
         </div>
 
         <div className="flex-1 relative h-[400px] lg:h-[500px]">

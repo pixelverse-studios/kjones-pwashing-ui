@@ -10,7 +10,7 @@ import additionalServices from '@/lib/services/additionalServices'
 function Explanation() {
   return (
     <section className="bg-black h-full">
-      <div className="py-12 max-w-custom mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+      <div className="py-12 px-6 max-w-custom mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
         <div className="h-full bg-secondary p-6 border border-primary rounded-lg flex flex-col gap-4">
           <FaHouse size={42} className="text-primary" />
           <h3 className="text-white">Roof & Gutter Cleaning</h3>

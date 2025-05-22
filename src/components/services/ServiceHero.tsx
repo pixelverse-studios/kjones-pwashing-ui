@@ -25,7 +25,7 @@ const ServiceHero = ({
 
   return (
     <section className="page bg-black">
-      <div className={cn('relative', height)}>
+      <div className={cn('relative min-h-fit', height)}>
         <div
           className="absolute inset-0 bg-cover bg-center z-0 transform"
           style={{
@@ -34,7 +34,7 @@ const ServiceHero = ({
           <div className="bg-black-clear h-full w-full"></div>
         </div>
 
-        <div className="nav-offset z-10 relative side-padding max-w-custom mx-auto">
+        <div className="nav-offset z-10 relative side-padding h-fit max-w-custom mx-auto">
           <div
             className={cn(
               'page-padding max-w-xl mt-20 rounded-lg space-y-6',

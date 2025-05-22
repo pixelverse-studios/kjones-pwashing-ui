@@ -16,11 +16,11 @@ import {
 interface CtaModalProps {
   label: string
   buttonClass?: string
-  variant: any
+  variant?: any
 }
 
 export default function CtaModal({
-  variant,
+  variant = 'default',
   label,
   buttonClass
 }: CtaModalProps) {
