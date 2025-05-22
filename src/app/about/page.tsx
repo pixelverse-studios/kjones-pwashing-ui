@@ -46,7 +46,7 @@ export default function AboutPage() {
               care to others. Too many contractors are unreliable. I&apos;m here
               to change that.&quot;
             </p>
-            <span className="text-primary text-xl">Kyle Jones — JPW Owner</span>
+            <span className="text-primary text-xl">Kyle — JPW Owner</span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
             <HighlightItem
