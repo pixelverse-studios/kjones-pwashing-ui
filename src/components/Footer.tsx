@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FaInstagram, FaFacebook } from 'react-icons/fa6'
 
 import { ContactMap } from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
@@ -118,7 +117,7 @@ const Footer = () => {
               </a>
             </div>
             <div>
-              <h4 className="">Follow Us</h4>
+              {/*   <h4 className="">Follow Us</h4>
               <div className="flex gap-3 md:justify-end mb-4">
                 <a
                   href={ContactMap.get('instagram')}
@@ -140,7 +139,7 @@ const Footer = () => {
                     className="text-white group-hover:text-black"
                   />
                 </a>
-              </div>
+              </div> */}
               <CtaModal variant="default" label="Request a Quote" />
             </div>
           </div>
