@@ -105,7 +105,9 @@ function Explanation() {
             protect your home from water damage and costly repairs.
           </p>
         </div>
-        <div className="h-full bg-secondary p-6 border border-primary rounded-lg flex flex-col gap-4">
+        <div
+          id="holiday-lighting"
+          className="h-full bg-secondary p-6 border border-primary rounded-lg flex flex-col gap-4">
           <FaLightbulb size={42} className="text-primary" />
           <h3 className="text-white">Holiday Lighting Assistance</h3>
           <p>

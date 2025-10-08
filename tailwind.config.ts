@@ -32,7 +32,7 @@ const config: Config = {
           DEFAULT: 'var(--white)'
         },
         nav: {
-          DEFAULT: 'rgba(0,0,0,0.4)'
+          DEFAULT: 'rgba(0,0,0,0.75)'
         },
         card: {
           DEFAULT: 'hsl(var(--card))',

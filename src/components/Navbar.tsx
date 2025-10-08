@@ -86,6 +86,17 @@ const Navbar = () => {
                               Additional Services
                             </Link>
                           </li>
+                          <li>
+                            <Link
+                              href="/services/holiday-lighting"
+                              className={`block px-4 py-2 rounded-md hover:bg-white hover:text-primary transition-all duration-200 ease-in-out ${
+                                pathname === '/services/holiday-lighting'
+                                  ? 'text-primary'
+                                  : 'text-white'
+                              }`}>
+                              Holiday Lighting
+                            </Link>
+                          </li>
                         </ul>
                       </NavigationMenuContent>
                     </NavigationMenuItem>
@@ -163,6 +174,12 @@ const Navbar = () => {
                             onClick={() => setOpen(false)}
                             className={`hover:text-primary font-inter text-lg transition-all ${pathname === '/services/additional' ? 'text-primary' : 'text-white'}`}>
                             Additional Services
+                          </Link>
+                          <Link
+                            href="/services/holiday-lighting"
+                            onClick={() => setOpen(false)}
+                            className={`hover:text-primary font-inter text-lg transition-all ${pathname === '/services/holiday-lighting' ? 'text-primary' : 'text-white'}`}>
+                            Holiday Lighting
                           </Link>
                         </div>
                       </div>
