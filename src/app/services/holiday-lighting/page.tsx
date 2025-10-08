@@ -164,7 +164,7 @@ function SeasonalDetails() {
         <div className="space-y-6">
           <h2 className="text-white">
             Scared of Heights?{' '}
-            <span className="text-primary">We've Got You.</span>
+            <span className="text-primary">Let us hang your lights!</span>
           </h2>
           <p>
             Skip the tangled cords, icy gutters, and weekend ladder balancing.
