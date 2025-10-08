@@ -1,12 +1,55 @@
-'use client'
-
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
 import softWashingServices from '@/lib/services/softWashingServices'
+
+const pageTitle =
+  'Soft Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageDescription =
+  'Protect delicate exteriors with Jones Pressure Washing. Our soft washing service safely cleans siding, roofs, fences, and decks throughout Bergen and Essex County, NJ.'
+const serviceImagePath = '/Jones_Pressure_Washing_Roof_Cleaning.png'
+const serviceImageUrl =
+  'https://www.jonespressurewashing.com/Jones_Pressure_Washing_Roof_Cleaning.png'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/soft-washing'
+  },
+  keywords: [
+    'soft washing',
+    'roof cleaning',
+    'house washing',
+    'Bergen County NJ soft washing',
+    'Essex County NJ soft washing'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/soft-washing',
+    images: [
+      {
+        url: serviceImagePath,
+        width: 1200,
+        height: 630,
+        alt: 'Soft washing professional cleaning a New Jersey roof'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: [serviceImagePath]
+  },
+  category: 'Professional Services'
+}
 
 const schema = {
   '@context': 'https://schema.org',
@@ -16,14 +59,14 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(555) 555-1234',
+    telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bergen County',
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://jonespressurewashing.com/images/logo.png',
+    image: 'https://www.jonespressurewashing.com/logo-black.jpg',
     priceRange: '$$'
   },
   areaServed: [
@@ -36,8 +79,7 @@ const schema = {
       name: 'Essex County'
     }
   ],
-  description:
-    'Gentle soft washing services for roofs, siding, and delicate surfaces in New Jersey. Our low-pressure cleaning system safely removes algae, mold, mildew, and black streaks without damaging your property.',
+  description: pageDescription,
   offers: {
     '@type': 'Offer',
     priceCurrency: 'USD',
@@ -46,16 +88,16 @@ const schema = {
       minPrice: '249'
     }
   },
-  image: 'https://jonespressurewashing.com/images/soft-washing.jpg',
+  image: serviceImageUrl,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://jonespressurewashing.com/services/soft-washing'
+    '@id': 'https://www.jonespressurewashing.com/services/soft-washing'
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://jonespressurewashing.com/contact'
+      urlTemplate: 'https://www.jonespressurewashing.com/contact'
     },
     result: {
       '@type': 'Reservation',
@@ -83,12 +125,12 @@ function HeroExplanation() {
 export default function SoftWashingServicePage() {
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-soft-washing-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main>
         <ServiceHero
           img="/Fence Cleaning.jpg"

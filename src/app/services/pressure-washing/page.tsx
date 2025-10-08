@@ -1,5 +1,5 @@
-'use client'
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
@@ -7,6 +7,47 @@ import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceProcess from '@/components/services/ServiceProcess'
 import ServiceCta from '@/components/services/ServiceCta'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
+
+const pageTitle =
+  'Pressure Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageDescription =
+  'Restore curb appeal with Jones Pressure Washing. We deliver residential and commercial pressure washing for driveways, walkways, patios, and concrete surfaces across Bergen and Essex County, NJ.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/pressure-washing'
+  },
+  keywords: [
+    'pressure washing',
+    'driveway cleaning',
+    'commercial pressure washing',
+    'Bergen County NJ pressure washing',
+    'Essex County NJ pressure washing'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/pressure-washing',
+    images: [
+      {
+        url: '/PressureBG.jpeg',
+        width: 1200,
+        height: 630,
+        alt: 'Pressure washing service cleaning a driveway in New Jersey'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/PressureBG.jpeg']
+  },
+  category: 'Professional Services'
+}
 
 const schema = {
   '@context': 'https://schema.org',
@@ -16,14 +57,14 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(555) 555-1234',
+    telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bergen County',
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://jonespressurewashing.com/images/logo.png',
+    image: 'https://www.jonespressurewashing.com/logo-black.jpg',
     priceRange: '$$'
   },
   areaServed: [
@@ -36,8 +77,7 @@ const schema = {
       name: 'Essex County'
     }
   ],
-  description:
-    'Professional pressure washing services for driveways, walkways, patios, and concrete surfaces in Bergen and Essex County, NJ. Our high-pressure cleaning effectively removes stubborn dirt, grime, oil stains, and mildew.',
+  description: pageDescription,
   offers: {
     '@type': 'Offer',
     priceCurrency: 'USD',
@@ -46,16 +86,16 @@ const schema = {
       minPrice: '199'
     }
   },
-  image: 'https://jonespressurewashing.com/images/pressure-washing.jpg',
+  image: 'https://www.jonespressurewashing.com/PressureBG.jpeg',
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://jonespressurewashing.com/services/pressure-washing'
+    '@id': 'https://www.jonespressurewashing.com/services/pressure-washing'
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://jonespressurewashing.com/contact'
+      urlTemplate: 'https://www.jonespressurewashing.com/contact'
     },
     result: {
       '@type': 'Reservation',
@@ -67,12 +107,12 @@ const schema = {
 export default function PressureWashingServicePage() {
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-pressure-washing-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main>
         <ServiceHero
           img="/PressureBG.jpeg"

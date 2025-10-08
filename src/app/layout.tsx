@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description:
       'Expert pressure washing services for residential and commercial properties in Bergen and Essex County, New Jersey.',
     type: 'website',
-    url: '/ ', // will be resolved against metadataBase
+    url: '/', // will be resolved against metadataBase
     images: ['/logo-black.jpg'],
     locale: 'en_US'
   },

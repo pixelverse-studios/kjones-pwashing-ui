@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 import CtaModal from '@/components/cta/CtaModal'
 import {
   FaQuoteLeft,
@@ -6,6 +8,46 @@ import {
   FaClock,
   FaAward
 } from 'react-icons/fa6'
+
+const pageTitle =
+  'About Jones Pressure Washing | Locally Owned Exterior Cleaning in New Jersey'
+const pageDescription =
+  'Discover the story behind Jones Pressure Washing, a reliable, locally owned team delivering meticulous pressure washing and soft washing across Bergen and Essex County, NJ.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/about'
+  },
+  keywords: [
+    'Jones Pressure Washing',
+    'about Jones Pressure Washing',
+    'locally owned pressure washing',
+    'Bergen County exterior cleaning',
+    'Essex County exterior cleaning'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/about',
+    images: [
+      {
+        url: '/Homepage_Trust.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jones Pressure Washing owner speaking with a homeowner'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Homepage_Trust.png']
+  }
+}
 
 interface HighlightItemProps {
   title: string
