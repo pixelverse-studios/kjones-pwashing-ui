@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url('/Homepage.jpg')"
+          backgroundImage: "url('/Holiday Lights Installation at Twilight.png')"
         }}></div>
 
       {/* Content */}
@@ -15,27 +15,26 @@ const HeroSection = () => {
       <div className="text-white relative z-10 max-w-custom w-full mx-auto  px-6 py-8">
         <div className="h-fit w-fit max-w-xl flex flex-col justify-center shadow-xl rounded-lg p-8 bg-black-clear">
           <h1 className="text-white mb-2">
-            Professional <span className="text-primary">Pressure</span>
-            <span className="text-primary"> & Soft Washing</span> For <br />
-            Homes and Businesses <br />
-            in New Jersey
+            Holiday Lighting &amp; Exterior Cleaning for{' '}
+            <span className="text-primary">Bergen &amp; Essex</span>
           </h1>
 
           <p className="text-white/90 my-4 text-lg max-w-lg">
-            We treat your property like it&apos;s our own — Proudly serving our
-            neighbors in Bergen & Essex County.
+            Custom holiday lighting design, installation, maintenance, and
+            takedown — plus pressure and soft washing that keeps your property
+            photo ready long after the lights go up.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <CtaModal
-              label="Request Your Free Estimate"
+              label="Reserve My Holiday Lighting Slot"
               variant="default"
               buttonClass="rounded-full h-12"
             />
             <Link
-              href="/about"
+              href="/services/holiday-lighting"
               className="bg-transparent border border-primary hover:bg-primary text-white hover:text-black font-medium py-3 px-6 rounded-full transition-all duration-200 text-center">
-              Learn More About Us
+              Explore Holiday Lighting
             </Link>
           </div>
         </div>

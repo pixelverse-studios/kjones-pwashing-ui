@@ -1,4 +1,5 @@
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 import {
   Accordion,
   AccordionContent,
@@ -7,6 +8,51 @@ import {
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
 import CtaModal from '@/components/cta/CtaModal'
+
+const pageTitle =
+  'Pressure Washing FAQs | Jones Pressure Washing Bergen & Essex County'
+const pageDescription =
+  'Answers to the most common pressure washing and soft washing questions for homeowners and businesses across Bergen and Essex County, NJ.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/faqs'
+  },
+  keywords: [
+    'pressure washing FAQs',
+    'soft washing FAQs',
+    'Jones Pressure Washing questions',
+    'Bergen County pressure washing info',
+    'Essex County pressure washing info'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/faqs',
+    images: [
+      {
+        url: '/Homepage_Trust.png',
+        width: 1200,
+        height: 630,
+        alt: 'Jones Pressure Washing answering customer questions'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Homepage_Trust.png']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
 
 const schema = {
   '@context': 'https://schema.org',
@@ -81,12 +127,12 @@ const faqs = [
 export default function FaqsPage() {
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-faq-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main>
         <section className="bg-black nav-offset">
           <div className="max-w-custom mx-auto px-6 py-10 text-center">

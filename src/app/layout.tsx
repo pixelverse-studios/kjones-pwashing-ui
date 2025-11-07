@@ -20,9 +20,17 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title:
-    'Jones Pressure Washing | Professional Pressure & Soft Washing in New Jersey',
+    'Jones Pressure Washing & Holiday Lighting | Exterior Cleaning in New Jersey',
   description:
-    'Professional pressure washing and soft washing services for homes and businesses in Bergen and Essex County, NJ. Licensed, insured, and locally owned.',
+    'Jones Pressure Washing provides pressure washing, soft washing, and custom holiday lighting design across Bergen and Essex County, NJ. Licensed, insured, and locally owned.',
+  keywords: [
+    'pressure washing',
+    'soft washing',
+    'holiday lighting installation',
+    'Christmas light installation NJ',
+    'Bergen County holiday lighting',
+    'Essex County holiday lighting'
+  ],
   icons: {
     icon: [
       { url: '/logo-black.jpg', type: 'image/jpg', sizes: '16x16' },
@@ -36,9 +44,9 @@ export const metadata: Metadata = {
   ),
   openGraph: {
     title:
-      'Jones Pressure Washing | Professional Pressure & Soft Washing in NJ',
+      'Jones Pressure Washing & Holiday Lighting | Professional Exterior Services in NJ',
     description:
-      'Expert pressure washing services for residential and commercial properties in Bergen and Essex County, New Jersey.',
+      'Expert pressure washing, soft washing, and holiday lighting installation for residential and commercial properties in Bergen and Essex County, New Jersey.',
     type: 'website',
     url: '/', // will be resolved against metadataBase
     images: ['/logo-black.jpg'],
@@ -46,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jones Pressure Washing | NJ Pressure Washing Services',
+    title: 'Jones Pressure Washing & Holiday Lighting | NJ Exterior Services',
     description:
-      'Professional pressure washing for homes and businesses in Bergen and Essex County, NJ.',
+      'Pressure washing, soft washing, and holiday lighting installation for homes and businesses in Bergen and Essex County, NJ.',
     images: ['/logo-black.jpg']
   }
 }

@@ -1,10 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ContactMap } from '@/lib/constants'
+import { BusinessInfo, ContactMap } from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
 
 const Footer = () => {
+  const cityLine = [BusinessInfo.addressLocality, BusinessInfo.addressRegion]
+    .filter(Boolean)
+    .join(', ')
+  const postalLine = [cityLine, BusinessInfo.postalCode]
+    .filter(Boolean)
+    .join(' ')
+  const showPostalLine =
+    BusinessInfo.fullAddress &&
+    postalLine &&
+    BusinessInfo.fullAddress.toLowerCase() !== postalLine.toLowerCase()
+
   return (
     <footer className="p-8 w-full h-full bg-secondary text-white">
       <div className="max-w-custom mx-auto py-4">
@@ -76,6 +87,34 @@ const Footer = () => {
           </div>
           <div className="flex flex-col align-start md:align-end md:text-right">
             <h3 className="">Contact Us</h3>
+            <div className="flex items-start md:justify-end gap-2 mb-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-primary mt-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 11c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm0 0c-3.866 0-7 1.79-7 4v3h14v-3c0-2.21-3.134-4-7-4z"
+                />
+              </svg>
+              <a
+                href={BusinessInfo.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-primary transition-colors leading-relaxed">
+                {BusinessInfo.fullAddress}
+                {showPostalLine ? (
+                  <>
+                    <br />
+                    {postalLine}
+                  </>
+                ) : null}
+              </a>
+            </div>
             <div className="flex items-center md:justify-end gap-2 mb-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

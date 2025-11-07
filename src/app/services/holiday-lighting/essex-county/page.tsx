@@ -1,9 +1,53 @@
-'use client'
-
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import ServiceCta from '@/components/services/ServiceCta'
 import ServiceHero from '@/components/services/ServiceHero'
+
+const pageTitle =
+  'Essex County Holiday Lighting Installation | Jones Pressure Washing'
+const pageDescription =
+  'Custom Essex County holiday lighting design, installation, maintenance, and takedown for Montclair, Livingston, Short Hills, Maplewood, South Orange, and nearby towns.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/holiday-lighting/essex-county'
+  },
+  keywords: [
+    'Essex County holiday lighting',
+    'Montclair holiday lighting',
+    'Short Hills Christmas light installation',
+    'Maplewood holiday lighting',
+    'Essex County Christmas lights'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/holiday-lighting/essex-county',
+    images: [
+      {
+        url: '/Holiday Lights Installation at Twilight.png',
+        width: 1200,
+        height: 630,
+        alt: 'Essex County home with custom holiday lighting'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Holiday Lights Installation at Twilight.png']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
 
 const cityHighlights = [
   {
@@ -344,19 +388,12 @@ function SeasonalDetails() {
 export default function EssexCountyHolidayLightingPage() {
   return (
     <>
-      <Head>
-        <title>
-          Essex County Holiday Lighting | Custom Christmas Light Installation
-        </title>
-        <meta
-          name="description"
-          content="Holiday lighting Essex County homeowners trust: custom LED design, installation, maintenance, and takedown for Montclair, Livingston, Short Hills, Millburn, Maplewood, and more."
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-holiday-lighting-essex-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main className="bg-black text-white">
         <ServiceHero
           img="/Homepage.jpg"

@@ -1,6 +1,5 @@
-'use client'
-
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 import Link from 'next/link'
 import {
   FaLightbulb,
@@ -21,6 +20,51 @@ import {
   ServiceHighlightType,
   ServiceExampleType
 } from '@/lib/types/services'
+
+const pageTitle =
+  'Holiday Lighting Installation in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageDescription =
+  'Custom holiday lighting design, installation, maintenance, and takedown for homes and small businesses throughout Northern New Jersey.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/holiday-lighting'
+  },
+  keywords: [
+    'holiday lighting installation',
+    'Christmas light installation Bergen County',
+    'Christmas light installation Essex County',
+    'holiday lighting NJ',
+    'Jones Pressure Washing holiday lighting'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/holiday-lighting',
+    images: [
+      {
+        url: '/Holiday Lights Installation at Twilight.png',
+        width: 1200,
+        height: 630,
+        alt: 'Professional holiday lighting installed on a New Jersey home'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Holiday Lights Installation at Twilight.png']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
 
 const schema = {
   '@context': 'https://schema.org',
@@ -222,12 +266,12 @@ function SeasonalDetails() {
 export default function HolidayLightingPage() {
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-holiday-lighting-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main>
         <ServiceHero
           img="/Homepage.jpg"

@@ -1,0 +1,9 @@
+# Localized SEO TODO (session)
+
+- [x] Replace `next/head` usage in `src/app/services/holiday-lighting/page.tsx` with a server-component implementation that exports `metadata` and injects JSON-LD via `<Script>` so the page ships pre-rendered titles, descriptions, canonical, and OG/Twitter tags for "Holiday Lighting in Bergen & Essex County, NJ".
+- [x] Give `src/app/services/holiday-lighting/bergen-county/page.tsx` and `src/app/services/holiday-lighting/essex-county/page.tsx` their own `Metadata` exports (county-specific titles, descriptions, canonicals, keywords) and move the schema into `<Script>` components while keeping the content server-side.
+- [x] Modernize `src/app/faqs/page.tsx` with an exported `metadata` object (localized title/description/canonical) and serve the FAQPage schema using `<Script>`; drop reliance on `next/head`.
+- [x] Add a scalable location-lander system (e.g., `/services/pressure-washing/[city]` + `/services/soft-washing/[city]`) fed by a shared data file so high-value towns like Ridgewood, Wyckoff, Montclair, and Livingston get unique copy, FAQs, and callouts.
+- [x] Update `src/components/home/ServiceAreas.tsx` so the county cards link to the existing /services/holiday-lighting hubs and future pressure/soft washing landers, and consider adding an ItemList schema for those internal links.
+- [x] Expand NAP signals: surface the business address (and optional Google Maps link) inside `src/components/Footer.tsx`, store it in `src/lib/constants.ts`, and mirror the same data (including `geo`, `hasMap`, `sameAs`) inside the LocalBusiness schema declared in `src/app/page.tsx`.
+- [x] Teach `next-sitemap.config.js` to auto-include every route under `/services/**` (holiday lighting counties and the upcoming city pages) instead of maintaining manual `priorityMap`/`changefreqMap` lists.

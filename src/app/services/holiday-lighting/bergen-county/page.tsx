@@ -1,9 +1,53 @@
-'use client'
-
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import ServiceCta from '@/components/services/ServiceCta'
 import ServiceHero from '@/components/services/ServiceHero'
+
+const pageTitle =
+  'Bergen County Holiday Lighting Installation | Jones Pressure Washing'
+const pageDescription =
+  'Custom Bergen County holiday lighting design, installation, maintenance, and takedown for Ridgewood, Wyckoff, Franklin Lakes, Tenafly, and every nearby town.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/holiday-lighting/bergen-county'
+  },
+  keywords: [
+    'Bergen County holiday lighting',
+    'Bergen County Christmas light installation',
+    'Ridgewood holiday lighting',
+    'Wyckoff holiday lighting',
+    'Franklin Lakes Christmas lights'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/holiday-lighting/bergen-county',
+    images: [
+      {
+        url: '/Holiday Lights Installation at Twilight.png',
+        width: 1200,
+        height: 630,
+        alt: 'Bergen County home with custom holiday lighting'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Holiday Lights Installation at Twilight.png']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
 
 const cityHighlights = [
   {
@@ -323,19 +367,12 @@ function SeasonalDetails() {
 export default function BergenCountyHolidayLightingPage() {
   return (
     <>
-      <Head>
-        <title>
-          Bergen County Holiday Lighting | Custom Christmas Light Installation
-        </title>
-        <meta
-          name="description"
-          content="Holiday lighting Bergen County homeowners trust: custom LED design, installation, maintenance, and takedown for Ridgewood, Wyckoff, Franklin Lakes, and every nearby town."
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-holiday-lighting-bergen-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main className="bg-black text-white">
         <ServiceHero
           img="/Homepage.jpg"

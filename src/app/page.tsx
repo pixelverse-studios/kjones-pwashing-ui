@@ -5,11 +5,12 @@ import HeroSection from '@/components/home/HeroSection'
 import ServicesSection from '@/components/home/Services'
 import TrustSection from '@/components/home/TrustSection'
 import ServiceAreas from '@/components/home/ServiceAreas'
+import { BusinessInfo, ContactMap } from '@/lib/constants'
 
 const pageTitle =
-  'Jones Pressure Washing | Pressure & Soft Washing in Bergen & Essex County, NJ'
+  'Jones Pressure Washing & Holiday Lighting | Exterior Cleaning & Seasonal Lighting in Bergen & Essex County, NJ'
 const pageDescription =
-  'Jones Pressure Washing delivers residential and commercial pressure washing, soft washing, and exterior cleaning across Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results.'
+  'Jones Pressure Washing delivers residential and commercial pressure washing, soft washing, and custom holiday lighting design across Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results year-round.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -20,6 +21,9 @@ export const metadata: Metadata = {
   keywords: [
     'pressure washing',
     'soft washing',
+    'holiday lighting',
+    'holiday lighting installation',
+    'Christmas light installation',
     'Bergen County NJ',
     'Essex County NJ',
     'exterior cleaning',
@@ -55,6 +59,8 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
+const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+
 const professionalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
@@ -63,14 +69,23 @@ const professionalServiceSchema = {
   image: 'https://www.jonespressurewashing.com/logo-black.jpg',
   logo: 'https://www.jonespressurewashing.com/logo-black.jpg',
   url: 'https://www.jonespressurewashing.com',
-  telephone: '(973) 486-4403',
+  telephone: businessPhone,
   description: pageDescription,
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Bergen County',
-    addressRegion: 'NJ',
-    addressCountry: 'US'
+    streetAddress: BusinessInfo.streetAddress,
+    addressLocality: BusinessInfo.addressLocality,
+    addressRegion: BusinessInfo.addressRegion,
+    postalCode: BusinessInfo.postalCode,
+    addressCountry: BusinessInfo.addressCountry
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: BusinessInfo.geo.latitude,
+    longitude: BusinessInfo.geo.longitude
+  },
+  hasMap: BusinessInfo.googleMapsUrl,
+  sameAs: BusinessInfo.sameAs,
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Bergen County, NJ' },
     { '@type': 'AdministrativeArea', name: 'Essex County, NJ' }
@@ -100,6 +115,11 @@ const professionalServiceSchema = {
       '@type': 'Offer',
       name: 'Soft Washing',
       url: 'https://www.jonespressurewashing.com/services/soft-washing'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Holiday Lighting Installation',
+      url: 'https://www.jonespressurewashing.com/services/holiday-lighting'
     }
   ]
 }
