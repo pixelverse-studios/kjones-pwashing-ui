@@ -187,7 +187,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="max-w-custom mx-auto py-4">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
           <p className="text-white/60 text-xs">
             © {new Date().getFullYear()} Jones Pressure Washing. All rights
             reserved. |{' '}
@@ -195,6 +195,13 @@ const Footer = () => {
               Privacy Policy
             </Link>
           </p>
+          <a
+            href="https://www.pixelversestudios.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/60 text-xs hover:text-primary transition-colors">
+            Powered by PixelVerse Studios
+          </a>
         </div>
       </div>
     </footer>
