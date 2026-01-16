@@ -57,6 +57,20 @@ export const metadata: Metadata = {
 const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Additional Services',
+      item: `${baseUrl}/services/additional`
+    }
+  ]
+}
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -156,6 +170,12 @@ export default function AdditionalServicesPage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-additional-services-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <ServiceHero
