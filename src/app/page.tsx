@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 
+import HomeWrapper from '@/components/home/HomeWrapper'
 import HeroSection from '@/components/home/HeroSection'
 import ServicesSection from '@/components/home/Services'
 import TrustSection from '@/components/home/TrustSection'
@@ -128,12 +129,14 @@ export default function Home() {
           __html: JSON.stringify(professionalServiceSchema)
         }}
       />
-      <main>
-        <HeroSection />
-        <ServicesSection />
-        <TrustSection />
-        <ServiceAreas />
-      </main>
+      <HomeWrapper>
+        <main>
+          <HeroSection />
+          <ServicesSection />
+          <TrustSection />
+          <ServiceAreas />
+        </main>
+      </HomeWrapper>
     </>
   )
 }
