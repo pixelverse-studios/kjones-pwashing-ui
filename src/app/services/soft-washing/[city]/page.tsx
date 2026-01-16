@@ -64,13 +64,19 @@ export function generateMetadata({ params }: PageProps): Metadata {
       title: cityContent.metaTitle,
       description: cityContent.metaDescription,
       images: [cityContent.heroImage]
-    }
+    },
+    robots: {
+      index: true,
+      follow: true
+    },
+    category: 'Professional Services'
   }
 }
 
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
 function buildSchema(cityContent: CityLandingContent) {
   const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
-  const baseUrl = 'https://www.jonespressurewashingnj.com'
 
   return {
     '@context': 'https://schema.org',
@@ -125,6 +131,28 @@ function buildSchema(cityContent: CityLandingContent) {
   }
 }
 
+function buildBreadcrumbSchema(cityContent: CityLandingContent) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Soft Washing',
+        item: `${baseUrl}/services/soft-washing`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: cityContent.city,
+        item: `${baseUrl}/services/soft-washing/${cityContent.slug}`
+      }
+    ]
+  }
+}
+
 export default function SoftWashingCityPage({ params }: PageProps) {
   const cityContent = resolveCity(params.city)
 
@@ -133,6 +161,7 @@ export default function SoftWashingCityPage({ params }: PageProps) {
   }
 
   const schema = buildSchema(cityContent)
+  const breadcrumbSchema = buildBreadcrumbSchema(cityContent)
 
   return (
     <>
@@ -141,6 +170,12 @@ export default function SoftWashingCityPage({ params }: PageProps) {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id={`jpw-${SERVICE_KEY}-${cityContent.slug}-breadcrumb-schema`}
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <LocationLanderContent data={cityContent} />
     </>
