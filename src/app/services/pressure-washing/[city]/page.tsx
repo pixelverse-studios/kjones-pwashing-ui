@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 
 import LocationLanderContent from '@/components/services/LocationLanderContent'
 import {
   getCityLandingContent,
-  getCitySlugs
+  getCitySlugs,
+  CityLandingContent
 } from '@/lib/data/locationServiceLanders'
+import { BusinessInfo, ContactMap } from '@/lib/constants'
 
 const SERVICE_KEY = 'pressure-washing' as const
 
@@ -65,6 +68,63 @@ export function generateMetadata({ params }: PageProps): Metadata {
   }
 }
 
+function buildSchema(cityContent: CityLandingContent) {
+  const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+  const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: cityContent.serviceName,
+    name: `${cityContent.serviceName} in ${cityContent.city}, ${cityContent.state}`,
+    description: cityContent.metaDescription,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: BusinessInfo.name,
+      telephone: businessPhone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: BusinessInfo.streetAddress,
+        addressLocality: BusinessInfo.addressLocality,
+        addressRegion: BusinessInfo.addressRegion,
+        postalCode: BusinessInfo.postalCode,
+        addressCountry: BusinessInfo.addressCountry
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: BusinessInfo.geo.latitude,
+        longitude: BusinessInfo.geo.longitude
+      },
+      image: `${baseUrl}/logo-black.jpg`,
+      priceRange: '$$'
+    },
+    areaServed: {
+      '@type': 'City',
+      name: cityContent.city,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: `${cityContent.county}, ${cityContent.state}`
+      }
+    },
+    image: `${baseUrl}${cityContent.heroImage}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${baseUrl}/services/${SERVICE_KEY}/${cityContent.slug}`
+    },
+    potentialAction: {
+      '@type': 'ReserveAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: baseUrl
+      },
+      result: {
+        '@type': 'Reservation',
+        name: `${cityContent.serviceName} Service Booking in ${cityContent.city}`
+      }
+    }
+  }
+}
+
 export default function PressureWashingCityPage({ params }: PageProps) {
   const cityContent = resolveCity(params.city)
 
@@ -72,5 +132,17 @@ export default function PressureWashingCityPage({ params }: PageProps) {
     notFound()
   }
 
-  return <LocationLanderContent data={cityContent} />
+  const schema = buildSchema(cityContent)
+
+  return (
+    <>
+      <Script
+        id={`jpw-${SERVICE_KEY}-${cityContent.slug}-schema`}
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <LocationLanderContent data={cityContent} />
+    </>
+  )
 }
