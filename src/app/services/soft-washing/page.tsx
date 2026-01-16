@@ -12,8 +12,8 @@ const pageTitle =
 const pageDescription =
   'Protect delicate exteriors with Jones Pressure Washing. Our soft washing service safely cleans siding, roofs, fences, and decks throughout Bergen and Essex County, NJ.'
 const serviceImagePath = '/Jones_Pressure_Washing_Roof_Cleaning.png'
-const serviceImageUrl =
-  'https://www.jonespressurewashing.com/Jones_Pressure_Washing_Roof_Cleaning.png'
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+const serviceImageUrl = `${baseUrl}/Jones_Pressure_Washing_Roof_Cleaning.png`
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -48,6 +48,10 @@ export const metadata: Metadata = {
     description: pageDescription,
     images: [serviceImagePath]
   },
+  robots: {
+    index: true,
+    follow: true
+  },
   category: 'Professional Services'
 }
 
@@ -66,7 +70,7 @@ const schema = {
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://www.jonespressurewashing.com/logo-black.jpg',
+    image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'
   },
   areaServed: [
@@ -91,19 +95,33 @@ const schema = {
   image: serviceImageUrl,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://www.jonespressurewashing.com/services/soft-washing'
+    '@id': `${baseUrl}/services/soft-washing`
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://www.jonespressurewashing.com/contact'
+      urlTemplate: baseUrl
     },
     result: {
       '@type': 'Reservation',
       name: 'Soft Washing Service Booking'
     }
   }
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Soft Washing',
+      item: `${baseUrl}/services/soft-washing`
+    }
+  ]
 }
 
 function HeroExplanation() {
@@ -130,6 +148,12 @@ export default function SoftWashingServicePage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-soft-washing-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <ServiceHero
