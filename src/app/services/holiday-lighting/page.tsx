@@ -66,6 +66,22 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Holiday Lighting',
+      item: `${baseUrl}/services/holiday-lighting`
+    }
+  ]
+}
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -81,7 +97,7 @@ const schema = {
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://jonespressurewashing.com/images/logo.png',
+    image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'
   },
   areaServed: [
@@ -110,16 +126,16 @@ const schema = {
       }
     }
   ],
-  image: 'https://jonespressurewashing.com/images/holiday-lighting.jpg',
+  image: `${baseUrl}/Holiday Lights Installation at Twilight.png`,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://jonespressurewashing.com/services/holiday-lighting'
+    '@id': `${baseUrl}/services/holiday-lighting`
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://jonespressurewashing.com/contact'
+      urlTemplate: baseUrl
     },
     result: {
       '@type': 'Reservation',
@@ -271,6 +287,12 @@ export default function HolidayLightingPage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-holiday-lighting-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <ServiceHero

@@ -54,6 +54,17 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    { '@type': 'ListItem', position: 2, name: 'FAQs', item: `${baseUrl}/faqs` }
+  ]
+}
+
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -132,6 +143,12 @@ export default function FaqsPage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-faq-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <section className="bg-black nav-offset">
