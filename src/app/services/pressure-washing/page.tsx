@@ -46,8 +46,14 @@ export const metadata: Metadata = {
     description: pageDescription,
     images: ['/PressureBG.jpeg']
   },
+  robots: {
+    index: true,
+    follow: true
+  },
   category: 'Professional Services'
 }
+
+const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {
   '@context': 'https://schema.org',
@@ -64,7 +70,7 @@ const schema = {
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://www.jonespressurewashing.com/logo-black.jpg',
+    image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'
   },
   areaServed: [
@@ -86,22 +92,36 @@ const schema = {
       minPrice: '199'
     }
   },
-  image: 'https://www.jonespressurewashing.com/PressureBG.jpeg',
+  image: `${baseUrl}/PressureBG.jpeg`,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://www.jonespressurewashing.com/services/pressure-washing'
+    '@id': `${baseUrl}/services/pressure-washing`
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://www.jonespressurewashing.com/contact'
+      urlTemplate: baseUrl
     },
     result: {
       '@type': 'Reservation',
       name: 'Pressure Washing Service Booking'
     }
   }
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Pressure Washing',
+      item: `${baseUrl}/services/pressure-washing`
+    }
+  ]
 }
 
 export default function PressureWashingServicePage() {
@@ -112,6 +132,12 @@ export default function PressureWashingServicePage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-pressure-washing-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <ServiceHero
