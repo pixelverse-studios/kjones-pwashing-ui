@@ -1,90 +1,117 @@
-'use client'
-import Head from 'next/head'
+import type { Metadata } from 'next'
+import Script from 'next/script'
 import { FaLightbulb, FaHouse } from 'react-icons/fa6'
 
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
 import additionalServices from '@/lib/services/additionalServices'
+import { BusinessInfo, ContactMap } from '@/lib/constants'
+
+const pageTitle =
+  'Additional Services | Deck, Fence & Gutter Cleaning in Bergen & Essex County, NJ'
+const pageDescription =
+  'Professional deck restoration, fence cleaning, gutter cleaning, and roof maintenance services across Bergen and Essex County, NJ. Jones Pressure Washing handles the extras.'
+
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: {
+    canonical: '/services/additional'
+  },
+  keywords: [
+    'deck cleaning',
+    'fence cleaning',
+    'gutter cleaning',
+    'roof cleaning',
+    'deck restoration NJ',
+    'Bergen County exterior cleaning'
+  ],
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    type: 'article',
+    url: '/services/additional',
+    images: [
+      {
+        url: '/Gutter.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Professional gutter and exterior cleaning services in New Jersey'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: pageTitle,
+    description: pageDescription,
+    images: ['/Gutter.jpg']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
+
+const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Additional Cleaning Services',
   name: 'Specialized Exterior Cleaning Services',
+  description: pageDescription,
   provider: {
     '@type': 'LocalBusiness',
-    name: 'Jones Pressure Washing',
-    telephone: '(555) 555-1234',
+    name: BusinessInfo.name,
+    telephone: businessPhone,
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      streetAddress: BusinessInfo.streetAddress,
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
-    image: 'https://jonespressurewashing.com/images/logo.png',
+    image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'
   },
   areaServed: [
-    {
-      '@type': 'County',
-      name: 'Bergen County'
-    },
-    {
-      '@type': 'County',
-      name: 'Essex County'
-    }
+    { '@type': 'County', name: 'Bergen County' },
+    { '@type': 'County', name: 'Essex County' }
   ],
-  description:
-    'Comprehensive exterior cleaning services including deck restoration, fence cleaning, gutter cleaning, and commercial property maintenance throughout New Jersey. Our specialized equipment and techniques ensure optimal results for all exterior surfaces.',
   offers: [
     {
       '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Deck Restoration'
-      },
+      itemOffered: { '@type': 'Service', name: 'Deck Restoration' },
       priceCurrency: 'USD',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '299'
-      }
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '299' }
     },
     {
       '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Fence Cleaning'
-      },
+      itemOffered: { '@type': 'Service', name: 'Fence Cleaning' },
       priceCurrency: 'USD',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '199'
-      }
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '199' }
     },
     {
       '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Gutter Cleaning'
-      },
+      itemOffered: { '@type': 'Service', name: 'Gutter Cleaning' },
       priceCurrency: 'USD',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '149'
-      }
+      priceSpecification: { '@type': 'PriceSpecification', minPrice: '149' }
     }
   ],
-  image: 'https://jonespressurewashing.com/images/additional-services.jpg',
+  image: `${baseUrl}/Gutter.jpg`,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': 'https://jonespressurewashing.com/services/additional-services'
+    '@id': `${baseUrl}/services/additional`
   },
   potentialAction: {
     '@type': 'ReserveAction',
     target: {
       '@type': 'EntryPoint',
-      urlTemplate: 'https://jonespressurewashing.com/contact'
+      urlTemplate: baseUrl
     },
     result: {
       '@type': 'Reservation',
@@ -124,12 +151,12 @@ function Explanation() {
 export default function AdditionalServicesPage() {
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      </Head>
+      <Script
+        id="jpw-additional-services-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main>
         <ServiceHero
           img="/Gutter.jpg"
@@ -149,7 +176,7 @@ export default function AdditionalServicesPage() {
         <ServiceCta
           buttonLabel="Contact Us"
           cta="Request a Quote"
-          description="Whether it\'s keeping water flowing or lighting up your home, we\'ve got it covered."
+          description="Whether it's keeping water flowing or lighting up your home, we've got it covered."
           header="Let's Handle the Extras for You"
           showAfter
         />
