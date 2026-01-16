@@ -71,7 +71,7 @@ function getPriority(pathname) {
     return priorityOverrides.get(pathname)
   }
   if (pathname.startsWith('/services/holiday-lighting')) {
-    return pathname === '/services/holiday-lighting' ? 1 : 0.95
+    return 0.7
   }
   if (pathname.startsWith('/services/pressure-washing')) {
     return pathname.split('/').length > 3 ? 0.82 : 0.85

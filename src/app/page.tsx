@@ -8,9 +8,9 @@ import ServiceAreas from '@/components/home/ServiceAreas'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
 const pageTitle =
-  'Jones Pressure Washing & Holiday Lighting | Exterior Cleaning & Seasonal Lighting in Bergen & Essex County, NJ'
+  'Jones Pressure Washing | Pressure & Soft Washing in Bergen & Essex County, NJ'
 const pageDescription =
-  'Jones Pressure Washing delivers residential and commercial pressure washing, soft washing, and custom holiday lighting design across Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results year-round.'
+  'Jones Pressure Washing delivers residential and commercial pressure washing and soft washing services across Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -21,9 +21,7 @@ export const metadata: Metadata = {
   keywords: [
     'pressure washing',
     'soft washing',
-    'holiday lighting',
-    'holiday lighting installation',
-    'Christmas light installation',
+    'power washing',
     'Bergen County NJ',
     'Essex County NJ',
     'exterior cleaning',
@@ -64,11 +62,11 @@ const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
 const professionalServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'HomeAndConstructionBusiness',
-  '@id': 'https://www.jonespressurewashing.com/#localbusiness',
+  '@id': 'https://www.jonespressurewashingnj.com/#localbusiness',
   name: 'Jones Pressure Washing',
-  image: 'https://www.jonespressurewashing.com/logo-black.jpg',
-  logo: 'https://www.jonespressurewashing.com/logo-black.jpg',
-  url: 'https://www.jonespressurewashing.com',
+  image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
+  logo: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
+  url: 'https://www.jonespressurewashingnj.com',
   telephone: businessPhone,
   description: pageDescription,
   address: {
@@ -109,17 +107,12 @@ const professionalServiceSchema = {
     {
       '@type': 'Offer',
       name: 'Residential Pressure Washing',
-      url: 'https://www.jonespressurewashing.com/services/pressure-washing'
+      url: 'https://www.jonespressurewashingnj.com/services/pressure-washing'
     },
     {
       '@type': 'Offer',
       name: 'Soft Washing',
-      url: 'https://www.jonespressurewashing.com/services/soft-washing'
-    },
-    {
-      '@type': 'Offer',
-      name: 'Holiday Lighting Installation',
-      url: 'https://www.jonespressurewashing.com/services/holiday-lighting'
+      url: 'https://www.jonespressurewashingnj.com/services/soft-washing'
     }
   ]
 }
