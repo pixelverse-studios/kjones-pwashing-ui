@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 
 import CtaModal from '@/components/cta/CtaModal'
+import { BusinessInfo, ContactMap } from '@/lib/constants'
 import {
   FaQuoteLeft,
   FaBullseye,
@@ -46,7 +48,57 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     images: ['/Homepage_Trust.png']
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  category: 'Professional Services'
+}
+
+const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: BusinessInfo.name,
+  description: pageDescription,
+  telephone: businessPhone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: BusinessInfo.streetAddress,
+    addressLocality: BusinessInfo.addressLocality,
+    addressRegion: BusinessInfo.addressRegion,
+    postalCode: BusinessInfo.postalCode,
+    addressCountry: BusinessInfo.addressCountry
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: BusinessInfo.geo.latitude,
+    longitude: BusinessInfo.geo.longitude
+  },
+  areaServed: [
+    { '@type': 'County', name: 'Bergen County' },
+    { '@type': 'County', name: 'Essex County' }
+  ],
+  image: `${baseUrl}/logo-black.jpg`,
+  priceRange: '$$',
+  sameAs: BusinessInfo.sameAs,
+  url: `${baseUrl}/about`,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${baseUrl}/about`
   }
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    { '@type': 'ListItem', position: 2, name: 'About Us', item: `${baseUrl}/about` }
+  ]
 }
 
 interface HighlightItemProps {
@@ -67,7 +119,20 @@ function HighlightItem({ title, description, Icon }: HighlightItemProps) {
 
 export default function AboutPage() {
   return (
-    <main>
+    <>
+      <Script
+        id="jpw-about-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-about-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <main>
       <section className="bg-black nav-offset">
         <div className="max-w-custom mx-auto h-dvh px-6 py-8 text-center">
           <h1>
@@ -125,5 +190,6 @@ export default function AboutPage() {
         </div>
       </section>
     </main>
+    </>
   )
 }
