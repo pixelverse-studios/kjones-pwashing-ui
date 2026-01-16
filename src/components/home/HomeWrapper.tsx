@@ -2,11 +2,13 @@
 
 import { ReactNode } from 'react'
 import { AnimationProvider } from '@/lib/AnimationContext'
+import AnimationSwitcher from '@/components/AnimationSwitcher'
 
-interface HomeWrapperProps {
-  children: ReactNode
-}
-
-export default function HomeWrapper({ children }: HomeWrapperProps) {
-  return <AnimationProvider>{children}</AnimationProvider>
+export default function HomeWrapper({ children }: { children: ReactNode }) {
+  return (
+    <AnimationProvider>
+      {children}
+      <AnimationSwitcher />
+    </AnimationProvider>
+  )
 }
