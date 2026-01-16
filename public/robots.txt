@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.jonespressurewashing.com
+Host: https://www.jonespressurewashingnj.com
 
 # Sitemaps
-Sitemap: https://www.jonespressurewashing.com/sitemap.xml
+Sitemap: https://www.jonespressurewashingnj.com/sitemap.xml

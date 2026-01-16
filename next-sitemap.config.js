@@ -4,7 +4,7 @@ const path = require('path')
 const serviceCitySlugs = require('./src/lib/data/serviceCitySlugs.json')
 
 const siteUrl = (
-  process.env.SITE_URL || 'https://www.jonespressurewashing.com'
+  process.env.SITE_URL || 'https://www.jonespressurewashingnj.com'
 ).replace(/\/$/, '')
 
 const DEFAULT_PRIORITY = 0.6
