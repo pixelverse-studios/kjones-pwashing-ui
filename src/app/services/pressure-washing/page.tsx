@@ -11,7 +11,7 @@ import pressureWashingServices from '@/lib/services/pressureWashingServices'
 const pageTitle =
   'Pressure Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
 const pageDescription =
-  'Restore curb appeal with Jones Pressure Washing. We deliver residential and commercial pressure washing for driveways, walkways, patios, and concrete surfaces across Bergen and Essex County, NJ.'
+  'Restore curb appeal with professional pressure washing for driveways, walkways, patios, and concrete surfaces in Bergen and Essex County, NJ.'
 
 export const metadata: Metadata = {
   title: pageTitle,

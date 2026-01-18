@@ -8,10 +8,9 @@ import TrustSection from '@/components/home/TrustSection'
 import ServiceAreas from '@/components/home/ServiceAreas'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
-const pageTitle =
-  'Jones Pressure Washing | Pressure & Soft Washing in Bergen & Essex County, NJ'
+const pageTitle = 'Jones Pressure Washing | Bergen & Essex County, NJ'
 const pageDescription =
-  'Jones Pressure Washing delivers residential and commercial pressure washing and soft washing services across Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results.'
+  'Residential and commercial pressure washing and soft washing in Bergen and Essex County, NJ. Licensed, insured, and committed to spotless results.'
 
 export const metadata: Metadata = {
   title: pageTitle,

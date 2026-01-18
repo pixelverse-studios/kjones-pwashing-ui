@@ -8,8 +8,7 @@ import ServiceCta from '@/components/services/ServiceCta'
 import additionalServices from '@/lib/services/additionalServices'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
-const pageTitle =
-  'Additional Services | Deck, Fence & Gutter Cleaning in Bergen & Essex County, NJ'
+const pageTitle = 'Deck, Fence & Gutter Cleaning | Bergen & Essex County, NJ'
 const pageDescription =
   'Professional deck restoration, fence cleaning, gutter cleaning, and roof maintenance services across Bergen and Essex County, NJ. Jones Pressure Washing handles the extras.'
 
@@ -120,6 +119,20 @@ const schema = {
   }
 }
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Additional Services',
+      item: `${baseUrl}/services/additional`
+    }
+  ]
+}
+
 function Explanation() {
   return (
     <section className="bg-black h-full">
@@ -156,6 +169,12 @@ export default function AdditionalServicesPage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <Script
+        id="jpw-additional-services-breadcrumb-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
         <ServiceHero

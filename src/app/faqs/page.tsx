@@ -54,37 +54,6 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How often should I have my house pressure washed?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'For most homes in New Jersey, we recommend pressure washing once a year to remove built-up dirt, mold, and mildew. However, homes in heavily wooded areas or those near water may benefit from cleaning twice a year.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'Is pressure washing safe for all surfaces?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "No, high-pressure washing isn't suitable for all surfaces. We use soft washing techniques for delicate surfaces like roofs, vinyl siding, and painted surfaces to prevent damage while still achieving excellent cleaning results."
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you serve both residential and commercial properties?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes, we provide professional pressure washing services for both residential homes and commercial properties throughout Bergen and Essex County, New Jersey.'
-      }
-    }
-  ]
-}
-
 const faqs = [
   {
     question: "Do you use the customer's water?",
@@ -123,6 +92,19 @@ const faqs = [
       "Yes, we offer professional roof cleaning services using safe and effective methods that won't damage your shingles."
   }
 ]
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+}
 
 export default function FaqsPage() {
   return (
