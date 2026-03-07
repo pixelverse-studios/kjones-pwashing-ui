@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import Link from 'next/link'
 
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
@@ -11,7 +12,7 @@ import pressureWashingServices from '@/lib/services/pressureWashingServices'
 const pageTitle =
   'Pressure Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
 const pageDescription =
-  'Restore curb appeal with professional pressure washing for driveways, walkways, patios, and concrete surfaces in Bergen and Essex County, NJ.'
+  'Professional pressure washing for driveways, patios, and concrete in Bergen & Essex County, NJ. We start low-pressure and work up — safe, thorough results.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -24,7 +25,9 @@ export const metadata: Metadata = {
     'driveway cleaning',
     'commercial pressure washing',
     'Bergen County NJ pressure washing',
-    'Essex County NJ pressure washing'
+    'Essex County NJ pressure washing',
+    'concrete cleaning NJ',
+    'patio pressure washing'
   ],
   openGraph: {
     title: pageTitle,
@@ -130,13 +133,11 @@ export default function PressureWashingServicePage() {
       <Script
         id="jpw-pressure-washing-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Script
         id="jpw-pressure-washing-breadcrumb-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
@@ -149,8 +150,31 @@ export default function PressureWashingServicePage() {
               New Jersey
             </>
           }
-          description="Safe, effective cleaning for homes and businesses in Bergen, Essex, and surrounding counties."
+          description="We might not be the cheapest option, but that allows us to take our time and pay attention to the small details — instead of rushing to hit a number."
         />
+
+        {/* When to Choose Pressure Washing */}
+        <section className="bg-black">
+          <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-primary mb-6">
+                When to Choose Pressure Washing
+              </h2>
+              <p className="text-white text-lg mb-4">
+                Pressure washing is the right choice for hard surfaces —
+                concrete, stone, and pavers. Anything that does not require a
+                delicate touch. We also use controlled, lighter pressure for wood
+                restoration on decks and fences.
+              </p>
+              <p className="text-secondary-lite">
+                We always start at a lower pressure and increase only if needed.
+                We can always add more, but this approach minimizes the chance
+                for damage that can result from applying too much pressure.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <ServiceExamples
           h2="Pressure Washing for Homes"
           description="From driveways to pool decks, we remove years of grime, mold and weather damage using safe, effective methods tailored for residential surfaces."
@@ -165,6 +189,81 @@ export default function PressureWashingServicePage() {
           highlights={pressureWashingServices.highlights}
           altCard={false}
         />
+
+        {/* What We Won't Pressure Wash */}
+        <section className="bg-black">
+          <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-primary text-center mb-6">
+                What We Won&apos;t Pressure Wash
+              </h2>
+              <p className="text-secondary-lite text-center mb-8">
+                Knowing what not to pressure wash is just as important as
+                knowing what to. We are upfront about our limits because your
+                property&apos;s safety comes first.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-gray border border-accent rounded-lg p-6">
+                  <h3 className="text-white text-base mb-2">
+                    Roofs &amp; Siding
+                  </h3>
+                  <p className="text-secondary-lite text-sm mb-3">
+                    We will not use high pressure on roofs, vinyl siding, wood
+                    siding, or Hardie board. These surfaces require a gentler
+                    approach.
+                  </p>
+                  <Link
+                    href="/services/soft-washing"
+                    className="text-primary text-sm hover:underline">
+                    Learn about our soft washing service &rarr;
+                  </Link>
+                </div>
+                <div className="bg-gray border border-accent rounded-lg p-6">
+                  <h3 className="text-white text-base mb-2">
+                    Asphalt Driveways
+                  </h3>
+                  <p className="text-secondary-lite text-sm">
+                    High pressure can damage asphalt surfaces. We recommend
+                    having your asphalt driveway seal coated to restore a
+                    like-new appearance instead.
+                  </p>
+                </div>
+                <div className="bg-gray border border-accent rounded-lg p-6">
+                  <h3 className="text-white text-base mb-2">
+                    Delicate Surfaces
+                  </h3>
+                  <p className="text-secondary-lite text-sm">
+                    Painted wood, stucco, and other sensitive materials get our{' '}
+                    <Link
+                      href="/services/soft-washing"
+                      className="text-primary hover:underline">
+                      soft wash treatment
+                    </Link>{' '}
+                    — low pressure with specialized cleaning solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seasonal Note */}
+        <section className="bg-black">
+          <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-primary mb-4">Best Time to Schedule</h2>
+              <p className="text-white">
+                The ideal window for pressure washing in New Jersey is{' '}
+                <span className="text-primary font-semibold">
+                  April through September
+                </span>
+                . Warmer months allow cleaning solutions to work most effectively
+                and surfaces to dry properly after service.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <ServiceProcess
           header="How Our Pressure Washing Process Works"
           steps={pressureWashingServices.steps}
