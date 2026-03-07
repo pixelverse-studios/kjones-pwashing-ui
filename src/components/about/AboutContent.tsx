@@ -122,7 +122,7 @@ function AboutAnimatedContent() {
             Ready to work with someone who cares about the details?
           </p>
           <CtaModal
-            label="Request Your Free Estimate"
+            label="Get an Instant Quote"
             variant="default"
             buttonClass="rounded-full"
           />

@@ -303,7 +303,7 @@ export default function HolidayLightingPage() {
             </>
           }
           description="Let Jones Pressure Washing design, install, maintain, and remove a one-of-a-kind lighting display so you can enjoy the holidays without worrying about ladders or storage."
-          cta="Get My Holiday Lighting Quote"
+          cta="Get an Instant Quote"
           dimHeroContent
           height="h-[70vh]"
           explanation={<SeasonalDetails />}
@@ -358,7 +358,7 @@ export default function HolidayLightingPage() {
         <ServiceCta
           header="Ready to Light Up Your Home?"
           description="Reach out now-holiday installation windows are limited and fill up fast."
-          cta="Reserve My Installation"
+          cta="Get an Instant Quote"
           buttonLabel="Contact Us"
         />
       </main>

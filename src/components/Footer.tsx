@@ -187,7 +187,7 @@ const Footer = () => {
                 </a>
               </div> */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <CtaModal variant="default" label="Request a Quote" />
+                <CtaModal variant="default" label="Get an Instant Quote" />
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
