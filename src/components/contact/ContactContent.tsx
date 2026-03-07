@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { FaPhone, FaEnvelope, FaLocationDot } from 'react-icons/fa6'
+import { FaPhone, FaEnvelope, FaLocationDot, FaClock } from 'react-icons/fa6'
 
-import { ContactMap, BusinessInfo } from '@/lib/constants'
+import { ContactMap } from '@/lib/constants'
+import CtaModal from '@/components/cta/CtaModal'
 import {
   AnimationProvider,
   useAnimation,
@@ -102,16 +103,24 @@ function ContactAnimatedContent() {
                 <FaLocationDot size={20} className="text-primary mt-1" />
                 <div>
                   <h3 className="text-white text-lg mb-1">Service Area</h3>
-                  <Link
-                    href={BusinessInfo.googleMapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-secondary-lite hover:text-primary transition-colors">
-                    {BusinessInfo.fullAddress}
-                  </Link>
-                  <p className="text-secondary-lite text-sm mt-1">
-                    Serving Bergen County, Essex County, and surrounding
-                    areas in New Jersey.
+                  <p className="text-secondary-lite">
+                    Bergen County, Essex County &amp; surrounding areas in
+                    New Jersey
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-gray rounded-lg p-6"
+              variants={variants.item}>
+              <div className="flex items-start gap-4">
+                <FaClock size={20} className="text-primary mt-1" />
+                <div>
+                  <h3 className="text-white text-lg mb-1">Response Time</h3>
+                  <p className="text-secondary-lite text-sm">
+                    Estimates are usually provided same day. Text or use the
+                    contact form for the fastest response.
                   </p>
                 </div>
               </div>
@@ -127,14 +136,71 @@ function ContactAnimatedContent() {
                 Use our instant quote tool for a fast estimate on your
                 project.
               </p>
-              <Link
-                href="/"
-                className="text-primary hover:underline text-sm">
-                ← Back to Home
-              </Link>
+              <CtaModal variant="default" label="Get an Instant Quote" />
             </motion.div>
           </motion.div>
         </div>
+
+        {/* What to Expect */}
+        <motion.div
+          className="mt-16"
+          variants={variants.container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}>
+          <motion.h2
+            className="text-center mb-10"
+            variants={variants.item}>
+            What to Expect
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              className="bg-gray rounded-lg p-6 text-center"
+              variants={variants.item}>
+              <div className="flex justify-center mb-4">
+                <span className="bg-primary text-black rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                  1
+                </span>
+              </div>
+              <h3 className="text-white text-lg mb-2">Reach Out</h3>
+              <p className="text-secondary-lite text-sm">
+                Send us a message through the form, text, or voicemail. We
+                receive many calls throughout the day, so a text or form
+                submission ensures a timely response.
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-gray rounded-lg p-6 text-center"
+              variants={variants.item}>
+              <div className="flex justify-center mb-4">
+                <span className="bg-primary text-black rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                  2
+                </span>
+              </div>
+              <h3 className="text-white text-lg mb-2">Get Your Estimate</h3>
+              <p className="text-secondary-lite text-sm">
+                We typically provide estimates the same day. During peak
+                season (pre-Memorial Day through early summer), we may be
+                booked 2&ndash;4 weeks out.
+              </p>
+            </motion.div>
+            <motion.div
+              className="bg-gray rounded-lg p-6 text-center"
+              variants={variants.item}>
+              <div className="flex justify-center mb-4">
+                <span className="bg-primary text-black rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                  3
+                </span>
+              </div>
+              <h3 className="text-white text-lg mb-2">We Get to Work</h3>
+              <p className="text-secondary-lite text-sm">
+                Once scheduled, we handle everything. We take our time to
+                make sure the job gets done right, safe, and damage-free.
+                Your satisfaction is our number one priority.
+              </p>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
