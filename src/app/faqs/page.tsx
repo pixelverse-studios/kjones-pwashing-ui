@@ -6,13 +6,12 @@ import {
   AccordionItem,
   AccordionTrigger
 } from '@/components/ui/accordion'
-import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 const pageTitle =
   'Pressure Washing FAQs | Jones Pressure Washing Bergen & Essex County'
 const pageDescription =
-  'Get answers to 20+ common questions about pressure washing, soft washing, roof cleaning, and gutter cleaning from Jones Pressure Washing in Bergen & Essex County, NJ.'
+  'Answers to 20+ questions about pressure washing, soft washing, roof cleaning, and gutter cleaning from Jones Pressure Washing in Bergen & Essex County, NJ.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -220,7 +219,6 @@ export default function FaqsPage() {
       <Script
         id="jpw-faq-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <main>
@@ -240,7 +238,7 @@ export default function FaqsPage() {
                   </h2>
                   <Accordion
                     type="multiple"
-                    className={cn('w-full space-y-3')}>
+                    className="w-full space-y-3">
                     {category.faqs.map(faq => (
                       <AccordionItem
                         value={faq.question}
