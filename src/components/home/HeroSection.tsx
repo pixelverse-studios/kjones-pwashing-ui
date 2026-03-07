@@ -43,7 +43,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 mt-4"
             variants={variants.item}>
             <CtaModal
-              label="Request Your Free Estimate"
+              label="Get an Instant Quote"
               variant="default"
               buttonClass="rounded-full h-12"
             />

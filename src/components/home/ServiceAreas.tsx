@@ -207,7 +207,7 @@ const ServiceAreas = () => {
                 your area.
               </p>
               <div className="mt-4">
-                <CtaModal label="Check Service Availability" />
+                <CtaModal label="Get an Instant Quote" />
               </div>
             </motion.div>
           </div>

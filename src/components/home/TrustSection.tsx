@@ -63,7 +63,7 @@ const TrustSection = () => {
               variants={variants.item}
             />
           </motion.ul>
-          <CtaModal variant="ghost" label="Request a Quote Today" />
+          <CtaModal variant="ghost" label="Get an Instant Quote" />
         </motion.div>
 
         <motion.div
