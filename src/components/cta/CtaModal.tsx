@@ -51,8 +51,8 @@ export default function CtaModal({
               id="lavo-quote-iframe"
               src="https://lavocrm.com/quote/d0ea84e6-2337-48b9-8445-f93373361731?embed=true"
               className="h-[90%] w-full mt-4"
-              style={{ border: ‘none’ }}
-            />
+              style={{ border: 'none' }}
+            ></iframe>
           </motion.div>
         </AnimatePresence>
       </DialogContent>
