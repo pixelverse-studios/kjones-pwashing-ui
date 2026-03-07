@@ -141,7 +141,7 @@ export default function FaqsPage() {
               <p className="pb-6">Reach out and we'll be happy to help.</p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-white text-white hover:bg-white hover:text-black transition-colors">
+                className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
                 Contact Us
               </Link>
             </div>

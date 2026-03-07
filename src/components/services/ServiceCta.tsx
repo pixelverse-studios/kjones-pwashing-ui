@@ -1,9 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import CtaModal from '../cta/CtaModal'
-import { Button } from '../ui/button'
-import { ContactMap } from '@/lib/constants'
 
 // Cascade variants (slide up with stagger)
 const smoothEase = [0.25, 0.1, 0.25, 1] as const
@@ -42,13 +41,6 @@ export default function ServiceCta({
   buttonLabel,
   showAfter = false
 }: ServiceCtaProps) {
-  const onEmailClick = () => {
-    const subject = 'General Inquiry for JonesPressureWashingNJ'
-    window.location.href = `mailto:${ContactMap.get(
-      'email'
-    )}?subject=${subject}`
-  }
-
   return (
     <section className="bg-black text-center">
       <motion.div
@@ -65,12 +57,11 @@ export default function ServiceCta({
           className="flex flex-col sm:flex-row gap-6 mx-auto w-full sm:w-fit"
           variants={item}>
           <CtaModal label={cta} variant="default" />
-          <Button
-            variant="ghost"
-            className="border-white"
-            onClick={() => onEmailClick()}>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
             {buttonLabel}
-          </Button>
+          </Link>
         </motion.div>
         {showAfter ? (
           <motion.p className="text-sm text-gray-400" variants={item}>
