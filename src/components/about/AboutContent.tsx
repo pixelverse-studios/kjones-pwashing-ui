@@ -66,7 +66,7 @@ function AboutAnimatedContent() {
   return (
     <div className="bg-black nav-offset">
       {/* Hero */}
-      <section className="max-w-custom mx-auto px-6 py-10 text-center">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16 text-center">
         <motion.div
           variants={variants.container}
           initial="hidden"
@@ -86,7 +86,7 @@ function AboutAnimatedContent() {
       </section>
 
       {/* Origin Story */}
-      <section className="max-w-custom mx-auto px-6 py-12">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
         <motion.div
           className="max-w-3xl mx-auto"
           variants={variants.container}
@@ -124,7 +124,7 @@ function AboutAnimatedContent() {
       </section>
 
       {/* Professional Background */}
-      <section className="max-w-custom mx-auto px-6 py-12">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
         <motion.div
           className="max-w-3xl mx-auto"
           variants={variants.container}
@@ -179,7 +179,7 @@ function AboutAnimatedContent() {
       </section>
 
       {/* Equipment */}
-      <section className="max-w-custom mx-auto px-6 py-12">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
         <motion.div
           className="max-w-3xl mx-auto"
           variants={variants.container}
@@ -215,7 +215,7 @@ function AboutAnimatedContent() {
       </section>
 
       {/* Principles */}
-      <section className="max-w-custom mx-auto px-6 py-12">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
         <motion.div
           variants={variants.container}
           initial="hidden"
@@ -228,10 +228,7 @@ function AboutAnimatedContent() {
           </motion.h2>
           <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            variants={variants.container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport}>
+            variants={variants.container}>
             <PrincipleCard
               title="Detail-Obsessed"
               description="We are not spray and pray. We take our time to get every job done right, safe, and damage-free. The details matter."
@@ -261,7 +258,7 @@ function AboutAnimatedContent() {
       </section>
 
       {/* CTA */}
-      <section className="max-w-custom mx-auto px-6 py-12 text-center">
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16 text-center">
         <motion.div
           className="space-y-6"
           variants={variants.item}

@@ -7,7 +7,7 @@ import { BusinessInfo, ContactMap } from '@/lib/constants'
 const pageTitle =
   'About Jones Pressure Washing | Locally Owned Exterior Cleaning in New Jersey'
 const pageDescription =
-  'Meet Kyle Jones — from automotive detailing to founding JPW. Learn about our origin story, professional credentials, and specialized equipment in Bergen & Essex County, NJ.'
+  'Meet Kyle Jones — from automotive detailing to founding JPW. Our origin story, credentials, and specialized equipment in Bergen & Essex County, NJ.'
 
 export const metadata: Metadata = {
   title: pageTitle,
