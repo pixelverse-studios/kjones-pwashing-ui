@@ -321,7 +321,7 @@ export default function EssexCountyContent() {
           </>
         }
         description="Jones Pressure Washing delivers custom holiday lighting Essex County families and businesses rely on, complete with pro grade LEDs, precise installation, ongoing maintenance, and careful takedown."
-        cta="Book My Essex County Lighting Design"
+        cta="Get an Instant Quote"
         dimHeroContent
         height="h-[70vh]"
         explanation={<SeasonalDetails />}
@@ -661,7 +661,7 @@ export default function EssexCountyContent() {
       <ServiceCta
         header="Light Up Essex County with Confidence"
         description="Reserve your holiday lighting consultation now and secure preferred installation dates before town events and weather changes limit availability."
-        cta="Reserve My Essex County Install"
+        cta="Get an Instant Quote"
         buttonLabel="Contact Us"
       />
     </main>

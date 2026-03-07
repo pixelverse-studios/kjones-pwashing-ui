@@ -300,7 +300,7 @@ export default function BergenCountyContent() {
           </>
         }
         description="Jones Pressure Washing delivers custom holiday lighting Bergen County families rely on - pro grade LEDs, careful installation, zero stress maintenance, and January takedown included."
-        cta="Book My Bergen County Lighting Design"
+        cta="Get an Instant Quote"
         dimHeroContent
         height="h-[70vh]"
         explanation={<SeasonalDetails />}
@@ -627,7 +627,7 @@ export default function BergenCountyContent() {
       <ServiceCta
         header="Light Up Bergen County with Confidence"
         description="Reserve your holiday lighting design consultation now. Installation windows fill fast across Ridgewood, Wyckoff, Franklin Lakes, Tenafly, and beyond."
-        cta="Reserve My Bergen County Install"
+        cta="Get an Instant Quote"
         buttonLabel="Contact Us"
       />
     </main>

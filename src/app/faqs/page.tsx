@@ -7,7 +7,7 @@ import {
   AccordionTrigger
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
-import CtaModal from '@/components/cta/CtaModal'
+import Link from 'next/link'
 
 const pageTitle =
   'Pressure Washing FAQs | Jones Pressure Washing Bergen & Essex County'
@@ -139,7 +139,11 @@ export default function FaqsPage() {
             <div className="mt-20 space-y-4">
               <h3 className="text-white">Still have questions?</h3>
               <p className="pb-6">Reach out and we'll be happy to help.</p>
-              <CtaModal label="Contact Us" variant="ghost" />
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-white text-white hover:bg-white hover:text-black transition-colors">
+                Contact Us
+              </Link>
             </div>
           </div>
         </section>

@@ -172,7 +172,7 @@ export default function PressureWashingServicePage() {
         <ServiceCta
           header="Ready to Restore Your Property?"
           description="We are ready to make your home or business look like new."
-          cta="Request a Free Estimate"
+          cta="Get an Instant Quote"
           buttonLabel="Contact Us"
         />
       </main>

@@ -185,7 +185,7 @@ export const locationServiceLanders: LocationServiceConfig = {
         header: 'Ready for Ridgewood-level curb appeal?',
         description:
           'Tell us which streets we are working near and we will build a custom plan covering siding, walkways, fences, and patios.',
-        cta: 'Request My Ridgewood Estimate',
+        cta: 'Get an Instant Quote',
         buttonLabel: 'Email the Team'
       }
     },
@@ -304,7 +304,7 @@ export const locationServiceLanders: LocationServiceConfig = {
         header: 'Let’s plan your Wyckoff cleaning day',
         description:
           'Share photos, gate codes, or irrigation notes and we will build a maintenance plan that fits your calendar.',
-        cta: 'Reserve My Wyckoff Slot',
+        cta: 'Get an Instant Quote',
         buttonLabel: 'Email Project Details'
       }
     }
@@ -424,7 +424,7 @@ export const locationServiceLanders: LocationServiceConfig = {
         header: 'Let’s plan your Montclair wash day',
         description:
           'Share facade photos or prior paint specs and we’ll prep the exact chemistry your property needs.',
-        cta: 'Reserve My Montclair Cleaning',
+        cta: 'Get an Instant Quote',
         buttonLabel: 'Email Project Photos'
       }
     },
@@ -542,7 +542,7 @@ export const locationServiceLanders: LocationServiceConfig = {
         header: 'Refresh your Livingston property',
         description:
           'Text or email photos of problem areas and we’ll recommend the perfect soft washing mix.',
-        cta: 'Get My Livingston Plan',
+        cta: 'Get an Instant Quote',
         buttonLabel: 'Email Photos'
       }
     }
