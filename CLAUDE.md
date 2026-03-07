@@ -110,7 +110,6 @@ button: 'rounded-full h-12 px-6'
     /services            # Service page components
       /holiday-lighting  # Holiday lighting content components
       /location          # Location lander section components
-    AnimationSwitcher.tsx # Global animation toggle (dev tool)
     Navbar.tsx
     Footer.tsx
   /lib
@@ -137,8 +136,8 @@ button: 'rounded-full h-12 px-6'
 
 ### Animations
 - **Provider**: Framer Motion via `AnimationContext` (`src/lib/AnimationContext.tsx`)
-- **Pattern**: `BlurFade` animations with staggered cascade delays on page sections
-- **Dev toggle**: `AnimationSwitcher` component for enabling/disabling animations globally
+- **Style**: Gentle fade — soft opacity transitions with staggered delays
+- **Pattern**: `AnimationProvider` wraps page content, `useAnimation()` provides variants
 
 ### Performance
 - Target Lighthouse score: 90+ on all metrics
