@@ -133,11 +133,13 @@ export default function PressureWashingServicePage() {
       <Script
         id="jpw-pressure-washing-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Script
         id="jpw-pressure-washing-breadcrumb-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
