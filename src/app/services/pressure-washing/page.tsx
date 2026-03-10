@@ -275,6 +275,7 @@ export default function PressureWashingServicePage() {
           description="We are ready to make your home or business look like new."
           cta="Get an Instant Quote"
           buttonLabel="Contact Us"
+          showSocial
         />
       </main>
     </>
