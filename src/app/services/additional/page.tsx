@@ -62,8 +62,8 @@ const baseUrl = 'https://www.jonespressurewashingnj.com'
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'Additional Cleaning Services',
-  name: 'Specialized Exterior Cleaning Services',
+  serviceType: 'Gutter Cleaning and Roof Washing',
+  name: 'Gutter Cleaning and Roof Washing Services',
   description: pageDescription,
   provider: {
     '@type': 'LocalBusiness',
@@ -85,18 +85,6 @@ const schema = {
     { '@type': 'County', name: 'Essex County' }
   ],
   offers: [
-    {
-      '@type': 'Offer',
-      itemOffered: { '@type': 'Service', name: 'Deck Restoration' },
-      priceCurrency: 'USD',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: '299' }
-    },
-    {
-      '@type': 'Offer',
-      itemOffered: { '@type': 'Service', name: 'Fence Cleaning' },
-      priceCurrency: 'USD',
-      priceSpecification: { '@type': 'PriceSpecification', minPrice: '199' }
-    },
     {
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: 'Gutter Cleaning' },
