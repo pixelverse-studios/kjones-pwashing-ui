@@ -61,7 +61,7 @@ const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
 
 const professionalServiceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'HomeAndConstructionBusiness',
+  '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
   '@id': 'https://www.jonespressurewashingnj.com/#localbusiness',
   name: 'Jones Pressure Washing',
   image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',

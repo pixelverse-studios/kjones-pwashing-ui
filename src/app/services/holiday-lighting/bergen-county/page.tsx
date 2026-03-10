@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import BergenCountyContent from '@/components/services/holiday-lighting/BergenCountyContent'
+import { BusinessInfo } from '@/lib/constants'
 
 const pageTitle =
   'Bergen County Holiday Lighting Installation | Jones Pressure Washing'
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     url: '/services/holiday-lighting/bergen-county',
     images: [
       {
-        url: '/Holiday Lights Installation at Twilight.png',
+        url: '/Holiday%20Lights%20Installation%20at%20Twilight.png',
         width: 1200,
         height: 630,
         alt: 'Bergen County home with custom holiday lighting'
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/Holiday Lights Installation at Twilight.png']
+    images: ['/Holiday%20Lights%20Installation%20at%20Twilight.png']
   },
   robots: {
     index: true,
@@ -84,9 +85,10 @@ const schema = {
     telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
     image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
     priceRange: '$$'
