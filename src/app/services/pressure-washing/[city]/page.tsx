@@ -98,8 +98,8 @@ function buildSchema(cityContent: CityLandingContent) {
       },
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: BusinessInfo.geo.latitude,
-        longitude: BusinessInfo.geo.longitude
+        latitude: cityContent.geo?.latitude ?? BusinessInfo.geo.latitude,
+        longitude: cityContent.geo?.longitude ?? BusinessInfo.geo.longitude
       },
       image: `${baseUrl}/logo-black.jpg`,
       priceRange: '$$'
