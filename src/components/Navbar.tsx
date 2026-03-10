@@ -21,7 +21,8 @@ import { DialogTitle } from './ui/dialog'
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'FAQs', href: '/faqs' }
+  { label: 'FAQs', href: '/faqs' },
+  { label: 'Contact', href: '/contact' }
 ]
 
 const Navbar = () => {

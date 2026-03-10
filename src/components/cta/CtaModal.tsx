@@ -42,18 +42,16 @@ export default function CtaModal({
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}>
             <DialogHeader>
-              <DialogTitle>Get Your Free Quote</DialogTitle>
+              <DialogTitle>Get an Instant Quote</DialogTitle>
               <DialogDescription>
-                We’ll Take It From Here — Just Fill This Out
+                Fill out the details below and get your quote right away.
               </DialogDescription>
             </DialogHeader>
             <iframe
-              id="markate-widget-contact-iframe"
-              src="https://www.markate.com/public/widget/contact?id=f96d3b4541b339933da0d1e72356b5d3:59045:4bb70607"
+              id="lavo-quote-iframe"
+              src="https://lavocrm.com/quote/d0ea84e6-2337-48b9-8445-f93373361731?embed=true"
               className="h-[90%] w-full mt-4"
-              allowTransparency={true}
-              style={{ border: 'none', overflow: 'hidden' }}
-            />
+              style={{ border: 'none' }}></iframe>
           </motion.div>
         </AnimatePresence>
       </DialogContent>

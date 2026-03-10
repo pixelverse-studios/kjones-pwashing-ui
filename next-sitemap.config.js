@@ -13,6 +13,7 @@ const DEFAULT_CHANGEFREQ = 'monthly'
 const priorityOverrides = new Map([
   ['/', 0.85],
   ['/about', 0.7],
+  ['/contact', 0.75],
   ['/faqs', 0.65]
 ])
 
@@ -20,7 +21,7 @@ const changefreqOverrides = new Map([
   ['/', 'weekly']
 ])
 
-const rootPaths = ['/', '/about', '/faqs']
+const rootPaths = ['/', '/about', '/contact', '/faqs']
 const serviceRoutes = collectServiceRoutes()
 const staticPaths = Array.from(new Set([...rootPaths, ...serviceRoutes]))
 

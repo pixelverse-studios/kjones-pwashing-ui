@@ -1,38 +1,37 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 
-import AboutContent from '@/components/about/AboutContent'
+import ContactContent from '@/components/contact/ContactContent'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
-const pageTitle =
-  'About Jones Pressure Washing | Locally Owned Exterior Cleaning in New Jersey'
+const pageTitle = 'Contact Jones Pressure Washing | Bergen & Essex County, NJ'
 const pageDescription =
-  'Meet Kyle Jones — from automotive detailing to founding JPW. Our origin story, credentials, and specialized equipment in Bergen & Essex County, NJ.'
+  'Get in touch with Jones Pressure Washing for questions, service inquiries, or custom requests. Serving homes and businesses across Bergen and Essex County, NJ.'
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: '/about'
+    canonical: '/contact'
   },
   keywords: [
-    'Jones Pressure Washing',
-    'about Jones Pressure Washing',
-    'locally owned pressure washing',
-    'Bergen County exterior cleaning',
-    'Essex County exterior cleaning'
+    'contact Jones Pressure Washing',
+    'pressure washing quote NJ',
+    'Bergen County pressure washing contact',
+    'Essex County pressure washing contact',
+    'exterior cleaning inquiry NJ'
   ],
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    type: 'article',
-    url: '/about',
+    type: 'website',
+    url: '/contact',
     images: [
       {
         url: '/Homepage_Trust.png',
         width: 1200,
         height: 630,
-        alt: 'Jones Pressure Washing owner speaking with a homeowner'
+        alt: 'Contact Jones Pressure Washing'
       }
     ]
   },
@@ -50,6 +49,8 @@ export const metadata: Metadata = {
 }
 
 const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const businessEmail =
+  ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {
@@ -58,6 +59,7 @@ const schema = {
   name: BusinessInfo.name,
   description: pageDescription,
   telephone: businessPhone,
+  email: businessEmail,
   address: {
     '@type': 'PostalAddress',
     streetAddress: BusinessInfo.streetAddress,
@@ -71,6 +73,17 @@ const schema = {
     latitude: BusinessInfo.geo.latitude,
     longitude: BusinessInfo.geo.longitude
   },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: businessPhone,
+    email: businessEmail,
+    contactType: 'customer service',
+    areaServed: [
+      { '@type': 'County', name: 'Bergen County' },
+      { '@type': 'County', name: 'Essex County' }
+    ],
+    availableLanguage: 'English'
+  },
   areaServed: [
     { '@type': 'County', name: 'Bergen County' },
     { '@type': 'County', name: 'Essex County' }
@@ -78,10 +91,10 @@ const schema = {
   image: `${baseUrl}/logo-black.jpg`,
   priceRange: '$$',
   sameAs: BusinessInfo.sameAs,
-  url: `${baseUrl}/about`,
+  url: `${baseUrl}/contact`,
   mainEntityOfPage: {
     '@type': 'WebPage',
-    '@id': `${baseUrl}/about`
+    '@id': `${baseUrl}/contact`
   }
 }
 
@@ -93,27 +106,29 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'About Us',
-      item: `${baseUrl}/about`
+      name: 'Contact Us',
+      item: `${baseUrl}/contact`
     }
   ]
 }
 
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <>
       <Script
-        id="jpw-about-schema"
+        id="jpw-contact-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Script
-        id="jpw-about-breadcrumb-schema"
+        id="jpw-contact-breadcrumb-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
-        <AboutContent />
+        <ContactContent />
       </main>
     </>
   )

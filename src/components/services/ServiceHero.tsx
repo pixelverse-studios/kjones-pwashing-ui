@@ -36,7 +36,7 @@ interface ServiceHeroProps {
 }
 
 const ServiceHero = ({
-  cta = 'Request a Free Estimate',
+  cta = 'Get an Instant Quote',
   description,
   explanation,
   h1,

@@ -35,9 +35,9 @@ const TrustSection = () => {
           </h2>
 
           <p className="text-white">
-            We're your neighbors—providing exceptional service with neighborly
-            care. We always show up on time, treat your property with care, and
-            deliver results that speak for themselves!
+            We are not the cheapest option — but that lets us take our time and
+            pay attention to the small details instead of rushing to hit a
+            number.
           </p>
 
           <motion.ul
@@ -47,23 +47,23 @@ const TrustSection = () => {
             whileInView="visible"
             viewport={viewport}>
             <TrustFeature
-              text="Locally owned & operated"
+              text="Owner-operated since 2023 — entering our 3rd season in Bergen & Essex County"
               variants={variants.item}
             />
             <TrustFeature
-              text="Eco-friendly cleaning methods"
+              text="Specialized equipment for every task — not one machine for everything"
               variants={variants.item}
             />
             <TrustFeature
-              text="On-time & reliable service"
+              text="We take our time to get it right — the details matter"
               variants={variants.item}
             />
             <TrustFeature
-              text="100% satisfaction guaranteed"
+              text="Walk-around inspection before we leave. Not satisfied? We re-service at the first chance."
               variants={variants.item}
             />
           </motion.ul>
-          <CtaModal variant="ghost" label="Request a Quote Today" />
+          <CtaModal variant="ghost" label="Get an Instant Quote" />
         </motion.div>
 
         <motion.div

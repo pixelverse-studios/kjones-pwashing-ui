@@ -1,9 +1,10 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { FaInstagram, FaFacebookF } from 'react-icons/fa6'
 import CtaModal from '../cta/CtaModal'
-import { Button } from '../ui/button'
-import { ContactMap } from '@/lib/constants'
+import { BusinessInfo } from '@/lib/constants'
 
 // Cascade variants (slide up with stagger)
 const smoothEase = [0.25, 0.1, 0.25, 1] as const
@@ -33,6 +34,7 @@ interface ServiceCtaProps {
   cta: string
   buttonLabel: string
   showAfter?: boolean
+  showSocial?: boolean
 }
 
 export default function ServiceCta({
@@ -40,15 +42,9 @@ export default function ServiceCta({
   description,
   cta,
   buttonLabel,
-  showAfter = false
+  showAfter = false,
+  showSocial = false
 }: ServiceCtaProps) {
-  const onEmailClick = () => {
-    const subject = 'General Inquiry for JonesPressureWashingNJ'
-    window.location.href = `mailto:${ContactMap.get(
-      'email'
-    )}?subject=${subject}`
-  }
-
   return (
     <section className="bg-black text-center">
       <motion.div
@@ -65,13 +61,35 @@ export default function ServiceCta({
           className="flex flex-col sm:flex-row gap-6 mx-auto w-full sm:w-fit"
           variants={item}>
           <CtaModal label={cta} variant="default" />
-          <Button
-            variant="ghost"
-            className="border-white"
-            onClick={() => onEmailClick()}>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
             {buttonLabel}
-          </Button>
+          </Link>
         </motion.div>
+        {showSocial ? (
+          <motion.p
+            className="text-sm text-secondary-lite flex items-center justify-center gap-4"
+            variants={item}>
+            See our work on
+            <a
+              href={BusinessInfo.sameAs[0]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-primary hover:underline">
+              <FaInstagram size={16} />
+              Instagram
+            </a>
+            <a
+              href={BusinessInfo.sameAs[1]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-primary hover:underline">
+              <FaFacebookF size={14} />
+              Facebook
+            </a>
+          </motion.p>
+        ) : null}
         {showAfter ? (
           <motion.p className="text-sm text-gray-400" variants={item}>
             Serving Bergen, Essex, and surrounding New Jersey counties.
