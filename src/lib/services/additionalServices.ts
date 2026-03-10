@@ -1,27 +1,36 @@
-import { FaClock, FaShield, FaToolbox, FaPercent } from 'react-icons/fa6'
+import {
+  FaDroplet,
+  FaShieldHalved,
+  FaHouseCircleCheck,
+  FaCalendarCheck
+} from 'react-icons/fa6'
 
 import { ServiceHighlightType } from '../types/services'
 
 const highlights: ServiceHighlightType[] = [
   {
-    Icon: FaClock,
-    header: 'Save Time Before Winter',
-    description: 'Get everything done in one visit'
+    Icon: FaDroplet,
+    header: 'Prevent Water Damage',
+    description:
+      'Clogged gutters direct water toward your foundation instead of away from it. Regular cleaning prevents erosion and water intrusion into your home.'
   },
   {
-    Icon: FaShield,
-    header: 'Avoid Roof Damage',
-    description: 'Preventive maintenance saves money'
+    Icon: FaShieldHalved,
+    header: 'Extend Roof Life',
+    description:
+      'Moss, mold, and algae break down shingles over time. Soft wash roof cleaning removes them before they cause permanent damage.'
   },
   {
-    Icon: FaToolbox,
-    header: 'Professional Setup',
-    description: 'Safe and secure installation'
+    Icon: FaHouseCircleCheck,
+    header: 'Protect Your Investment',
+    description:
+      'Many insurance companies require roof cleaning if moss is present. Non-compliance can result in dropped coverage.'
   },
   {
-    Icon: FaPercent,
-    header: 'Bundle & Save',
-    description: 'Special rates for combined services'
+    Icon: FaCalendarCheck,
+    header: 'Maintenance You Can Count On',
+    description:
+      'We recommend gutter cleaning at least twice a year. Pair it with a roof wash and we handle everything in one visit.'
   }
 ]
 
