@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import Link from 'next/link'
+import { BusinessInfo } from '@/lib/constants'
 import {
   FaLightbulb,
   FaRegSnowflake,
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     url: '/services/holiday-lighting',
     images: [
       {
-        url: '/Holiday Lights Installation at Twilight.png',
+        url: '/Holiday%20Lights%20Installation%20at%20Twilight.png',
         width: 1200,
         height: 630,
         alt: 'Professional holiday lighting installed on a New Jersey home'
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/Holiday Lights Installation at Twilight.png']
+    images: ['/Holiday%20Lights%20Installation%20at%20Twilight.png']
   },
   robots: {
     index: true,
@@ -78,11 +79,12 @@ const schema = {
     telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
-    image: 'https://www.jonespressurewashingnj.com/images/logo.png',
+    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
     priceRange: '$$'
   },
   areaServed: [
@@ -111,7 +113,8 @@ const schema = {
       }
     }
   ],
-  image: 'https://www.jonespressurewashingnj.com/images/holiday-lighting.jpg',
+  image:
+    'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://www.jonespressurewashingnj.com/services/holiday-lighting'
@@ -193,7 +196,7 @@ const lightingProcess: ProcessStepType[] = [
 
 const lightingExamples: ServiceExampleType[] = [
   {
-    img: '/Holiday Lights Installation at Twilight.png',
+    img: '/Holiday%20Lights%20Installation%20at%20Twilight.png',
     header: 'Classic Warm White Rooflines',
     description:
       'Outline your roof, peaks, and dormers with warm white LEDs for a timeless, elegant look that stands out on your block.',

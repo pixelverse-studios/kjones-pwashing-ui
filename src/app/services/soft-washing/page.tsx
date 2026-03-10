@@ -7,6 +7,7 @@ import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
 import softWashingServices from '@/lib/services/softWashingServices'
+import { BusinessInfo } from '@/lib/constants'
 
 const pageTitle =
   'Soft Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
@@ -69,9 +70,10 @@ const schema = {
     telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
     image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'

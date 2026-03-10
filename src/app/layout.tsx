@@ -61,6 +61,19 @@ export const metadata: Metadata = {
   }
 }
 
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${baseUrl}/#website`,
+  url: baseUrl,
+  name: 'Jones Pressure Washing',
+  publisher: {
+    '@id': `${baseUrl}/#localbusiness`
+  }
+}
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -69,6 +82,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          id="jpw-website-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Script
           id="sitebehavior-init"
           strategy="afterInteractive"

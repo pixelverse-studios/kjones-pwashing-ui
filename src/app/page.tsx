@@ -61,7 +61,7 @@ const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
 
 const professionalServiceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'HomeAndConstructionBusiness',
+  '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
   '@id': 'https://www.jonespressurewashingnj.com/#localbusiness',
   name: 'Jones Pressure Washing',
   image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
@@ -113,6 +113,21 @@ const professionalServiceSchema = {
       '@type': 'Offer',
       name: 'Soft Washing',
       url: 'https://www.jonespressurewashingnj.com/services/soft-washing'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Gutter Cleaning',
+      url: 'https://www.jonespressurewashingnj.com/services/additional'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Roof Cleaning',
+      url: 'https://www.jonespressurewashingnj.com/services/additional'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Holiday Lighting Installation',
+      url: 'https://www.jonespressurewashingnj.com/services/holiday-lighting'
     }
   ]
 }
