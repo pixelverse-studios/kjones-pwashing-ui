@@ -212,7 +212,7 @@ export default function AdditionalServicesPage() {
         </section>
 
         {/* Gutter Guard Opinion */}
-        <section className="bg-black">
+        <section className="bg-black border-t border-accent">
           <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-primary text-center mb-6">
@@ -244,7 +244,7 @@ export default function AdditionalServicesPage() {
         </section>
 
         {/* Roof Cleaning */}
-        <section className="bg-black">
+        <section className="bg-black border-t border-accent">
           <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-primary text-center mb-6">Roof Cleaning</h2>
@@ -324,9 +324,9 @@ export default function AdditionalServicesPage() {
                 id="holiday-lighting"
                 className="bg-gray border border-accent rounded-lg p-8 flex flex-col items-center gap-4 text-center">
                 <FaLightbulb size={36} className="text-primary" />
-                <h2 className="text-white text-xl mb-0">
+                <h3 className="text-white text-xl mb-0">
                   Holiday Lighting Assistance
-                </h2>
+                </h3>
                 <p className="text-secondary-lite text-sm">
                   Let us safely install, hang, and remove your holiday lights so
                   you can enjoy the season without the stress. Available
