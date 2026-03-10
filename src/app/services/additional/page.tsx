@@ -9,8 +9,7 @@ import ServiceCta from '@/components/services/ServiceCta'
 import additionalServices from '@/lib/services/additionalServices'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
-const pageTitle =
-  'Gutter & Roof Cleaning in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageTitle = 'Gutter & Roof Cleaning | Bergen & Essex County, NJ'
 const pageDescription =
   'Professional gutter cleaning, roof washing, and exterior maintenance in Bergen & Essex County, NJ. Honest advice, thorough service, free retreatment guarantee.'
 

@@ -4,8 +4,7 @@ import Script from 'next/script'
 import BergenCountyContent from '@/components/services/holiday-lighting/BergenCountyContent'
 import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle =
-  'Bergen County Holiday Lighting Installation | Jones Pressure Washing'
+const pageTitle = 'Bergen County Holiday Lighting | Jones Pressure Washing'
 const pageDescription =
   'Custom Bergen County holiday lighting design, installation, maintenance, and takedown for Ridgewood, Wyckoff, Franklin Lakes, Tenafly, and every nearby town.'
 

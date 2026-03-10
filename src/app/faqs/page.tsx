@@ -8,8 +8,7 @@ import {
 } from '@/components/ui/accordion'
 import Link from 'next/link'
 
-const pageTitle =
-  'Pressure Washing FAQs | Jones Pressure Washing Bergen & Essex County'
+const pageTitle = 'Pressure Washing FAQs | Jones PW Bergen & Essex, NJ'
 const pageDescription =
   'Answers to 20+ questions about pressure washing, soft washing, roof cleaning, and gutter cleaning from Jones Pressure Washing in Bergen & Essex County, NJ.'
 
@@ -219,6 +218,7 @@ export default function FaqsPage() {
       <Script
         id="jpw-faq-schema"
         type="application/ld+json"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <main>
