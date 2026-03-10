@@ -7,7 +7,7 @@ import { BusinessInfo, ContactMap } from '@/lib/constants'
 const pageTitle =
   'About Jones Pressure Washing | Locally Owned Exterior Cleaning in New Jersey'
 const pageDescription =
-  'Discover the story behind Jones Pressure Washing, a reliable, locally owned team delivering meticulous pressure washing and soft washing across Bergen and Essex County, NJ.'
+  'Meet Kyle Jones — from automotive detailing to founding JPW. Our origin story, credentials, and specialized equipment in Bergen & Essex County, NJ.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -105,13 +105,11 @@ export default function AboutPage() {
       <Script
         id="jpw-about-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Script
         id="jpw-about-breadcrumb-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
