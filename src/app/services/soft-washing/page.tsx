@@ -270,6 +270,7 @@ export default function SoftWashingServicePage() {
           header="Ready to Safely Clean Your Home Exterior?"
           description=""
           showAfter
+          showSocial
           cta="Get an Instant Quote"
           buttonLabel="Contact Us"
         />

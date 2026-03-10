@@ -353,6 +353,7 @@ export default function AdditionalServicesPage() {
           description=""
           header="Ready to Protect Your Home?"
           showAfter
+          showSocial
         />
       </main>
     </>
