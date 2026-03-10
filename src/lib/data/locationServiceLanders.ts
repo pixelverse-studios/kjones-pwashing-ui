@@ -37,6 +37,7 @@ export type CityLandingContent = {
   city: string
   county: string
   state: string
+  geo: { latitude: number; longitude: number }
   serviceName: string
   heroHighlight: string
   heroImage: string
@@ -76,6 +77,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       city: 'Ridgewood',
       county: 'Bergen County',
       state: 'NJ',
+      geo: { latitude: 40.9793, longitude: -74.1168 },
       serviceName: 'Pressure Washing',
       heroHighlight: 'Pressure Washing Pros',
       heroImage: '/PressureBG.jpeg',
@@ -194,6 +196,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       city: 'Wyckoff',
       county: 'Bergen County',
       state: 'NJ',
+      geo: { latitude: 41.0098, longitude: -74.1724 },
       serviceName: 'Pressure Washing',
       heroHighlight: 'Pressure Washing Crew',
       heroImage: '/PressureBG.jpeg',
@@ -315,6 +318,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       city: 'Montclair',
       county: 'Essex County',
       state: 'NJ',
+      geo: { latitude: 40.8203, longitude: -74.2108 },
       serviceName: 'Soft Washing',
       heroHighlight: 'Soft Washing Experts',
       heroImage: '/Siding.jpg',
@@ -433,6 +437,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       city: 'Livingston',
       county: 'Essex County',
       state: 'NJ',
+      geo: { latitude: 40.795, longitude: -74.275 },
       serviceName: 'Soft Washing',
       heroHighlight: 'Soft Washing Team',
       heroImage: '/Roof Cleaning2.jpg',
