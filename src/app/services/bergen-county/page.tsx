@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: pageTitle,
     description: pageDescription,
-    type: 'article',
+    type: 'website',
     url: '/services/bergen-county',
     images: [
       {
@@ -82,6 +82,53 @@ const schema = {
   }
 }
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What areas of Bergen County do you serve?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We serve every borough, township, and village in Bergen County — from Ridgewood and Wyckoff to Fort Lee and Hackensack. If you are in Bergen County, we can get to you.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I know if I need pressure washing or soft washing?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Pressure washing is for hard surfaces like concrete, stone, and pavers. Soft washing is for delicate surfaces like siding, roofs, and painted wood. We assess your property and recommend the right approach for each surface.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How often should I have my home exterior cleaned?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most Bergen County homes benefit from an annual exterior wash. Properties near wooded areas or with heavy shade may need more frequent cleaning due to faster algae and mold growth.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you work with Bergen County HOAs and property managers?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. We provide insurance certificates, before-and-after documentation, and can coordinate multi-unit scheduling for townhome communities and commercial properties.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the best time of year for exterior cleaning in NJ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'April through September is ideal. Warmer months allow cleaning solutions to work most effectively and surfaces to dry properly. We book up fast leading into Memorial Day and early summer.'
+      }
+    }
+  ]
+}
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -110,6 +157,12 @@ export default function BergenCountyHubPage() {
         type="application/ld+json"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <Script
+        id="jpw-bergen-county-hub-faq-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <BergenCountyHubContent />
     </>

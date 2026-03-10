@@ -220,12 +220,9 @@ export default function EssexCountyHubContent() {
                 <Link
                   key={city.name}
                   href={city.href}
-                  className="rounded-lg border border-white/10 bg-white/5 p-4 transition-colors hover:border-primary hover:bg-primary/10 block">
+                  className="rounded-lg border border-white/10 bg-white/5 p-4 transition-colors hover:border-primary hover:bg-primary/10 block cursor-pointer">
                   <span className="text-primary font-semibold">
                     {city.name}
-                  </span>
-                  <span className="text-white/60 text-sm block mt-1">
-                    View city page &rarr;
                   </span>
                 </Link>
               ) : (

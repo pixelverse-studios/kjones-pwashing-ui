@@ -71,6 +71,9 @@ function getPriority(pathname) {
   if (priorityOverrides.has(pathname)) {
     return priorityOverrides.get(pathname)
   }
+  if (pathname === '/services/bergen-county' || pathname === '/services/essex-county') {
+    return 0.8
+  }
   if (pathname.startsWith('/services/holiday-lighting')) {
     return 0.7
   }
