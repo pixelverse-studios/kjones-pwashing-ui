@@ -70,7 +70,7 @@ const websiteSchema = {
   url: baseUrl,
   name: 'Jones Pressure Washing',
   publisher: {
-    '@id': `${baseUrl}/#organization`
+    '@id': `${baseUrl}/#localbusiness`
   }
 }
 

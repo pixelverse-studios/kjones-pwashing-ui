@@ -121,7 +121,7 @@ const schema = {
     }
   ],
   image:
-    'https://www.jonespressurewashingnj.com/Holiday Lights Installation at Twilight.png',
+    'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id':
