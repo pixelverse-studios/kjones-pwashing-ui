@@ -8,6 +8,7 @@ import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceProcess from '@/components/services/ServiceProcess'
 import ServiceCta from '@/components/services/ServiceCta'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
+import { BusinessInfo } from '@/lib/constants'
 
 const pageTitle =
   'Pressure Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
@@ -69,9 +70,10 @@ const schema = {
     telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
     image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'

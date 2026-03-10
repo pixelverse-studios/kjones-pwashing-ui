@@ -91,7 +91,7 @@ const schema = {
       addressRegion: 'NJ',
       addressCountry: 'US'
     },
-    image: 'https://www.jonespressurewashingnj.com/images/logo.png',
+    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
     priceRange: '$$'
   },
   areaServed: [
@@ -120,7 +120,8 @@ const schema = {
       }
     }
   ],
-  image: 'https://www.jonespressurewashingnj.com/images/holiday-lighting.jpg',
+  image:
+    'https://www.jonespressurewashingnj.com/Holiday Lights Installation at Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id':
