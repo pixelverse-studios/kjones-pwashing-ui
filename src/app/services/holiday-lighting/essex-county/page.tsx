@@ -4,10 +4,9 @@ import Script from 'next/script'
 import EssexCountyContent from '@/components/services/holiday-lighting/EssexCountyContent'
 import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle =
-  'Essex County Holiday Lighting Installation | Jones Pressure Washing'
+const pageTitle = 'Essex County Holiday Lighting | Jones Pressure Washing'
 const pageDescription =
-  'Custom Essex County holiday lighting design, installation, maintenance, and takedown for Montclair, Livingston, Short Hills, Maplewood, South Orange, and nearby towns.'
+  'Custom holiday lighting design, installation, maintenance, and takedown in Essex County, NJ — Montclair, Livingston, Short Hills, Maplewood, and more.'
 
 export const metadata: Metadata = {
   title: pageTitle,

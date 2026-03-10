@@ -10,8 +10,7 @@ import ServiceCta from '@/components/services/ServiceCta'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle =
-  'Pressure Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageTitle = 'Pressure Washing Services | Bergen & Essex County, NJ'
 const pageDescription =
   'Professional pressure washing for driveways, patios, and concrete in Bergen & Essex County, NJ. We start low-pressure and work up — safe, thorough results.'
 

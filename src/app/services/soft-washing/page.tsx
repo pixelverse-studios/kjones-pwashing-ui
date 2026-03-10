@@ -9,8 +9,7 @@ import ServiceCta from '@/components/services/ServiceCta'
 import softWashingServices from '@/lib/services/softWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle =
-  'Soft Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageTitle = 'Professional Soft Washing | Bergen & Essex County, NJ'
 const pageDescription =
   'Professional soft washing for siding, roofs, and delicate surfaces in Bergen & Essex County, NJ. Low pressure, specialized solutions, lasting results.'
 const serviceImagePath = '/Jones_Pressure_Washing_Roof_Cleaning.png'
