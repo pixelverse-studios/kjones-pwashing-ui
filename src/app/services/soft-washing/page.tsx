@@ -204,8 +204,8 @@ export default function SoftWashingServicePage() {
                     We use different cleaning solutions depending on the job.
                     Every situation is different — sometimes a more aggressive
                     solution is required for heavily soiled areas. We always
-                    start with the least aggressive method first and work our way
-                    up if needed.
+                    start with the least aggressive method first and work our
+                    way up if needed.
                   </p>
                 </div>
                 <div className="bg-gray border border-accent rounded-lg p-6">
@@ -252,8 +252,9 @@ export default function SoftWashingServicePage() {
                   <h3 className="text-white text-base mb-2">Roof Washing</h3>
                   <p className="text-secondary-lite text-sm">
                     Roof cleaning uses a higher concentration of solution. We
-                    typically pair it with a house wash so you do not end up with
-                    clean spots among dirty areas from overspray and runoff.
+                    typically pair it with a house wash so you do not end up
+                    with clean spots among dirty areas from overspray and
+                    runoff.
                   </p>
                 </div>
               </div>

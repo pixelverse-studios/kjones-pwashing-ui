@@ -16,8 +16,7 @@ function ContactAnimatedContent() {
   const { variants } = useAnimation()
 
   const phone = ContactMap.get('phone') ?? '(973) 486-4403'
-  const email =
-    ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
+  const email = ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
 
   return (
     <section className="bg-black nav-offset">
@@ -31,8 +30,8 @@ function ContactAnimatedContent() {
           <motion.p
             className="text-white mt-4 max-w-2xl mx-auto"
             variants={variants.item}>
-            Have a question or need more details about our services? Reach
-            out and we&apos;ll get back to you as soon as possible.
+            Have a question or need more details about our services? Reach out
+            and we&apos;ll get back to you as soon as possible.
           </motion.p>
         </motion.div>
 
@@ -104,8 +103,8 @@ function ContactAnimatedContent() {
                 <div>
                   <h3 className="text-white text-lg mb-1">Service Area</h3>
                   <p className="text-secondary-lite">
-                    Bergen County, Essex County &amp; surrounding areas in
-                    New Jersey
+                    Bergen County, Essex County &amp; surrounding areas in New
+                    Jersey
                   </p>
                 </div>
               </div>
@@ -129,12 +128,9 @@ function ContactAnimatedContent() {
             <motion.div
               className="bg-black border border-primary rounded-lg p-6"
               variants={variants.item}>
-              <h3 className="text-white text-lg mb-2">
-                Need a Quick Quote?
-              </h3>
+              <h3 className="text-white text-lg mb-2">Need a Quick Quote?</h3>
               <p className="text-secondary-lite text-sm mb-4">
-                Use our instant quote tool for a fast estimate on your
-                project.
+                Use our instant quote tool for a fast estimate on your project.
               </p>
               <CtaModal variant="default" label="Get an Instant Quote" />
             </motion.div>
@@ -148,9 +144,7 @@ function ContactAnimatedContent() {
           initial="hidden"
           whileInView="visible"
           viewport={viewport}>
-          <motion.h2
-            className="text-center mb-10"
-            variants={variants.item}>
+          <motion.h2 className="text-center mb-10" variants={variants.item}>
             What to Expect
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -179,9 +173,9 @@ function ContactAnimatedContent() {
               </div>
               <h3 className="text-white text-lg mb-2">Get Your Estimate</h3>
               <p className="text-secondary-lite text-sm">
-                We typically provide estimates the same day. During peak
-                season (pre-Memorial Day through early summer), we may be
-                booked 2&ndash;4 weeks out.
+                We typically provide estimates the same day. During peak season
+                (pre-Memorial Day through early summer), we may be booked
+                2&ndash;4 weeks out.
               </p>
             </motion.div>
             <motion.div
@@ -194,9 +188,9 @@ function ContactAnimatedContent() {
               </div>
               <h3 className="text-white text-lg mb-2">We Get to Work</h3>
               <p className="text-secondary-lite text-sm">
-                Once scheduled, we handle everything. We take our time to
-                make sure the job gets done right, safe, and damage-free.
-                Your satisfaction is our number one priority.
+                Once scheduled, we handle everything. We take our time to make
+                sure the job gets done right, safe, and damage-free. Your
+                satisfaction is our number one priority.
               </p>
             </motion.div>
           </div>

@@ -51,7 +51,8 @@ const equipment = [
   },
   {
     name: 'Surface Cleaner',
-    description: 'For large concrete and stone areas — even, streak-free results'
+    description:
+      'For large concrete and stone areas — even, streak-free results'
   },
   {
     name: 'Dedicated Soft Wash System',
@@ -112,7 +113,9 @@ function AboutAnimatedContent() {
             </p>
             <span className="text-primary">Kyle — JPW Owner</span>
           </motion.div>
-          <motion.p className="text-secondary-lite text-center" variants={variants.item}>
+          <motion.p
+            className="text-secondary-lite text-center"
+            variants={variants.item}>
             That one weekend changed everything. Driving around the
             neighborhood, Kyle noticed house after house covered in algae and
             mold — and realized he could not be the only one who would love
@@ -153,8 +156,7 @@ function AboutAnimatedContent() {
               },
               {
                 title: 'Ducati Technician',
-                detail:
-                  'Electrical diagnostics on high-performance motorcycles'
+                detail: 'Electrical diagnostics on high-performance motorcycles'
               },
               {
                 title: 'IBEW Electrician',

@@ -236,9 +236,7 @@ export default function FaqsPage() {
                   <h2 className="text-primary text-2xl mb-4">
                     {category.name}
                   </h2>
-                  <Accordion
-                    type="multiple"
-                    className="w-full space-y-3">
+                  <Accordion type="multiple" className="w-full space-y-3">
                     {category.faqs.map(faq => (
                       <AccordionItem
                         value={faq.question}

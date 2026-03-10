@@ -169,8 +169,8 @@ export default function AdditionalServicesPage() {
                 <div className="bg-gray border border-accent rounded-lg p-6">
                   <h3 className="text-white text-base mb-2">Debris Removal</h3>
                   <p className="text-secondary-lite text-sm">
-                    By hand or blower — we clear out leaves, dirt, and buildup so
-                    water flows freely again.
+                    By hand or blower — we clear out leaves, dirt, and buildup
+                    so water flows freely again.
                   </p>
                 </div>
                 <div className="bg-gray border border-accent rounded-lg p-6">
@@ -204,8 +204,8 @@ export default function AdditionalServicesPage() {
                 <span className="text-primary font-semibold">
                   at least twice a year
                 </span>
-                . If you have trees that shed directly into your gutters, you may
-                need it more often.
+                . If you have trees that shed directly into your gutters, you
+                may need it more often.
               </p>
             </div>
           </div>
@@ -221,8 +221,8 @@ export default function AdditionalServicesPage() {
               <p className="text-secondary-lite text-center mb-8">
                 We do not recommend gutter guards. Most people assume they
                 eliminate the need for maintenance entirely — but smaller debris
-                still gets through and accumulates over time, leading to the same
-                water intrusion problems they were meant to prevent.
+                still gets through and accumulates over time, leading to the
+                same water intrusion problems they were meant to prevent.
               </p>
               <div className="bg-gray border border-accent rounded-lg p-8">
                 <div className="flex flex-col items-center gap-6 text-center">
@@ -256,8 +256,8 @@ export default function AdditionalServicesPage() {
                   soft washing
                 </Link>{' '}
                 only for roof cleaning — never high pressure. We remove moss,
-                mold, and the black streaks caused by algae without damaging your
-                shingles.
+                mold, and the black streaks caused by algae without damaging
+                your shingles.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                 <div className="bg-gray border border-accent rounded-lg p-6">
@@ -276,8 +276,9 @@ export default function AdditionalServicesPage() {
                   </h3>
                   <p className="text-secondary-lite text-sm">
                     Roof cleaning can extend the life of your roof by removing
-                    organic growth before it causes permanent damage. We can only
-                    clean and prevent — not repair what has already been done.
+                    organic growth before it causes permanent damage. We can
+                    only clean and prevent — not repair what has already been
+                    done.
                   </p>
                 </div>
                 <div className="bg-gray border border-accent rounded-lg p-6">
@@ -285,8 +286,8 @@ export default function AdditionalServicesPage() {
                     Insurance Requirements
                   </h3>
                   <p className="text-secondary-lite text-sm">
-                    Many insurance companies require roofs to be free of moss. If
-                    a homeowner does not comply, they can be dropped from
+                    Many insurance companies require roofs to be free of moss.
+                    If a homeowner does not comply, they can be dropped from
                     coverage entirely. Our roof wash satisfies those
                     requirements.
                   </p>
@@ -304,8 +305,8 @@ export default function AdditionalServicesPage() {
                     4 to 6 months
                   </span>{' '}
                   depending on weather. The organics change color when they have
-                  been killed, then dry out and fall off naturally with help from
-                  rain and wind.
+                  been killed, then dry out and fall off naturally with help
+                  from rain and wind.
                 </p>
                 <p className="text-white text-sm font-semibold">
                   If we do not get the results we are looking for, we come back

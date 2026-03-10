@@ -165,8 +165,8 @@ export default function PressureWashingServicePage() {
               <p className="text-white text-lg mb-4">
                 Pressure washing is the right choice for hard surfaces —
                 concrete, stone, and pavers. Anything that does not require a
-                delicate touch. We also use controlled, lighter pressure for wood
-                restoration on decks and fences.
+                delicate touch. We also use controlled, lighter pressure for
+                wood restoration on decks and fences.
               </p>
               <p className="text-secondary-lite">
                 We always start at a lower pressure and increase only if needed.
@@ -259,8 +259,8 @@ export default function PressureWashingServicePage() {
                 <span className="text-primary font-semibold">
                   April through September
                 </span>
-                . Warmer months allow cleaning solutions to work most effectively
-                and surfaces to dry properly after service.
+                . Warmer months allow cleaning solutions to work most
+                effectively and surfaces to dry properly after service.
               </p>
             </div>
           </div>
