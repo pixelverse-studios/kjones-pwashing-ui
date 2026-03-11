@@ -6,6 +6,7 @@ import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
+import CitiesWeServe from '@/components/services/CitiesWeServe'
 import softWashingServices from '@/lib/services/softWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
@@ -268,6 +269,9 @@ export default function SoftWashingServicePage() {
           highlights={softWashingServices.highlights}
           altCard
         />
+
+        <CitiesWeServe service="soft-washing" />
+
         <ServiceCta
           header="Ready to Safely Clean Your Home Exterior?"
           description=""

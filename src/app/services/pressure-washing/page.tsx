@@ -7,6 +7,7 @@ import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceProcess from '@/components/services/ServiceProcess'
 import ServiceCta from '@/components/services/ServiceCta'
+import CitiesWeServe from '@/components/services/CitiesWeServe'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
@@ -271,6 +272,9 @@ export default function PressureWashingServicePage() {
           header="How Our Pressure Washing Process Works"
           steps={pressureWashingServices.steps}
         />
+
+        <CitiesWeServe service="pressure-washing" />
+
         <ServiceCta
           header="Ready to Restore Your Property?"
           description="We are ready to make your home or business look like new."
