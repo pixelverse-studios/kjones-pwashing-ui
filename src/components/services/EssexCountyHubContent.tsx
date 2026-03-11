@@ -75,7 +75,7 @@ const cities = [
   { name: 'Verona' },
   { name: 'Cedar Grove' },
   { name: 'Glen Ridge' },
-  { name: 'Bloomfield' },
+  { name: 'Bloomfield', href: '/services/pressure-washing/bloomfield' },
   { name: 'Nutley' },
   { name: 'Belleville' },
   { name: 'Roseland' },
