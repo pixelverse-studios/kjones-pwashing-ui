@@ -203,7 +203,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroDescription:
         'From Sicomac Lake to Wyckoff Township parks, larger lots gather pollen, sap, and tire marks fast. Our pressure washing crew keeps Belgian block driveways, cedar fences, and pool decks photo-ready all season.',
       heroCta: 'Schedule Wyckoff Pressure Washing',
-      metaTitle: 'Wyckoff Pressure Washing | Jones Pressure Washing',
+      metaTitle: 'Wyckoff Pressure Washing Services | Jones Pressure Washing',
       metaDescription:
         'Premium pressure washing for Wyckoff, NJ estates and cul-de-sacs. Driveway, patio, fence, and commercial concrete cleaning with pro-grade equipment.',
       keywords: [
@@ -683,7 +683,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroDescription:
         'Montclair’s stucco Tudors, painted Victorians, and boutique storefronts need gentle rinses. Our soft washing process removes algae and soot without harming ornate trim or mature landscaping.',
       heroCta: 'Book Montclair Soft Washing',
-      metaTitle: 'Montclair Soft Washing | Jones Pressure Washing',
+      metaTitle: 'Montclair Soft Washing Services | Jones Pressure Washing',
       metaDescription:
         'Low-pressure soft washing for Montclair, NJ homes and storefronts. Protect stucco, cedar, and painted exteriors with biodegradable detergents.',
       keywords: [
@@ -802,7 +802,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroDescription:
         'Livingston cul-de-sacs, gated communities, and town centers stay bright with our low-pressure soft washing. We erase roof algae, siding streaks, and patio mildew without risking shingles or paint.',
       heroCta: 'Schedule Livingston Soft Washing',
-      metaTitle: 'Livingston Soft Washing | Jones Pressure Washing',
+      metaTitle: 'Livingston Soft Washing Services | Jones Pressure Washing',
       metaDescription:
         'Trusted soft washing for Livingston, NJ roofs, siding, pergolas, and storefronts. Gentle detergents plus precise rinses keep luxury finishes spotless.',
       keywords: [
@@ -920,7 +920,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroImage: '/Siding.jpg',
       heroDescription: `Ridgewood's painted Victorians, cedar-shingled colonials, and mature landscaping deserve gentle care. Our soft washing process removes algae, mildew, and soot without disturbing delicate trim or garden beds.`,
       heroCta: 'Book Ridgewood Soft Washing',
-      metaTitle: 'Ridgewood Soft Washing | Jones Pressure Washing',
+      metaTitle: 'Ridgewood Soft Washing Services | Jones Pressure Washing',
       metaDescription:
         'Low-pressure soft washing for Ridgewood, NJ homes and storefronts. Safe cleaning for cedar, painted wood, stucco, and roofs with biodegradable solutions.',
       keywords: [
@@ -1038,7 +1038,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroImage: '/Siding.jpg',
       heroDescription: `Fort Lee's mix of high-rise facades, townhome siding, and historic homes near the Palisades need low-pressure cleaning that removes grime without damaging surfaces. Our soft wash process handles it all.`,
       heroCta: 'Book Fort Lee Soft Washing',
-      metaTitle: 'Fort Lee Soft Washing | Jones Pressure Washing',
+      metaTitle: 'Fort Lee Soft Washing Services | Jones Pressure Washing',
       metaDescription:
         'Soft washing for Fort Lee, NJ homes and buildings. Low-pressure cleaning for siding, roofs, stucco, and building facades near the GWB corridor.',
       keywords: [
@@ -1275,9 +1275,9 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroImage: '/Siding.jpg',
       heroDescription: `Bloomfield's mature tree canopy keeps homes shaded and damp — perfect conditions for algae, mold, and moss on siding and roofs. Our soft wash process cleans gently and kills growth at the root for lasting results.`,
       heroCta: 'Book Bloomfield Soft Washing',
-      metaTitle: 'Bloomfield Soft Washing | Jones Pressure Washing',
+      metaTitle: 'Bloomfield Soft Washing Services | Jones Pressure Washing',
       metaDescription:
-        'Soft washing for Bloomfield, NJ homes. Safe, low-pressure cleaning for siding, roofs, and fences near Brookdale Park and Watsessing Park.',
+        'Soft washing for Bloomfield, NJ homes and businesses. Safe, low-pressure cleaning for siding, roofs, and fences near Brookdale Park and Watsessing Park.',
       keywords: [
         'Bloomfield soft washing',
         'soft washing Bloomfield NJ',
