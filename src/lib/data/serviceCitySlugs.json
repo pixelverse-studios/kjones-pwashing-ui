@@ -1,4 +1,4 @@
 {
-  "pressure-washing": ["ridgewood", "wyckoff"],
-  "soft-washing": ["montclair", "livingston"]
+  "pressure-washing": ["ridgewood", "wyckoff", "fort-lee", "cliffside-park", "bloomfield"],
+  "soft-washing": ["montclair", "livingston", "ridgewood", "fort-lee", "cliffside-park", "bloomfield"]
 }
