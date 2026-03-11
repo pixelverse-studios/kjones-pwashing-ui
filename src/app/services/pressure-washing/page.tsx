@@ -7,6 +7,7 @@ import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceProcess from '@/components/services/ServiceProcess'
 import ServiceCta from '@/components/services/ServiceCta'
+import CitiesWeServe from '@/components/services/CitiesWeServe'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
@@ -272,37 +273,7 @@ export default function PressureWashingServicePage() {
           steps={pressureWashingServices.steps}
         />
 
-        {/* Cities We Serve */}
-        <section className="bg-black">
-          <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-primary mb-6">Cities We Serve</h2>
-              <p className="text-secondary-lite mb-8">
-                We provide professional pressure washing services across Bergen
-                and Essex County. Select your city to learn more about our local
-                service.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-                {[
-                  { name: 'Ridgewood', slug: 'ridgewood' },
-                  { name: 'Wyckoff', slug: 'wyckoff' },
-                  { name: 'Fort Lee', slug: 'fort-lee' },
-                  { name: 'Cliffside Park', slug: 'cliffside-park' },
-                  { name: 'Bloomfield', slug: 'bloomfield' }
-                ].map(city => (
-                  <Link
-                    key={city.slug}
-                    href={`/services/pressure-washing/${city.slug}`}
-                    className="border border-white/10 bg-white/5 p-4 rounded-lg text-center transition-colors hover:border-primary hover:bg-primary/10">
-                    <span className="text-white text-sm font-medium">
-                      {city.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <CitiesWeServe service="pressure-washing" />
 
         <ServiceCta
           header="Ready to Restore Your Property?"

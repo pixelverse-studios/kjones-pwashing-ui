@@ -6,6 +6,7 @@ import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
+import CitiesWeServe from '@/components/services/CitiesWeServe'
 import softWashingServices from '@/lib/services/softWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
@@ -269,38 +270,7 @@ export default function SoftWashingServicePage() {
           altCard
         />
 
-        {/* Cities We Serve */}
-        <section className="bg-black">
-          <div className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-primary mb-6">Cities We Serve</h2>
-              <p className="text-secondary-lite mb-8">
-                We provide professional soft washing services across Bergen and
-                Essex County. Select your city to learn more about our local
-                service.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {[
-                  { name: 'Montclair', slug: 'montclair' },
-                  { name: 'Livingston', slug: 'livingston' },
-                  { name: 'Ridgewood', slug: 'ridgewood' },
-                  { name: 'Fort Lee', slug: 'fort-lee' },
-                  { name: 'Cliffside Park', slug: 'cliffside-park' },
-                  { name: 'Bloomfield', slug: 'bloomfield' }
-                ].map(city => (
-                  <Link
-                    key={city.slug}
-                    href={`/services/soft-washing/${city.slug}`}
-                    className="border border-white/10 bg-white/5 p-4 rounded-lg text-center transition-colors hover:border-primary hover:bg-primary/10">
-                    <span className="text-white text-sm font-medium">
-                      {city.name}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+        <CitiesWeServe service="soft-washing" />
 
         <ServiceCta
           header="Ready to Safely Clean Your Home Exterior?"
