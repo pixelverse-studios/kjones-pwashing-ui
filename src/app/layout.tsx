@@ -19,17 +19,15 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title:
-    'Jones Pressure Washing & Holiday Lighting | Exterior Cleaning in New Jersey',
+  title: 'Jones Pressure Washing | Bergen & Essex County, NJ',
   description:
-    'Jones Pressure Washing provides pressure washing, soft washing, and custom holiday lighting design across Bergen and Essex County, NJ. Licensed, insured, and locally owned.',
+    'Jones Pressure Washing provides professional pressure washing and soft washing across Bergen and Essex County, NJ. Fully insured and locally owned.',
   keywords: [
     'pressure washing',
     'soft washing',
-    'holiday lighting installation',
-    'Christmas light installation NJ',
-    'Bergen County holiday lighting',
-    'Essex County holiday lighting'
+    'power washing NJ',
+    'Bergen County pressure washing',
+    'Essex County pressure washing'
   ],
   icons: {
     icon: [
@@ -40,13 +38,12 @@ export const metadata: Metadata = {
     apple: [{ url: '/logo-black.jpg', sizes: '180x180' }]
   },
   metadataBase: new URL(
-    process.env.SITE_URL || 'https://www.jonespressurewashing.com'
+    process.env.SITE_URL || 'https://www.jonespressurewashingnj.com'
   ),
   openGraph: {
-    title:
-      'Jones Pressure Washing & Holiday Lighting | Professional Exterior Services in NJ',
+    title: 'Jones Pressure Washing | Bergen & Essex County, NJ',
     description:
-      'Expert pressure washing, soft washing, and holiday lighting installation for residential and commercial properties in Bergen and Essex County, New Jersey.',
+      'Professional pressure washing and soft washing for residential and commercial properties in Bergen and Essex County, New Jersey.',
     type: 'website',
     url: '/', // will be resolved against metadataBase
     images: ['/logo-black.jpg'],
@@ -54,10 +51,23 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jones Pressure Washing & Holiday Lighting | NJ Exterior Services',
+    title: 'Jones Pressure Washing | Bergen & Essex County, NJ',
     description:
-      'Pressure washing, soft washing, and holiday lighting installation for homes and businesses in Bergen and Essex County, NJ.',
+      'Professional pressure washing and soft washing for homes and businesses in Bergen and Essex County, NJ.',
     images: ['/logo-black.jpg']
+  }
+}
+
+const baseUrl = 'https://www.jonespressurewashingnj.com'
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${baseUrl}/#website`,
+  url: baseUrl,
+  name: 'Jones Pressure Washing',
+  publisher: {
+    '@id': `${baseUrl}/#localbusiness`
   }
 }
 
@@ -69,6 +79,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <Script
+          id="jpw-website-schema"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <Script
           id="sitebehavior-init"
           strategy="afterInteractive"

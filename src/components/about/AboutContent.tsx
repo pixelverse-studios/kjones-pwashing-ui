@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
   FaQuoteLeft,
@@ -255,6 +256,56 @@ function AboutAnimatedContent() {
               Icon={FaHandshake}
               variants={variants.item}
             />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Explore Our Services */}
+      <section className="max-w-custom mx-auto px-6 py-8 md:py-12 lg:py-16">
+        <motion.div
+          className="max-w-3xl mx-auto text-center"
+          variants={variants.container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewport}>
+          <motion.h2 className="text-primary mb-6" variants={variants.item}>
+            Explore Our Services
+          </motion.h2>
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+            variants={variants.item}>
+            <Link
+              href="/services/pressure-washing"
+              className="border border-white/10 bg-white/5 p-5 rounded-lg transition-colors hover:border-primary hover:bg-primary/10">
+              <h3 className="text-white text-base mb-2">Pressure Washing</h3>
+              <p className="text-secondary-lite text-sm">
+                Driveways, patios, concrete, and pavers
+              </p>
+            </Link>
+            <Link
+              href="/services/soft-washing"
+              className="border border-white/10 bg-white/5 p-5 rounded-lg transition-colors hover:border-primary hover:bg-primary/10">
+              <h3 className="text-white text-base mb-2">Soft Washing</h3>
+              <p className="text-secondary-lite text-sm">
+                Siding, roofs, and delicate surfaces
+              </p>
+            </Link>
+            <Link
+              href="/services/additional"
+              className="border border-white/10 bg-white/5 p-5 rounded-lg transition-colors hover:border-primary hover:bg-primary/10">
+              <h3 className="text-white text-base mb-2">Gutter &amp; Roof</h3>
+              <p className="text-secondary-lite text-sm">
+                Cleaning, maintenance, and seasonal care
+              </p>
+            </Link>
+            <Link
+              href="/services/holiday-lighting"
+              className="border border-white/10 bg-white/5 p-5 rounded-lg transition-colors hover:border-primary hover:bg-primary/10">
+              <h3 className="text-white text-base mb-2">Holiday Lighting</h3>
+              <p className="text-secondary-lite text-sm">
+                Custom design, installation, and takedown
+              </p>
+            </Link>
           </motion.div>
         </motion.div>
       </section>

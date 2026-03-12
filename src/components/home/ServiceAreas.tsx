@@ -68,15 +68,17 @@ const siteUrl = (
 const countyLinks = [
   {
     county: 'Bergen County',
-    description: 'Holiday lighting + exterior cleaning for every neighborhood',
-    href: '/services/holiday-lighting/bergen-county',
-    name: 'Bergen County Holiday Lighting'
+    description:
+      'Pressure washing, soft washing, gutter cleaning, and roof washing for every neighborhood',
+    href: '/services/bergen-county',
+    name: 'Bergen County Exterior Cleaning'
   },
   {
     county: 'Essex County',
-    description: 'Holiday lighting + exterior cleaning for every township',
-    href: '/services/holiday-lighting/essex-county',
-    name: 'Essex County Holiday Lighting'
+    description:
+      'Pressure washing, soft washing, gutter cleaning, and roof washing for every township',
+    href: '/services/essex-county',
+    name: 'Essex County Exterior Cleaning'
   }
 ]
 

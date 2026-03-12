@@ -6,10 +6,11 @@ import ServiceHero from '@/components/services/ServiceHero'
 import ServiceExamples from '@/components/services/ServiceExamples'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
+import CitiesWeServe from '@/components/services/CitiesWeServe'
 import softWashingServices from '@/lib/services/softWashingServices'
+import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle =
-  'Soft Washing in Bergen & Essex County, NJ | Jones Pressure Washing'
+const pageTitle = 'Professional Soft Washing | Bergen & Essex County, NJ'
 const pageDescription =
   'Professional soft washing for siding, roofs, and delicate surfaces in Bergen & Essex County, NJ. Low pressure, specialized solutions, lasting results.'
 const serviceImagePath = '/Jones_Pressure_Washing_Roof_Cleaning.png'
@@ -69,9 +70,10 @@ const schema = {
     telephone: '(973) 486-4403',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Bergen County',
-      addressRegion: 'NJ',
-      addressCountry: 'US'
+      addressLocality: BusinessInfo.addressLocality,
+      addressRegion: BusinessInfo.addressRegion,
+      postalCode: BusinessInfo.postalCode,
+      addressCountry: BusinessInfo.addressCountry
     },
     image: `${baseUrl}/logo-black.jpg`,
     priceRange: '$$'
@@ -267,6 +269,9 @@ export default function SoftWashingServicePage() {
           highlights={softWashingServices.highlights}
           altCard
         />
+
+        <CitiesWeServe service="soft-washing" />
+
         <ServiceCta
           header="Ready to Safely Clean Your Home Exterior?"
           description=""

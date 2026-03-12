@@ -4,7 +4,7 @@ import Script from 'next/script'
 import ContactContent from '@/components/contact/ContactContent'
 import { BusinessInfo, ContactMap } from '@/lib/constants'
 
-const pageTitle = 'Contact Jones Pressure Washing | Bergen & Essex County, NJ'
+const pageTitle = 'Contact Jones Pressure Washing | Bergen & Essex, NJ'
 const pageDescription =
   'Get in touch with Jones Pressure Washing for questions, service inquiries, or custom requests. Serving homes and businesses across Bergen and Essex County, NJ.'
 
