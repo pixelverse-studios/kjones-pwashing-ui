@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/logo-black.jpg', sizes: '180x180' }]
   },
   metadataBase: new URL(
-    process.env.SITE_URL || 'https://www.jonespressurewashing.com'
+    process.env.SITE_URL || 'https://www.jonespressurewashingnj.com'
   ),
   openGraph: {
     title: 'Jones Pressure Washing | Bergen & Essex County, NJ',

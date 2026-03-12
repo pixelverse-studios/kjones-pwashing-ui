@@ -11,7 +11,7 @@ import CitiesWeServe from '@/components/services/CitiesWeServe'
 import pressureWashingServices from '@/lib/services/pressureWashingServices'
 import { BusinessInfo } from '@/lib/constants'
 
-const pageTitle = 'Pressure Washing Services | Bergen & Essex County, NJ'
+const pageTitle = 'Pressure Washing Services | Bergen & Essex, NJ'
 const pageDescription =
   'Professional pressure washing for driveways, patios, and concrete in Bergen & Essex County, NJ. We start low-pressure and work up — safe, thorough results.'
 

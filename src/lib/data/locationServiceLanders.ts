@@ -683,7 +683,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroDescription:
         'Montclair’s stucco Tudors, painted Victorians, and boutique storefronts need gentle rinses. Our soft washing process removes algae and soot without harming ornate trim or mature landscaping.',
       heroCta: 'Book Montclair Soft Washing',
-      metaTitle: 'Montclair Soft Washing Services | Jones Pressure Washing',
+      metaTitle: 'Montclair Soft Washing | Jones Pressure Washing',
       metaDescription:
         'Low-pressure soft washing for Montclair, NJ homes and storefronts. Protect stucco, cedar, and painted exteriors with biodegradable detergents.',
       keywords: [
@@ -802,7 +802,7 @@ export const locationServiceLanders: LocationServiceConfig = {
       heroDescription:
         'Livingston cul-de-sacs, gated communities, and town centers stay bright with our low-pressure soft washing. We erase roof algae, siding streaks, and patio mildew without risking shingles or paint.',
       heroCta: 'Schedule Livingston Soft Washing',
-      metaTitle: 'Livingston Soft Washing Services | Jones Pressure Washing',
+      metaTitle: 'Livingston Soft Washing | Jones Pressure Washing',
       metaDescription:
         'Trusted soft washing for Livingston, NJ roofs, siding, pergolas, and storefronts. Gentle detergents plus precise rinses keep luxury finishes spotless.',
       keywords: [

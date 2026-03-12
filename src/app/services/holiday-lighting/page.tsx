@@ -22,7 +22,7 @@ import {
   ServiceExampleType
 } from '@/lib/types/services'
 
-const pageTitle = 'Holiday Lighting Installation | Bergen & Essex County, NJ'
+const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
 const pageDescription =
   'Custom holiday lighting design, installation, maintenance, and takedown for homes and small businesses throughout Northern New Jersey.'
 
@@ -301,8 +301,8 @@ export default function HolidayLightingPage() {
           img="/Homepage.jpg"
           h1={
             <>
-              Custom <span className="text-primary">Holiday Lighting</span>{' '}
-              Designed for Your Home
+              Custom <span className="text-primary">Holiday Lighting</span> for
+              Your New Jersey Home
             </>
           }
           description="Let Jones Pressure Washing design, install, maintain, and remove a one-of-a-kind lighting display so you can enjoy the holidays without worrying about ladders or storage."

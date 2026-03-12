@@ -147,7 +147,13 @@ export default function AdditionalServicesPage() {
       <main>
         <ServiceHero
           img="/Gutter.jpg"
-          h1={<span className="text-primary">Additional Services</span>}
+          h1={
+            <>
+              Professional{' '}
+              <span className="text-primary">Gutter &amp; Roof Cleaning</span>{' '}
+              in New Jersey
+            </>
+          }
           description="Beyond pressure and soft washing — gutter cleaning, roof washing, and seasonal lighting for homes in Bergen and Essex County."
           dimHeroContent
           height="h-[75vh]"

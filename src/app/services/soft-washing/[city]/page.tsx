@@ -177,7 +177,7 @@ export default function SoftWashingCityPage({ params }: PageProps) {
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <LocationLanderContent data={cityContent} />
+      <LocationLanderContent data={cityContent} serviceKey="soft-washing" />
     </>
   )
 }
