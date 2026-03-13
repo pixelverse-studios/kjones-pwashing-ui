@@ -16,8 +16,8 @@ const BusinessInfo = {
     longitude: -74.1724
   },
   sameAs: [
-    'https://www.instagram.com/jonespressurewashingnj/',
-    'https://www.facebook.com/JonesPressureWashingNJ'
+    'https://www.instagram.com/jpw_nj?igsh=MXFsamdvYXd2NmF2eg==',
+    'https://www.facebook.com/profile.php?id=61582828059432'
   ]
 }
 
