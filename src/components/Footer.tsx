@@ -189,7 +189,7 @@ const Footer = () => {
                   />
                 </a>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row md:justify-end gap-3">
                 <CtaModal variant="default" label="Get an Instant Quote" />
                 <Link
                   href="/contact"
