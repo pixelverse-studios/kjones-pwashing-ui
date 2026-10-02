@@ -13,6 +13,11 @@ import {
   viewport
 } from '@/lib/AnimationContext'
 
+const generalFormUrl =
+  'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b'
+const holidayFormUrl =
+  'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65'
+
 function ContactAnimatedContent({
   isHolidayLighting
 }: {
@@ -23,6 +28,7 @@ function ContactAnimatedContent({
 
   const phone = PHONE_DISPLAY
   const email = ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
+  const formUrl = isHolidayLighting ? holidayFormUrl : generalFormUrl
 
   return (
     <section className="bg-black nav-offset">
@@ -61,23 +67,22 @@ function ContactAnimatedContent({
               </h2>
               {isHolidayLighting ? (
                 <p className="mb-4 text-sm text-white">
-                  In the project description, mention Christmas or holiday
-                  lighting, your town, the display you have in mind, and when
-                  you hope to have it installed. If you would prefer a phone
-                  call, ask us to call you there. This request form is shared
-                  with our other services, so naming holiday lighting helps us
-                  route your inquiry.
+                  Tell us about your home, the display you have in mind, and
+                  your preferred timing. You can request a phone call on the
+                  form.
                 </p>
               ) : null}
               {!formLoaded ? (
                 <p role="status" className="mb-3 text-sm text-white">
-                  Loading contact form…
+                  Loading {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
+                  form…
                 </p>
               ) : null}
               <iframe
+                key={formUrl}
                 id="lavo-contact-iframe"
-                title="Jones Pressure Washing contact request form"
-                src="https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b?embed=true"
+                title={`Jones Pressure Washing ${isHolidayLighting ? 'holiday lighting' : 'contact'} request form`}
+                src={`${formUrl}?embed=true`}
                 width="100%"
                 height="800"
                 onLoad={() => setFormLoaded(true)}
@@ -86,11 +91,12 @@ function ContactAnimatedContent({
               <p className="mt-3 text-sm text-white">
                 Form not loading?{' '}
                 <a
-                  href="https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b?embed=true"
+                  href={formUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  Open the contact form in a new tab
+                  Open the {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
+                  form in a new tab
                 </a>{' '}
                 or call us instead.
               </p>
@@ -257,7 +263,10 @@ export default function ContactContent({
 }) {
   return (
     <AnimationProvider>
-      <ContactAnimatedContent isHolidayLighting={isHolidayLighting} />
+      <ContactAnimatedContent
+        key={isHolidayLighting ? 'holiday' : 'general'}
+        isHolidayLighting={isHolidayLighting}
+      />
     </AnimationProvider>
   )
 }
