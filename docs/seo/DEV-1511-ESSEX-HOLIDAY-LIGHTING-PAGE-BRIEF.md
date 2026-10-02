@@ -3,15 +3,17 @@
 **Linear ticket:** [DEV-1511](https://linear.app/pixelverse-studios/issue/DEV-1511/draft-provisional-essex-county-holiday-lighting-page-brief)  
 **Existing page:** `https://www.jonespressurewashingnj.com/services/holiday-lighting/essex-county`  
 **Research source:** [Holiday-Lighting Keyword Research](./HOLIDAY-LIGHTING-KEYWORD-RESEARCH.md)  
-**Brief date:** September 25, 2026; revised September 28, 2026  
+**Brief date:** September 25, 2026; revised October 2, 2026
 **Status:** Final implementation brief based on the September 27 meeting; unknown claims are excluded from the first release  
-**Implementation status:** Website changes are in review under DEV-1357; production release and post-release validation are pending
+**Implementation status:** Website changes are in review under DEV-1357; Kyle's factual sign-off is tracked in DEV-1565, and the separate Lavo holiday form remains open in DEV-1354
 
 ### Approval record
 
 **Approved by Phil on September 26, 2026:** preserve the existing Essex County URL; define the page around residential removable seasonal Christmas-light installation; lead with `Christmas Light Installation` and use `holiday lighting` secondarily; focus on Essex County; and exclude commercial, permanent, landscape, electrical, security, and event-lighting intent from this page.
 
 **Kyle meeting decisions recorded September 27, 2026:** homeowners only; Jones Pressure Washing supplies installation materials; installation, maintenance, removal, and storage are included; Essex County is served; Bergen County is served through Paramus and locations south of Paramus; public holiday-lighting prices are omitted; the primary page action is a holiday-specific contact path because the Lavo instant-quote flow does not support holiday lighting. Kyle owns ongoing availability and pricing facts. Exact products, ownership terms, maintenance limits, safety methods, response promises, and calendar dates remain unverified and are excluded from first-release claims. The shorthand business-name answer in the meeting notes does not establish the exact spaced public and Google Business Profile name.
+
+**Phil's October 2, 2026 contact-path decision:** create a new Lavo holiday-lighting form separate from the general contact form. The contextual `/contact?service=holiday-lighting` path in PR #33 is interim until DEV-1354 creates, connects, and validates the dedicated form. DEV-1565 is the living checklist for Kyle's final factual sign-off and any new claim questions.
 
 **Page structure approved by Phil on September 26, 2026, revised for the meeting:** hero; confirmed service inclusions; customer process limited to verified steps; seasonal-versus-permanent clarification; concise Essex County coverage; authentic proof only when verified; truthful booking guidance without a promised date or capacity; buyer-focused FAQs; and a final contact section. Exact public copy still requires a factual review before publication.
 
@@ -21,7 +23,7 @@
 
 **Measurement-platform direction approved by Phil on September 26, 2026:** use Google Search Console and GA4 as the active SEO measurement foundation. Do not use SiteBehaviour for ongoing analysis or decision-making. Retain its supplied screenshot only as historical context. A future reporting layer may visualize GA4 and GSC data without replacing them as sources of record.
 
-**Technical page requirements approved by Phil on September 26, 2026, revised for the meeting:** preserve the URL, canonical, and indexability; keep verified `Service` and breadcrumb markup while removing price and unsupported action claims; require visible/schema consistency; maintain logical headings, contrast, alt text, keyboard access, focus visibility, and reduced-motion support; validate the chosen Lavo form or contact fallback, mobile layout, CTA behavior, phone links, privacy-safe GA4 intent events, rendered metadata, structured data, and conversion-path behavior. Contact-flow implementation and attribution are scoped in DEV-1354 after DEV-1353 establishes the supported Lavo path.
+**Technical page requirements approved by Phil on September 26, 2026, revised for the meeting:** preserve the URL, canonical, and indexability; keep verified `Service` and breadcrumb markup while removing price and unsupported action claims; require visible/schema consistency; maintain logical headings, contrast, alt text, keyboard access, focus visibility, and reduced-motion support; validate the dedicated Lavo form and interim contact fallback, mobile layout, CTA behavior, phone links, privacy-safe GA4 intent events, rendered metadata, structured data, and conversion-path behavior. Contact-flow implementation and attribution are scoped in DEV-1354 after DEV-1353's audit.
 
 ## 1. Content decision
 
@@ -59,7 +61,7 @@ A qualified web lead provides accurate contact information, the property locatio
 
 ### Conversion hierarchy
 
-1. **Primary:** open the approved holiday-specific contact form, or the approved holiday-specific contact-page fallback if Lavo cannot support a suitable custom form. The existing instant-quote flow must not be used for holiday lighting.
+1. **Primary:** open the dedicated holiday-lighting Lavo form once created and validated. Until then, PR #33 uses the holiday-contextual contact-page fallback. The existing instant-quote flow must not be used for holiday lighting.
 2. **Secondary:** call `(973) 486-4403` for customers who prefer phone contact or cannot use the form.
 3. **Form option:** provide a request-for-phone-call choice if the approved form supports it. Do not promise this before the form path is verified.
 
@@ -97,7 +99,7 @@ Do not shorten the company to `Jones` in public copy. Do not use `JonesPressureW
 | Meta description | `Request seasonal Christmas light installation for your Essex County home. Jones Pressure Washing supplies materials and includes installation, maintenance, removal, and storage.` |
 | H1 | `Christmas Light Installation in Essex County, NJ` |
 | Breadcrumb label | `Essex County Christmas Light Installation` or concise `Essex County` |
-| Primary CTA | Holiday-specific contact request; final label and destination follow DEV-1353's Lavo investigation |
+| Primary CTA | Holiday-specific contact request; DEV-1354 replaces the interim contextual contact destination with the dedicated Lavo form after validation |
 | Secondary CTA | `Call (973) 486-4403` |
 | Preferred site/business name | `Jones Pressure Washing` based on current brand surfaces; exact GBP/business formatting still requires verification |
 
@@ -345,7 +347,7 @@ Measure the funnel in separate stages rather than treating traffic or clicks as 
 
 ### Tracking dependency
 
-The existing Lavo instant-quote tool does not support holiday lighting. DEV-1353 must determine whether Lavo supports a dedicated holiday form with property details, timing, and an optional phone-call request, then define a holiday-specific contact-page fallback if needed. GA4 can measure a site-controlled CTA click but cannot automatically prove completion inside a third-party iframe. Check Lavo analytics, exports, confirmation redirects, `postMessage` events, webhooks, Zapier/API access, or GA4-compatible events. Tracking or CRM configuration must be separately approved and validated.
+The existing Lavo instant-quote tool does not support holiday lighting. Phil confirmed a separate holiday form is required; DEV-1354 must verify account capabilities, create the form, and test property details, timing, optional phone-call request, receipt, consent, and embedding before replacing the interim contact-page path. GA4 can measure a site-controlled CTA click but cannot automatically prove completion inside a third-party iframe. Check Lavo analytics, exports, confirmation redirects, `postMessage` events, webhooks, Zapier/API access, or GA4-compatible events. Tracking or CRM configuration must be validated.
 
 ### Monitoring window and decision use
 
@@ -377,8 +379,8 @@ The [September 27 Kyle meeting record](./KYLE-MEETING-PUNCHLIST-2026-09-27.md) e
 
 ## 13. Implementation handoff
 
-1. DEV-1353 records the approved holiday-specific Lavo form or contact-page fallback, required fields, optional phone-call request, and attribution limits.
-2. DEV-1354 implements the contact path, FAQs, and privacy-safe intent tracking.
+1. DEV-1353 records the interim contact-page fallback, form requirements, and attribution limits; Phil's October 2 decision makes a separate Lavo holiday form the target.
+2. DEV-1354 creates and validates the dedicated form, connects the holiday contact path, and handles privacy-safe intent tracking. DEV-1565 records Kyle's final factual sign-off and form-field decisions.
 3. DEV-1357 rewrites the Essex page from this brief; DEV-1358 removes unsupported stories and adds verified proof only when available.
 4. DEV-1558 corrects the Bergen County page to the confirmed Paramus-and-south service boundary before it is promoted from the hub or Essex page.
 5. Preserve the Essex URL, canonical, and indexability. Verify rendered metadata, schema, mobile and keyboard behavior, form and phone paths, and any GA4 events after release.
@@ -392,6 +394,6 @@ The [September 27 Kyle meeting record](./KYLE-MEETING-PUNCHLIST-2026-09-27.md) e
 - [x] Public holiday-lighting prices and price schema are excluded.
 - [x] Unsupported projects, non-homeowner positioning, products, credentials, timing, and guarantees are excluded from first-release requirements.
 - [x] Metadata, outline, structured data, accessibility, mobile, linking, and validation requirements are implementation-ready.
-- [x] Lavo form selection and completed-lead attribution remain explicit DEV-1353 dependencies rather than assumed capabilities.
+- [x] The dedicated Lavo form is a DEV-1354 requirement; completed-lead attribution remains unproven until a supported Lavo signal is validated.
 - [x] Permissioned project assets are an enhancement, not a blocker for a truthful first release.
 - [x] Kyle's final factual copy review is distinguished from the completed planning brief.
