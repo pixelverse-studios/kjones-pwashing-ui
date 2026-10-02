@@ -6,6 +6,12 @@
 - Never merge a PR without explicit user approval.
 - Never push directly to `main` or force-push to `main`. Changes reach `main` through an approved PR merge; a push to `main` triggers production deployment on Netlify immediately.
 
+## Collaboration and Tool Use
+
+- If a request is too vague to determine the intended change, ask a focused clarifying question before starting work based on an assumption.
+- When something goes wrong, explain what went wrong and what changed to fix it. If it remains unresolved, explain the cause and propose a concrete fix. Skip apologies that add no useful information.
+- Plan tool calls before using them. Batch independent searches and reads where practical, and avoid repeated searches or unnecessary file reads. Keep dependent steps in order.
+
 ## Development Server
 
 - Do not start a dev server by default. The user usually already has one running on port `3000`.
@@ -218,7 +224,6 @@ Apply one Type label:
 ### Analytics
 
 - Provider: `SiteBehaviour`
-- Secret: `368a4814-73ce-42ec-82ee-7d929fde4209`
 - Location: [src/app/layout.tsx](/Users/phil/PVS-local/Projects/clients/kjones-pwashing-ui/src/app/layout.tsx)
 
 ### Contact Info
