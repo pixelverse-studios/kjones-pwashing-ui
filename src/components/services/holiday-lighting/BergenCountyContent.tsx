@@ -196,33 +196,29 @@ const packages = [
 
 const faqs = [
   {
-    question:
-      'How far in advance should Bergen County homeowners book holiday lighting?',
+    question: 'Which Bergen County areas do you serve?',
     answer:
-      "Prime installation dates fill by early fall. We recommend securing your design consultation in July or August to lock in an October or early November install before HOA restrictions or weather delays kick in. Returning clients receive first right of refusal on last year's time slot."
+      'We serve Bergen County homeowners in Paramus and communities south of Paramus. Include your town in the contact request so we can confirm your property is in our service area.'
   },
   {
-    question:
-      'Do you work with homeowner association rules and village permits?',
+    question: 'Is this seasonal or permanent lighting?',
     answer:
-      'Yes. We review neighborhood covenants in Ridgewood, Wyckoff, Tenafly, and more to confirm color limits, height restrictions, and on or off times. If a village or condo board requires notices, we provide diagrams, wattage details, and insurance certificates for fast approval.'
+      'This is a seasonal Christmas and holiday lighting service for homeowners. Tell us about your property and the display you have in mind.'
   },
   {
-    question:
-      'Can the lighting match Hanukkah, Christmas, and New Year celebrations?',
+    question: 'What does the seasonal service include?',
     answer:
-      'Our LED systems support warm white, jewel tones, and blues that suit multiple holidays. We can program alternate color scenes on smart timers so you shift from Hanukkah to Christmas to New Year Eve without calling us back for a service visit.'
+      'Jones Pressure Washing supplies the installation materials and includes installation, maintenance, removal, and storage. Specific products and display details are discussed during quoting.'
   },
   {
-    question:
-      'What happens if a bulb burns out or a strand is damaged by weather?',
+    question: 'What if the display needs maintenance?',
     answer:
-      'Every Bergen County holiday lighting plan includes season long maintenance. Text or call us if you spot a dark section. We schedule priority repairs, replace components, and re secure clips so the entire display stays photo ready through January.'
+      'Maintenance is included. Contact us if part of your display needs attention, and we will review the issue and next steps with you.'
   },
   {
-    question: 'Do you store the lights after takedown?',
+    question: 'How can I request a quote or phone call?',
     answer:
-      'Absolutely. After the season, we label each strand, pack them in climate controlled storage, and reserve your preferred installation window for next year. You never wrestle with totes or tangled cords again.'
+      'Use the contact form and describe your home, town, desired display, and timing. Ask for a call in the project description if you prefer to talk, or call (973) 486-4403. Pricing is provided after we review your request.'
   }
 ]
 
@@ -300,7 +296,8 @@ export default function BergenCountyContent() {
           </>
         }
         description="Jones Pressure Washing delivers custom holiday lighting Bergen County families rely on - pro grade LEDs, careful installation, zero stress maintenance, and January takedown included."
-        cta="Get an Instant Quote"
+        cta="Request Christmas Light Installation"
+        ctaHref="/contact?service=holiday-lighting"
         dimHeroContent
         height="h-[70vh]"
         explanation={<SeasonalDetails />}
@@ -627,8 +624,10 @@ export default function BergenCountyContent() {
       <ServiceCta
         header="Light Up Bergen County with Confidence"
         description="Reserve your holiday lighting design consultation now. Installation windows fill fast across Ridgewood, Wyckoff, Franklin Lakes, Tenafly, and beyond."
-        cta="Get an Instant Quote"
-        buttonLabel="Contact Us"
+        cta="Request Christmas Light Installation"
+        ctaHref="/contact?service=holiday-lighting"
+        buttonLabel="Call (973) 486-4403"
+        secondaryHref="tel:+19734864403"
       />
     </main>
   )

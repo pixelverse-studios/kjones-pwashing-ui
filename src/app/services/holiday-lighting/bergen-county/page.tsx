@@ -6,7 +6,7 @@ import { BusinessInfo } from '@/lib/constants'
 
 const pageTitle = 'Bergen County Holiday Lighting | Jones Pressure Washing'
 const pageDescription =
-  'Custom Bergen County holiday lighting design, installation, maintenance, and takedown for Ridgewood, Wyckoff, Franklin Lakes, Tenafly, and every nearby town.'
+  'Seasonal Christmas light installation for homeowners in Paramus and Bergen County communities south of Paramus. Request a quote from Jones Pressure Washing.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -17,9 +17,8 @@ export const metadata: Metadata = {
   keywords: [
     'Bergen County holiday lighting',
     'Bergen County Christmas light installation',
-    'Ridgewood holiday lighting',
-    'Wyckoff holiday lighting',
-    'Franklin Lakes Christmas lights'
+    'Paramus Christmas light installation',
+    'Bergen County seasonal holiday lighting'
   ],
   openGraph: {
     title: pageTitle,
@@ -48,29 +47,6 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const cityHighlights = [
-  { name: 'Ridgewood' },
-  { name: 'Wyckoff' },
-  { name: 'Franklin Lakes' },
-  { name: 'Mahwah' },
-  { name: 'Ramsey' },
-  { name: 'Glen Rock' },
-  { name: 'Paramus' },
-  { name: 'Fair Lawn' },
-  { name: 'Tenafly' },
-  { name: 'Englewood' },
-  { name: 'Fort Lee' },
-  { name: 'Cresskill' },
-  { name: 'Closter' },
-  { name: 'Saddle River & Upper Saddle River' },
-  { name: 'Allendale' },
-  { name: 'Oakland' },
-  { name: 'Oradell' },
-  { name: 'River Vale' },
-  { name: 'Teaneck' },
-  { name: 'Hackensack' }
-]
-
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {
@@ -89,52 +65,22 @@ const schema = {
       postalCode: BusinessInfo.postalCode,
       addressCountry: BusinessInfo.addressCountry
     },
-    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
-    priceRange: '$$'
+    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg'
   },
   areaServed: [
     {
-      '@type': 'County',
-      name: 'Bergen County'
-    },
-    ...cityHighlights.map(city => ({
-      '@type': 'City',
-      name: city.name.replace(' & ', ' and ')
-    }))
-  ],
-  description:
-    'Turn your Bergen County, NJ property into a custom holiday lighting showcase with pro grade LED design, installation, maintenance, and takedown handled by Jones Pressure Washing.',
-  offers: [
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Bergen County Custom Holiday Lighting Package'
-      },
-      priceCurrency: 'USD',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '699'
-      }
+      '@type': 'Place',
+      name: 'Paramus and Bergen County communities south of Paramus, New Jersey'
     }
   ],
+  description:
+    'Seasonal Christmas light installation, maintenance, removal, and storage for homeowners in Paramus and Bergen County communities south of Paramus.',
   image:
     'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id':
       'https://www.jonespressurewashingnj.com/services/holiday-lighting/bergen-county'
-  },
-  potentialAction: {
-    '@type': 'ReserveAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://www.jonespressurewashingnj.com/contact'
-    },
-    result: {
-      '@type': 'Reservation',
-      name: 'Bergen County Holiday Lighting Consultation'
-    }
   }
 }
 

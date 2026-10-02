@@ -33,6 +33,8 @@ interface ServiceCtaProps {
   description: string
   cta: string
   buttonLabel: string
+  ctaHref?: string
+  secondaryHref?: string
   showAfter?: boolean
   showSocial?: boolean
 }
@@ -42,6 +44,8 @@ export default function ServiceCta({
   description,
   cta,
   buttonLabel,
+  ctaHref,
+  secondaryHref = '/contact',
   showAfter = false,
   showSocial = false
 }: ServiceCtaProps) {
@@ -60,10 +64,18 @@ export default function ServiceCta({
         <motion.div
           className="flex flex-col sm:flex-row gap-6 mx-auto w-full sm:w-fit"
           variants={item}>
-          <CtaModal label={cta} variant="default" />
+          {ctaHref ? (
+            <Link
+              href={ctaHref}
+              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              {cta}
+            </Link>
+          ) : (
+            <CtaModal label={cta} variant="default" />
+          )}
           <Link
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
+            href={secondaryHref}
+            className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
             {buttonLabel}
           </Link>
         </motion.div>

@@ -112,7 +112,13 @@ const breadcrumbSchema = {
   ]
 }
 
-export default function ContactPage() {
+export default function ContactPage({
+  searchParams
+}: {
+  searchParams?: { service?: string }
+}) {
+  const isHolidayLighting = searchParams?.service === 'holiday-lighting'
+
   return (
     <>
       <Script
@@ -128,7 +134,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
-        <ContactContent />
+        <ContactContent isHolidayLighting={isHolidayLighting} />
       </main>
     </>
   )

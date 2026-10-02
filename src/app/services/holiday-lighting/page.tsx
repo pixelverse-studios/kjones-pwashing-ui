@@ -24,7 +24,7 @@ import {
 
 const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
 const pageDescription =
-  'Custom holiday lighting design, installation, maintenance, and takedown for homes and small businesses throughout Northern New Jersey.'
+  'Seasonal Christmas light installation for homeowners in Essex County and the Bergen County area through Paramus. Contact Jones Pressure Washing to discuss your display.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -84,13 +84,12 @@ const schema = {
       postalCode: BusinessInfo.postalCode,
       addressCountry: BusinessInfo.addressCountry
     },
-    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg',
-    priceRange: '$$'
+    image: 'https://www.jonespressurewashingnj.com/logo-black.jpg'
   },
   areaServed: [
     {
-      '@type': 'County',
-      name: 'Bergen County'
+      '@type': 'Place',
+      name: 'Paramus and Bergen County communities south of Paramus, New Jersey'
     },
     {
       '@type': 'County',
@@ -98,37 +97,12 @@ const schema = {
     }
   ],
   description:
-    'Professional, custom holiday lighting design, installation, maintenance, and takedown for homes and small businesses throughout Northern New Jersey.',
-  offers: [
-    {
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: 'Custom Holiday Lighting Package'
-      },
-      priceCurrency: 'USD',
-      priceSpecification: {
-        '@type': 'PriceSpecification',
-        minPrice: '499'
-      }
-    }
-  ],
+    'Seasonal Christmas light installation, maintenance, removal, and storage for homeowners in Essex County and Bergen County through Paramus.',
   image:
     'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://www.jonespressurewashingnj.com/services/holiday-lighting'
-  },
-  potentialAction: {
-    '@type': 'ReserveAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://www.jonespressurewashingnj.com/contact'
-    },
-    result: {
-      '@type': 'Reservation',
-      name: 'Holiday Lighting Consultation'
-    }
   }
 }
 
@@ -306,7 +280,8 @@ export default function HolidayLightingPage() {
             </>
           }
           description="Let Jones Pressure Washing design, install, maintain, and remove a one-of-a-kind lighting display so you can enjoy the holidays without worrying about ladders or storage."
-          cta="Get an Instant Quote"
+          cta="Request Christmas Light Installation"
+          ctaHref="/contact?service=holiday-lighting"
           dimHeroContent
           height="h-[70vh]"
           explanation={<SeasonalDetails />}
@@ -361,8 +336,10 @@ export default function HolidayLightingPage() {
         <ServiceCta
           header="Ready to Light Up Your Home?"
           description="Reach out now-holiday installation windows are limited and fill up fast."
-          cta="Get an Instant Quote"
-          buttonLabel="Contact Us"
+          cta="Request Christmas Light Installation"
+          ctaHref="/contact?service=holiday-lighting"
+          buttonLabel="Call (973) 486-4403"
+          secondaryHref="tel:+19734864403"
         />
       </main>
     </>

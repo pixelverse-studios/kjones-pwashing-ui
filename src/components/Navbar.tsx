@@ -27,6 +27,8 @@ const navLinks = [
 
 const Navbar = () => {
   const pathname = usePathname()
+  const isHolidayPage = pathname.startsWith('/services/holiday-lighting')
+  const isContactPage = pathname === '/contact'
 
   const [open, setOpen] = useState(false)
 
@@ -117,11 +119,19 @@ const Navbar = () => {
               })}
             </NavigationMenuList>
           </NavigationMenu>
-          <CtaModal
-            label="Get a Quote"
-            variant="default"
-            buttonClass="rounded-full"
-          />
+          {isHolidayPage ? (
+            <Link
+              href="/contact?service=holiday-lighting"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors duration-200 hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+              Request Christmas Light Installation
+            </Link>
+          ) : isContactPage ? null : (
+            <CtaModal
+              label="Get a Quote"
+              variant="default"
+              buttonClass="rounded-full"
+            />
+          )}
         </nav>
 
         {/* Mobile Menu */}
@@ -196,11 +206,20 @@ const Navbar = () => {
                     </Link>
                   )
                 })}
-                <CtaModal
-                  label="Get a Quote"
-                  variant="default"
-                  buttonClass="rounded-full"
-                />
+                {isHolidayPage ? (
+                  <Link
+                    href="/contact?service=holiday-lighting"
+                    onClick={() => setOpen(false)}
+                    className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black">
+                    Request Christmas Light Installation
+                  </Link>
+                ) : isContactPage ? null : (
+                  <CtaModal
+                    label="Get a Quote"
+                    variant="default"
+                    buttonClass="rounded-full"
+                  />
+                )}
               </div>
             </SheetContent>
           </Sheet>
