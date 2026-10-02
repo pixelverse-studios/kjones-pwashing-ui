@@ -1,669 +1,324 @@
-'use client'
+import Link from 'next/link'
+import Image from 'next/image'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 
-import { motion } from 'framer-motion'
+const contactHref = '/contact?service=holiday-lighting'
 
-import ServiceCta from '@/components/services/ServiceCta'
-import ServiceHero from '@/components/services/ServiceHero'
-
-// Cascade animation variants
-const smoothEase = [0.25, 0.1, 0.25, 1] as const
-
-const container = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.15 }
-  }
-}
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: smoothEase }
-  }
-}
-
-const viewport = { once: true, margin: '-100px' as const }
-
-const cityHighlights = [
+const inclusions = [
   {
-    name: 'Montclair',
+    title: 'Materials and installation',
     description:
-      'Historic mansions on Upper Mountain and brownstones near Church Street call for architectural outlines, tree uplighting, and window silhouettes that echo the town square glow.'
+      'Jones Pressure Washing supplies the materials for your seasonal display and installs the lights at your home.'
   },
   {
-    name: 'Livingston',
+    title: 'In-season maintenance',
     description:
-      'Expansive colonials and cul de sacs thrive on symmetrical rooflines, driveway stake lights, and lit wreath collections that stay HOA friendly while boosting winter curb appeal.'
+      'Maintenance is included. If part of the display needs attention, contact us so we can review the issue.'
   },
   {
-    name: 'Short Hills',
+    title: 'Removal and storage',
     description:
-      'From Hartshorn Drive estates to tucked away lanes, Short Hills homeowners lean on custom cut LEDs, tasteful color palettes, and smart timers that keep displays elegant and efficient.'
-  },
-  {
-    name: 'Millburn',
-    description:
-      'Walkable downtown storefronts and side street Victorians benefit from layered roof outlines, garland wrapped railings, and tree wraps that welcome shoppers after holiday shows.'
-  },
-  {
-    name: 'Maplewood',
-    description:
-      'Arts rich Maplewood Village properties embrace warm white rooflines, porch swag lighting, and backyard pergola accents that carry gatherings from Friendsgiving through New Year.'
-  },
-  {
-    name: 'South Orange',
-    description:
-      'Grove Park Tudors and Montrose center hall colonials shine with ridge cap lighting, window candles, and pathway markers that guide guests through tree lined streets.'
-  },
-  {
-    name: 'West Orange',
-    description:
-      'Homes along Pleasant Valley Way and Eagle Rock view lots need wide coverage rooflines, evergreen wraps, and accent lighting geared to high winds near the reservation.'
-  },
-  {
-    name: 'Verona',
-    description:
-      'Twin Brook estates and Verona Lake neighborhoods love roofline outlines, gable pops, and lakeside reflections that photograph well for holiday cards.'
-  },
-  {
-    name: 'Cedar Grove',
-    description:
-      'From ridge top homes to Cedar Grove Park adjacent properties, clients choose color changing LEDs, driveway guide lights, and gazebo wraps for community events.'
-  },
-  {
-    name: 'Glen Ridge',
-    description:
-      'Glen Ridge gas lamp blocks call for refined warm white lighting, symmetrical window wreaths, and curbside stake lights that match the boroughs historic charm.'
-  },
-  {
-    name: 'Bloomfield',
-    description:
-      'Brookdale neighborhoods lean on efficient installs, gutter safe clips, and tree wraps that hold up through lake effect wind while keeping budgets steady.'
-  },
-  {
-    name: 'Nutley',
-    description:
-      'Nutley Park and Yantacaw Brook areas appreciate classic roof outlines, porch garlands, and walkway candy cane accents ready for neighborhood decorating contests.'
-  },
-  {
-    name: 'Belleville',
-    description:
-      'Cherry Blossom lined streets near Branch Brook Park glow with icicle lighting, lamppost wraps, and entry arch highlights that keep celebrations visible from the avenue.'
-  },
-  {
-    name: 'Roseland',
-    description:
-      'Roseland cul de sacs use roof and dormer outlines, pergola lighting, and evergreen uplights to wow guests heading to town center events.'
-  },
-  {
-    name: 'Essex Fells',
-    description:
-      'Estate properties in Essex Fells turn to grand entry garlands, lined allee lighting, and tailored roof ridges that feel stately without overpowering natural stone facades.'
-  },
-  {
-    name: 'North Caldwell',
-    description:
-      'Hilltop homes embrace layered rooflines, retaining wall lighting, and backyard tree wraps that keep visibility strong despite sweeping vistas.'
-  },
-  {
-    name: 'West Caldwell',
-    description:
-      'Split levels and expanded ranch homes benefit from gutter safe LEDs, chimney outlines, and porch swag lighting that survive early ice storms.'
-  },
-  {
-    name: 'Caldwell',
-    description:
-      'Historic downtown streets blend storefront outlines, wreath lit windows, and pole wraps to draw families after tree lightings and theater nights.'
-  },
-  {
-    name: 'Fairfield',
-    description:
-      'Larger lots and business parks call for commercial grade rooflines, ground stake lighting, and evergreen uplighting that doubles as security illumination.'
-  },
-  {
-    name: 'Newark Ironbound',
-    description:
-      'Rowhomes and restaurant fronts leverage balcony safe clips, marquee lighting, and tricolor palettes that match Ironbound nightlife energy.'
-  },
-  {
-    name: 'East Orange',
-    description:
-      'Brick colonials and duplexes receive precise roof and window outlines, staircase garlands, and entry sconces synced to block association schedules.'
-  },
-  {
-    name: 'Orange',
-    description:
-      'Historic mansions and new townhomes alike use tree wraps, gable highlights, and accent lighting that stay beautiful through mixed weather patterns.'
-  },
-  {
-    name: 'Irvington',
-    description:
-      'Homeowners request quick turn ladder free installs, secure attachment methods, and warm white palettes that stand out across higher traffic corridors.'
-  }
-]
-
-const timeline = [
-  {
-    title: 'July - August: Pre Season Essex Planning',
-    description:
-      'Homeowners share inspiration boards, HOA rules, and prior year photos so we can estimate footage, confirm outlet access, and reserve ideal installation windows before school calendars stack up.'
-  },
-  {
-    title: 'September: Design Concepts and Approvals',
-    description:
-      'We deliver 3D mockups or annotated photos that show rooflines, trees, and focal points with color palettes suited to Montclair, Livingston, or Short Hills aesthetics. Once approved, materials are staged in our Essex County warehouse.'
-  },
-  {
-    title: 'October: Procurement and Logistics',
-    description:
-      'Our team orders commercial grade LEDs, wreaths, clips, timers, and specialty accents sized by elevation. We schedule installs to work around local street fairs, leaf collections, and township ladder restrictions.'
-  },
-  {
-    title: 'Early November: Installation Sprint',
-    description:
-      'Crews arrive with lift trucks, safety harnesses, and weatherproof connectors. Every strand is cut to length on site, labeled by elevation, and tested before we leave your property.'
-  },
-  {
-    title: 'Late November - December: Maintenance On Call',
-    description:
-      'Season long support covers wind shifts along South Mountain, surprise ice on Livingston hilltops, and blown GFCI outlets. Call or text and we dispatch a technician before the next gathering.'
-  },
-  {
-    title: 'January: Careful Takedown and Storage',
-    description:
-      'We remove, coil, and label all lighting, pack accessories in climate stable totes, and store everything in our facility so next year restarts with zero tangled mess.'
-  }
-]
-
-const designHighlights = [
-  {
-    title: 'Historic District Friendly Rooflines',
-    description:
-      'Essex County includes gas lit Glen Ridge blocks, Montclair Victorians, and Maplewood Tudors. We build LED runs that respect historic sightlines, using slate safe clips, copper gutter guards, and warm white tones that feel timeless rather than trendy.'
-  },
-  {
-    title: 'Tree Canopy Transformations',
-    description:
-      'South Mountain, Eagle Rock, and Brookdale Park corridors include towering oaks and maples. Our installers wrap trunks, weave branch lines, and add ground based uplights that highlight natural architecture while keeping cords tidy for foot traffic.'
-  },
-  {
-    title: 'Outdoor Living and Backyard Scenes',
-    description:
-      'Many Essex County homeowners entertain outdoors even after the first frost. We design pergola canopies, patio cafe lighting, and firepit accent strands that extend holiday atmosphere to the back of the property.'
-  },
-  {
-    title: 'Commercial and Mixed Use Properties',
-    description:
-      'Downtown Millburn shops, Bloomfield storefronts, and Newark restaurants rely on us for consistent branding. We combine window silhouettes, pole wraps, and programmable colors so businesses can flip themes for Hanukkah, Christmas, and New Year without downtime.'
-  }
-]
-
-const packages = [
-  {
-    title: 'Heritage Roofline Package',
-    description:
-      'Best for Montclair, Glen Ridge, and South Orange streets where historic architecture sets the tone. We outline roof ridges, dormers, and windows with warm white LEDs, add wreaths to symmetrical windows, and stage timers so the glow appears nightly without manual flipping.'
-  },
-  {
-    title: 'Estate and Evergreens Showcase',
-    description:
-      'Ideal for Short Hills, Livingston, and Essex Fells properties with deep setbacks. Layered rooflines, tree wraps, driveway stake lighting, and entry garlands work together to create instant resort style curb appeal.'
-  },
-  {
-    title: 'Downtown and Restaurant Display',
-    description:
-      'Perfect for Millburn, Maplewood, Bloomfield, and Newark storefronts. We balance building outlines with sign safe marquee bulbs, pole wraps, and programmable color scenes to attract foot traffic well past closing time.'
+      'Removal and storage are included after the season. We will explain the terms for your project when we prepare your quote.'
   }
 ]
 
 const faqs = [
   {
-    question: 'When should Essex County homeowners book holiday lighting?',
+    question: 'Is this seasonal or permanent lighting?',
     answer:
-      'Prime design consultations happen in mid summer. By reserving in July or August, you lock in preferred October or early November install dates before calendars fill with school concerts, synagogue events, and neighborhood parties.'
+      'This page covers seasonal Christmas and holiday light installation for homeowners. It does not describe permanent lighting or other outdoor lighting services.'
   },
   {
-    question: 'Can you coordinate with HOA or historic district requirements?',
+    question: 'Do you supply the lights?',
     answer:
-      'Yes. We review guidelines from Montclair Historic Preservation, South Orange neighborhoods, and Short Hills associations. Expect detailed diagrams, wattage reports, and insurance certificates ready for board approval.'
+      'Jones Pressure Washing supplies the installation materials. Ask us about the specific products and terms for your proposed display when you request a quote.'
   },
   {
-    question: 'Do you support multi holiday color changes?',
+    question: 'Are maintenance, removal, and storage included?',
     answer:
-      'Our programmable LED options let you rotate palettes for Hanukkah blues, Christmas reds and greens, Kwanzaa hues, or neutral winter whites. Everything switches through timers or app controls without a return visit.'
+      'Yes. All three are included in the seasonal service. The scope and timing for your property will be discussed during quoting.'
   },
   {
-    question: 'What happens if weather knocks out part of the display?',
+    question: 'Which Essex County towns do you serve?',
     answer:
-      'Season long maintenance is included. Wind gusts along South Mountain or unexpected ice in Verona are handled quickly. Text us a photo and we send a technician to re secure clips, swap bulbs, or reset GFCI outlets.'
+      'Jones Pressure Washing serves homeowners throughout Essex County. Include your town and property details in the contact request so we can discuss your project.'
   },
   {
-    question: 'Do you handle takedown and storage?',
+    question: 'When should I request installation?',
     answer:
-      'Absolutely. In January we remove every strand, coil and label by location, and store everything in our climate controlled facility. The following season we reinstall from detailed notes for even faster setup.'
+      'Contact us to ask about current availability. Installation timing depends on the project and the schedule at the time of your request.'
+  },
+  {
+    question: 'How do I request a quote or phone call?',
+    answer: `Use the contact form to describe your home, town, desired display, and timing. You can ask for a phone call in the project description or call ${PHONE_DISPLAY} directly.`
   }
 ]
 
-function SeasonalDetails() {
+function ContactActions() {
   return (
-    <section className="bg-black">
-      <motion.div
-        className="max-w-custom mx-auto grid gap-8 px-6 py-16 md:grid-cols-[1.4fr,1fr] items-center"
-        variants={container}
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewport}>
-        <div className="space-y-6">
-          <motion.h2 className="text-white" variants={item}>
-            Essex County Holidays,{' '}
-            <span className="text-primary">Made Effortless</span>
-          </motion.h2>
-          <motion.p variants={item}>
-            From Montclair hillside views to Maplewood village lights, our local
-            crew turns your inspiration into a professionally designed holiday
-            display. We manage every detail, safeguard your property, and keep
-            the glow consistent all season.
-          </motion.p>
-          <motion.ul
-            className="grid gap-3 text-sm md:text-base"
-            variants={item}>
-            <li>
-              Commercial grade LEDs, timers, extension cords, and clips sized to
-              your architecture and HOA expectations.
-            </li>
-            <li>
-              Design consultations that balance show stopping curb appeal with
-              the refined taste Essex County neighborhoods expect.
-            </li>
-            <li>
-              Season long maintenance, January takedown, and organized storage
-              for a faster repeat install next year.
-            </li>
-          </motion.ul>
-        </div>
-        <motion.div
-          className="bg-secondary p-6 border border-primary rounded-lg space-y-4"
-          variants={item}>
-          <h3 className="text-white">Reserve Your Essex County Install</h3>
-          <p>
-            Our calendar books quickly once school events and township
-            celebrations ramp up. Secure your preferred installation week and
-            let us build a custom plan before inventories run low.
-          </p>
-          <div className="bg-black rounded-lg p-4 space-y-2 text-sm">
-            <p className="font-semibold text-primary">
-              Free Essex County Design Consultation
-            </p>
-            <p>hello@jonespressurewashingnj.com - (973) 486-4403</p>
-            <p>
-              Serving Montclair, Livingston, Short Hills, Millburn, Maplewood,
-              South Orange, and every surrounding township.
-            </p>
-          </div>
-        </motion.div>
-      </motion.div>
-    </section>
+    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+      <Link
+        href={contactHref}
+        className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-3 text-center text-sm font-semibold text-black transition-[background-color,color,transform] duration-200 hover:bg-secondary hover:text-white active:translate-y-px focus-visible:bg-secondary focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+        Request Christmas Light Installation
+      </Link>
+      <a
+        href={PHONE_HREF}
+        className="inline-flex min-h-12 items-center justify-center border-b border-primary/70 text-center text-sm font-semibold text-white transition-colors duration-200 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+        Call {PHONE_DISPLAY}
+      </a>
+    </div>
+  )
+}
+
+function HolidayHeroArtwork() {
+  return (
+    <div className="relative min-h-[380px] overflow-hidden bg-[#1b1b1a] sm:min-h-[480px] lg:-ml-12 lg:min-h-[620px] lg:bg-transparent">
+      <Image
+        src="/essex-holiday-lighting-illustration.jpg"
+        alt="Illustration of a home with warm seasonal lights along the roofline"
+        fill
+        priority
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="object-cover object-center lg:[mask-image:linear-gradient(to_right,transparent,black_22%)]"
+      />
+    </div>
   )
 }
 
 export default function EssexCountyContent() {
   return (
     <main className="bg-black text-white">
-      <ServiceHero
-        img="/Homepage.jpg"
-        h1={
-          <>
-            Essex County{' '}
-            <span className="text-primary">Holiday Lighting Pros</span>
-          </>
-        }
-        description="Jones Pressure Washing delivers custom holiday lighting Essex County families and businesses rely on, complete with pro grade LEDs, precise installation, ongoing maintenance, and careful takedown."
-        cta="Get an Instant Quote"
-        dimHeroContent
-        height="h-[70vh]"
-        explanation={<SeasonalDetails />}
-      />
-      <section className="bg-[#0b0b0f]">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Holiday Lighting Built for Essex County Homes and Storefronts
-            </motion.h2>
-            <motion.p variants={item}>
-              Essex County combines historic neighborhoods, modern estates, and
-              bustling main streets. Our designers evaluate rooflines, mature
-              trees, and outdoor living spaces to craft lighting that feels
-              personal. Expect clear communication, OSHA trained technicians,
-              and tidy work sites that respect busy schedules and sensitive
-              landscaping.
-            </motion.p>
-            <motion.p variants={item}>
-              During each consultation we review inspiration photos, discuss
-              event calendars, and plan for unique property needs. Whether you
-              host Maplewood Porchfest, Montclair Film Festival parties, or
-              Short Hills charity events, we ensure your display shines bright
-              without overwhelming the architecture. We stock color selectable
-              LEDs for multi holiday households and warm white classics for
-              historic districts seeking timeless appeal.
-            </motion.p>
-            <motion.p variants={item}>
-              After installation we remain on call. If a nor&apos;easter flexes
-              a strand or a GFCI trips, we respond quickly so gatherings stay on
-              schedule. January takedown is just as organized, complete with
-              labeled totes and notes that make next years planning faster.
-            </motion.p>
-          </header>
-          <motion.div className="grid gap-6 lg:grid-cols-3" variants={item}>
-            {packages.map(pkg => (
-              <motion.article
-                key={pkg.title}
-                className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-                variants={item}>
-                <h3 className="text-primary">{pkg.title}</h3>
-                <p>{pkg.description}</p>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-      <section className="bg-black">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-6"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <motion.h2 variants={item}>
-            Neighborhoods We Brighten Every Season
-          </motion.h2>
-          <motion.p variants={item}>
-            We work across every Essex County township, customizing designs to
-            match architecture, slope, and community culture. Explore the towns
-            and neighborhoods that lean on our crew for holiday lighting that
-            looks polished and stays safe.
-          </motion.p>
-          <motion.div
-            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
-            variants={item}>
-            {cityHighlights.map(city => (
-              <motion.article
-                key={city.name}
-                className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-                variants={item}>
-                <h3 className="text-primary">{city.name}</h3>
-                <p>{city.description}</p>
-              </motion.article>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-      <section className="bg-[#0b0b0f]">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Design Styles That Fit Essex County
-            </motion.h2>
-            <motion.p variants={item}>
-              Every lighting plan is tailored, yet property trends surface from
-              town to town. Here is how we adapt designs so displays feel at
-              home on Essex County streets.
-            </motion.p>
-          </header>
-          <div className="space-y-8">
-            {designHighlights.map(design => (
-              <motion.article
-                key={design.title}
-                className="space-y-3"
-                variants={item}>
-                <h3 className="text-primary">{design.title}</h3>
-                <p>{design.description}</p>
-              </motion.article>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-      <section className="bg-black">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Essex County Holiday Lighting Success Stories
-            </motion.h2>
-            <motion.p variants={item}>
-              See how our team solves unique property challenges across the
-              county, from steep grade estates to busy downtown storefronts.
-            </motion.p>
-          </header>
-          <motion.div className="grid gap-6 md:grid-cols-2" variants={item}>
-            <motion.article
-              className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-              variants={item}>
-              <h3 className="text-primary">
-                Montclair Hillside Home with Multi Level Glow
-              </h3>
-              <p>
-                A client overlooking the Manhattan skyline wanted a display that
-                matched city lights without overpowering the homes cedar shake
-                exterior. We installed warm white C9 rooflines, wrapped the
-                terraced backyard trees, and added discreet accent lighting
-                along stone steps. Timers were programmed for gentle fade in and
-                fade out so neighbors enjoyed the view without glare.
+      <section className="border-b border-white/10 pb-16 pt-32 md:pb-24 md:pt-40">
+        <div className="mx-auto max-w-custom px-6">
+          <nav aria-label="Breadcrumb" className="mb-10 text-sm text-[#b9b9b5]">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-primary focus-visible:underline">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link
+                  href="/services/holiday-lighting"
+                  className="hover:text-primary focus-visible:underline">
+                  Holiday Lighting
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white">
+                Essex County
+              </li>
+            </ol>
+          </nav>
+
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.18fr)_minmax(0,0.82fr)] lg:gap-16">
+            <div>
+              <p className="mb-5 flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+                <span
+                  aria-hidden="true"
+                  className="h-px w-9 shrink-0 bg-primary"
+                />
+                <span>Holiday lighting for Essex County homes</span>
               </p>
-            </motion.article>
-            <motion.article
-              className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-              variants={item}>
-              <h3 className="text-primary">
-                Maplewood Village Storefront Row Coordination
-              </h3>
-              <p>
-                Three adjacent shops requested a unified look ahead of Dickens
-                Village festivities. We designed cohesive window silhouettes,
-                installed matching garlands with warm white mini lights, and set
-                icicle strands across upper awnings. The collaborative display
-                boosted evening foot traffic and drew social media shoutouts for
-                the coordinated glow.
+              <h1 className="mb-7 max-w-[16ch] text-[clamp(2.45rem,4vw,3.75rem)] leading-[1.1] tracking-tight text-white">
+                Christmas Light Installation in{' '}
+                <span className="text-primary">Essex County, NJ</span>
+              </h1>
+              <p className="mb-9 max-w-[59ch] text-base leading-7 text-[#c9c9c5] md:text-lg md:leading-8">
+                Jones Pressure Washing installs seasonal Christmas and holiday
+                lights for homes throughout Essex County. We supply the
+                installation materials and include maintenance, removal, and
+                storage in the service.
               </p>
-            </motion.article>
-          </motion.div>
-        </motion.div>
-      </section>
-      <section className="bg-black">
-        <motion.div
-          className="max-w-custom mx-auto px-6 pb-16 space-y-5"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <motion.h2 variants={item}>
-            Coordinating with Essex County Calendars and Weather
-          </motion.h2>
-          <motion.p variants={item}>
-            Holiday programs at Paper Mill Playhouse, Seton Hall, and Bloomfield
-            College mean streets stay busy late into the evening. We set
-            installation schedules that avoid peak traffic, coordinate with
-            township parking rules, and keep ladders clear of parade routes or
-            block association events.
-          </motion.p>
-          <motion.p variants={item}>
-            Weather swings demand equal attention. Lake effect gusts near Verona
-            Park, icy mornings on South Mountain, and damp air around Branch
-            Brook Park all influence attachment methods. We rely on commercial
-            grade clips, coated extension cords, and waterproof connectors to
-            keep every strand powered through freeze thaw cycles.
-          </motion.p>
-          <motion.p variants={item}>
-            Communication stays front and center. Expect proactive text updates,
-            same week service windows, and a direct line to your project manager
-            so questions never linger. You will always know who is arriving,
-            what they are installing, and how long the work will take, even when
-            winter storms reshuffle the calendar.
-          </motion.p>
-        </motion.div>
-      </section>
-      <section className="bg-[#0b0b0f]">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Holiday Lighting Timeline for Essex County Clients
-            </motion.h2>
-            <motion.p variants={item}>
-              Work through the season with confidence. Our Essex County calendar
-              keeps installs on track, even when weather or school events add
-              complexity.
-            </motion.p>
-          </header>
-          <div className="space-y-6">
-            {timeline.map(step => (
-              <motion.article
-                key={step.title}
-                className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-                variants={item}>
-                <h3 className="text-primary">{step.title}</h3>
-                <p>{step.description}</p>
-              </motion.article>
-            ))}
+              <ContactActions />
+            </div>
+            <HolidayHeroArtwork />
           </div>
-        </motion.div>
+        </div>
       </section>
-      <section className="bg-black">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Essex County Holiday Lighting Checklist
-            </motion.h2>
-            <motion.p variants={item}>
-              A quick prep checklist ensures installation day moves smoothly and
-              your property is ready for ladders, equipment, and final photo
-              capture.
-            </motion.p>
-          </header>
-          <motion.ul className="grid gap-4 md:grid-cols-2" variants={item}>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Test exterior outlets and note circuits shared with heaters, pool
-              pumps, or EV chargers so we balance electrical loads.
-            </motion.li>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Trim low branches or vines that block access to rooflines,
-              dormers, or second story balconies.
-            </motion.li>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Move vehicles, planters, and patio furniture away from work zones
-              to create clear staging paths for ladders and reels.
-            </motion.li>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Share HOA or historic board guidelines, including color limits,
-              shutoff times, and attachment rules, before crews arrive.
-            </motion.li>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Schedule a dusk walk through so we can fine tune focal points,
-              confirm timer programs, and capture portfolio photos.
-            </motion.li>
-            <motion.li
-              className="rounded-lg border border-white/10 bg-white/5 p-4"
-              variants={item}>
-              Keep pets and children indoors during ladder work and provide any
-              gate codes or alarm instructions needed for backyard access.
-            </motion.li>
-          </motion.ul>
-        </motion.div>
+
+      <section
+        className="py-16 md:py-24 lg:py-28"
+        aria-labelledby="included-heading">
+        <div className="mx-auto grid max-w-custom gap-10 px-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
+          <div className="max-w-md">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+              The service
+            </p>
+            <h2 id="included-heading" className="mb-5 text-white">
+              Everything from installation through takedown
+            </h2>
+            <p className="leading-7 text-[#b9b9b5]">
+              The seasonal service includes the steps below. We will discuss
+              your display details and project terms when preparing a quote.
+            </p>
+          </div>
+          <ol className="border-t border-white/20">
+            {inclusions.map((inclusion, index) => (
+              <li
+                key={inclusion.title}
+                className="grid gap-3 border-b border-white/20 py-7 sm:grid-cols-[3rem_minmax(0,1fr)] sm:gap-6 md:py-9">
+                <span className="font-poppins text-sm font-semibold text-primary">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3 className="mb-3 text-xl text-white md:text-2xl">
+                    {inclusion.title}
+                  </h3>
+                  <p className="max-w-[58ch] leading-7 text-[#b9b9b5]">
+                    {inclusion.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
       </section>
-      <section className="bg-[#0b0b0f]">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-8"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <header className="space-y-4">
-            <motion.h2 variants={item}>
-              Frequently Asked Questions for Essex County Homeowners
-            </motion.h2>
-            <motion.p variants={item}>
-              Here are the answers we provide most often when Essex County
-              residents schedule holiday lighting with our team.
-            </motion.p>
-          </header>
-          <div className="space-y-6">
+
+      <section
+        className="border-y border-white/10 bg-[#20201e] py-16 md:py-24"
+        aria-labelledby="process-heading">
+        <div className="mx-auto grid max-w-custom gap-12 px-6 lg:grid-cols-2 lg:gap-24">
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+              Getting started
+            </p>
+            <h2 id="process-heading" className="mb-6 max-w-[16ch] text-white">
+              Tell us what you have in mind
+            </h2>
+            <p className="mb-5 max-w-[55ch] leading-7 text-[#c9c9c5]">
+              Share your town, the areas of your home you want to light, and
+              your preferred timing. We will review the details and discuss
+              current availability and the scope of a quote.
+            </p>
+            <p className="max-w-[55ch] leading-7 text-[#c9c9c5]">
+              The contact form is shared with our other services. Mention
+              Christmas or holiday lighting in the project description, and ask
+              for a phone call there if you would rather speak with us.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-6 text-lg text-white">
+              What to include in your request
+            </h3>
+            <ul className="border-t border-white/20">
+              {[
+                'Your Essex County town and property address',
+                'The areas of your home you want to light',
+                'Your preferred installation timing',
+                'Whether you would like a phone call'
+              ].map((detail, index) => (
+                <li
+                  key={detail}
+                  className="grid grid-cols-[2rem_minmax(0,1fr)] gap-4 border-b border-white/20 py-4 leading-6 text-[#e2e2df]">
+                  <span className="font-poppins text-xs font-semibold text-primary">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24" aria-labelledby="scope-heading">
+        <div className="mx-auto max-w-custom px-6">
+          <div className="grid gap-8 border-l-2 border-primary pl-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:gap-16 md:pl-10">
+            <div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+                Service area
+              </p>
+              <h2 id="scope-heading" className="mb-5 text-white">
+                Seasonal lighting for Essex County homes
+              </h2>
+              <p className="max-w-[58ch] leading-7 text-[#b9b9b5]">
+                We serve homeowners throughout Essex County. The service on this
+                page is for removable seasonal displays; it does not cover
+                permanent lighting or unrelated outdoor lighting projects.
+              </p>
+            </div>
+            <div className="md:pt-10">
+              <h3 className="mb-3 text-lg text-white">
+                Ask about current availability
+              </h3>
+              <p className="leading-7 text-[#b9b9b5]">
+                Installation timing varies with the project and the current
+                schedule. Send us the details of your home and display so we can
+                discuss the next available options.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-t border-white/10 bg-[#1b1b1a] py-16 md:py-24"
+        aria-labelledby="faq-heading">
+        <div className="mx-auto grid max-w-custom gap-10 px-6 lg:grid-cols-[minmax(0,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+              Common questions
+            </p>
+            <h2 id="faq-heading" className="mb-5 max-w-[16ch] text-white">
+              Essex County Christmas lighting questions
+            </h2>
+            <p className="max-w-md leading-7 text-[#b9b9b5]">
+              A few details to help you decide whether this seasonal service
+              fits your home.
+            </p>
+          </div>
+          <div className="border-t border-white/20">
             {faqs.map(faq => (
-              <motion.article
+              <details
                 key={faq.question}
-                className="rounded-lg border border-white/10 bg-white/5 p-6 space-y-3"
-                variants={item}>
-                <h3 className="text-primary">{faq.question}</h3>
-                <p>{faq.answer}</p>
-              </motion.article>
+                className="group border-b border-white/20 open:pb-6">
+                <summary className="flex min-h-16 cursor-pointer list-none items-center justify-between gap-6 py-5 text-left font-poppins text-base font-semibold text-white marker:content-none hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:text-lg [&::-webkit-details-marker]:hidden">
+                  <span>{faq.question}</span>
+                  <span
+                    aria-hidden="true"
+                    className="relative inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-primary/60 text-primary">
+                    <span className="absolute h-px w-2.5 bg-current" />
+                    <span className="absolute h-2.5 w-px bg-current group-open:hidden" />
+                  </span>
+                </summary>
+                <p className="max-w-[62ch] pr-10 leading-7 text-[#b9b9b5]">
+                  {faq.answer}
+                </p>
+              </details>
             ))}
           </div>
-        </motion.div>
+        </div>
       </section>
-      <section className="bg-black">
-        <motion.div
-          className="max-w-custom mx-auto px-6 py-16 space-y-6"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewport}>
-          <motion.h2 variants={item}>
-            Ready to Lock in Essex County Holiday Lighting?
-          </motion.h2>
-          <motion.p variants={item}>
-            Share your wish list, inspiration photos, or past frustrations and
-            we will turn them into a smooth, fully managed holiday lighting
-            experience. From first design sketch to January storage, our crew
-            handles every step so you can focus on celebrating.
-          </motion.p>
-          <motion.p variants={item}>
-            Call, text, or email and we will confirm your consultation within
-            one business day. Peak season fills fast across Montclair,
-            Livingston, Short Hills, and the surrounding towns, so the earlier
-            you book the more options we can offer for layout and timing.
-          </motion.p>
-        </motion.div>
+
+      <section
+        className="border-t border-primary/50 py-16 md:py-24 lg:py-28"
+        aria-labelledby="contact-heading">
+        <div className="mx-auto grid max-w-custom gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.8fr)] lg:items-end lg:gap-20">
+          <div>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+              Your next step
+            </p>
+            <h2
+              id="contact-heading"
+              className="mb-0 max-w-[17ch] text-[clamp(2rem,4vw,3.7rem)] leading-[1.13] tracking-tight text-white">
+              Tell us about your Essex County home
+            </h2>
+          </div>
+          <div>
+            <p className="mb-7 max-w-[52ch] leading-7 text-[#c9c9c5]">
+              Describe the seasonal display you want and ask about current
+              availability. We will review your request before providing a
+              quote. You can also call us directly.
+            </p>
+            <ContactActions />
+          </div>
+        </div>
       </section>
-      <ServiceCta
-        header="Light Up Essex County with Confidence"
-        description="Reserve your holiday lighting consultation now and secure preferred installation dates before town events and weather changes limit availability."
-        cta="Get an Instant Quote"
-        buttonLabel="Contact Us"
-      />
     </main>
   )
 }

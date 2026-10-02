@@ -2,6 +2,7 @@
 
 import { ReactNode, useMemo } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import CtaModal from '../cta/CtaModal'
 
@@ -30,6 +31,7 @@ interface ServiceHeroProps {
   h1: string | ReactNode
   description: string
   cta?: string
+  ctaHref?: string
   explanation?: ReactNode
   dimHeroContent?: boolean
   height?: string
@@ -37,6 +39,7 @@ interface ServiceHeroProps {
 
 const ServiceHero = ({
   cta = 'Get an Instant Quote',
+  ctaHref,
   description,
   explanation,
   h1,
@@ -73,11 +76,19 @@ const ServiceHero = ({
               <motion.p variants={item}>{description}</motion.p>
             </div>
             <motion.div variants={item}>
-              <CtaModal
-                label={cta}
-                variant="default"
-                buttonClass="hover:bg-secondary"
-              />
+              {ctaHref ? (
+                <Link
+                  href={ctaHref}
+                  className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  {cta}
+                </Link>
+              ) : (
+                <CtaModal
+                  label={cta}
+                  variant="default"
+                  buttonClass="hover:bg-secondary"
+                />
+              )}
             </motion.div>
           </motion.div>
         </div>

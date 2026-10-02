@@ -8,7 +8,7 @@ import {
   getCitySlugs,
   CityLandingContent
 } from '@/lib/data/locationServiceLanders'
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const SERVICE_KEY = 'pressure-washing' as const
 
@@ -76,7 +76,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 function buildSchema(cityContent: CityLandingContent) {
-  const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+  const businessPhone = PHONE_DISPLAY
 
   return {
     '@context': 'https://schema.org',

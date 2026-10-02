@@ -8,7 +8,7 @@ import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
 import CitiesWeServe from '@/components/services/CitiesWeServe'
 import softWashingServices from '@/lib/services/softWashingServices'
-import { BusinessInfo } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Professional Soft Washing | Bergen & Essex County, NJ'
 const pageDescription =
@@ -67,7 +67,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(973) 486-4403',
+    telephone: PHONE_DISPLAY,
     address: {
       '@type': 'PostalAddress',
       addressLocality: BusinessInfo.addressLocality,

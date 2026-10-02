@@ -1,11 +1,22 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { FaInstagram, FaFacebook } from 'react-icons/fa6'
 
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import {
+  BusinessInfo,
+  ContactMap,
+  PHONE_DISPLAY,
+  PHONE_HREF
+} from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
 
 const Footer = () => {
+  const pathname = usePathname()
+  const isHolidayPage = pathname.startsWith('/services/holiday-lighting')
+  const isContactPage = pathname === '/contact'
   const cityLine = [BusinessInfo.addressLocality, BusinessInfo.addressRegion]
     .filter(Boolean)
     .join(', ')
@@ -68,6 +79,13 @@ const Footer = () => {
                   href="/services/soft-washing"
                   className="text-white hover:text-primary transition-colors">
                   Soft Washing
+                </Link>
+              </li>
+              <li className="pl-4">
+                <Link
+                  href="/services/holiday-lighting"
+                  className="text-white hover:text-primary transition-colors">
+                  Holiday Lighting
                 </Link>
               </li>
               <li className="pl-4">
@@ -138,9 +156,9 @@ const Footer = () => {
                 />
               </svg>
               <a
-                href={`tel:${ContactMap.get('phone')}`}
+                href={PHONE_HREF}
                 className="text-white hover:text-primary transition-colors">
-                {ContactMap.get('phone')}
+                {PHONE_DISPLAY}
               </a>
             </div>
             <div className="flex items-center md:justify-end gap-2 mb-6">
@@ -190,11 +208,19 @@ const Footer = () => {
                 </a>
               </div>
               <div className="flex flex-col sm:flex-row md:justify-end gap-3">
-                <CtaModal variant="default" label="Get an Instant Quote" />
+                {isHolidayPage ? (
+                  <Link
+                    href="/contact?service=holiday-lighting"
+                    className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors duration-200 hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                    Request Christmas Light Installation
+                  </Link>
+                ) : isContactPage ? null : (
+                  <CtaModal variant="default" label="Get an Instant Quote" />
+                )}
                 <Link
-                  href="/contact"
+                  href={isHolidayPage ? PHONE_HREF : '/contact'}
                   className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
-                  Contact Us
+                  {isHolidayPage ? `Call ${PHONE_DISPLAY}` : 'Contact Us'}
                 </Link>
               </div>
             </div>
