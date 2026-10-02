@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 
 const contactHref = '/contact?service=holiday-lighting'
-const phoneHref = 'tel:+19734864403'
 
 const inclusions = [
   {
@@ -50,8 +50,7 @@ const faqs = [
   },
   {
     question: 'How do I request a quote or phone call?',
-    answer:
-      'Use the contact form to describe your home, town, desired display, and timing. You can ask for a phone call in the project description or call (973) 486-4403 directly.'
+    answer: `Use the contact form to describe your home, town, desired display, and timing. You can ask for a phone call in the project description or call ${PHONE_DISPLAY} directly.`
   }
 ]
 
@@ -64,9 +63,9 @@ function ContactActions() {
         Request Christmas Light Installation
       </Link>
       <a
-        href={phoneHref}
+        href={PHONE_HREF}
         className="inline-flex min-h-12 items-center justify-center border-b border-primary/70 text-center text-sm font-semibold text-white transition-colors duration-200 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-        Call (973) 486-4403
+        Call {PHONE_DISPLAY}
       </a>
     </div>
   )

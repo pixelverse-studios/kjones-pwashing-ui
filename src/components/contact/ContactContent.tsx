@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaLocationDot, FaClock } from 'react-icons/fa6'
 
-import { ContactMap } from '@/lib/constants'
+import { ContactMap, PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 import CtaModal from '@/components/cta/CtaModal'
 import {
   AnimationProvider,
@@ -21,7 +21,7 @@ function ContactAnimatedContent({
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
 
-  const phone = ContactMap.get('phone') ?? '(973) 486-4403'
+  const phone = PHONE_DISPLAY
   const email = ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
 
   return (
@@ -111,7 +111,7 @@ function ContactAnimatedContent({
                 <div>
                   <h3 className="text-white text-lg mb-1">Phone</h3>
                   <Link
-                    href={`tel:${phone.replace(/[^0-9+]/g, '')}`}
+                    href={PHONE_HREF}
                     className="text-secondary-lite hover:text-primary transition-colors">
                     {phone}
                   </Link>

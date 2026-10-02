@@ -5,7 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FaInstagram, FaFacebook } from 'react-icons/fa6'
 
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import {
+  BusinessInfo,
+  ContactMap,
+  PHONE_DISPLAY,
+  PHONE_HREF
+} from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
 
 const Footer = () => {
@@ -78,6 +83,13 @@ const Footer = () => {
               </li>
               <li className="pl-4">
                 <Link
+                  href="/services/holiday-lighting"
+                  className="text-white hover:text-primary transition-colors">
+                  Holiday Lighting
+                </Link>
+              </li>
+              <li className="pl-4">
+                <Link
                   href="/services/additional"
                   className="text-white hover:text-primary transition-colors">
                   Additional Services
@@ -144,9 +156,9 @@ const Footer = () => {
                 />
               </svg>
               <a
-                href={`tel:${ContactMap.get('phone')}`}
+                href={PHONE_HREF}
                 className="text-white hover:text-primary transition-colors">
-                {ContactMap.get('phone')}
+                {PHONE_DISPLAY}
               </a>
             </div>
             <div className="flex items-center md:justify-end gap-2 mb-6">
@@ -206,9 +218,9 @@ const Footer = () => {
                   <CtaModal variant="default" label="Get an Instant Quote" />
                 )}
                 <Link
-                  href={isHolidayPage ? 'tel:+19734864403' : '/contact'}
+                  href={isHolidayPage ? PHONE_HREF : '/contact'}
                   className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
-                  {isHolidayPage ? 'Call (973) 486-4403' : 'Contact Us'}
+                  {isHolidayPage ? `Call ${PHONE_DISPLAY}` : 'Contact Us'}
                 </Link>
               </div>
             </div>

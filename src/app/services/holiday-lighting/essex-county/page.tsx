@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import EssexCountyContent from '@/components/services/holiday-lighting/EssexCountyContent'
-import { BusinessInfo } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle =
   'Christmas Light Installation Essex County, NJ | Jones Pressure Washing'
@@ -47,7 +47,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(973) 486-4403',
+    telephone: PHONE_DISPLAY,
     address: {
       '@type': 'PostalAddress',
       addressLocality: BusinessInfo.addressLocality,

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import BergenCountyContent from '@/components/services/holiday-lighting/BergenCountyContent'
-import { BusinessInfo } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Bergen County Holiday Lighting | Jones Pressure Washing'
 const pageDescription =
@@ -57,7 +57,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(973) 486-4403',
+    telephone: PHONE_DISPLAY,
     address: {
       '@type': 'PostalAddress',
       addressLocality: BusinessInfo.addressLocality,
