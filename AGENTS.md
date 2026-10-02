@@ -2,10 +2,9 @@
 
 ## Critical Workflow Rules
 
-- Never commit without explicit user approval.
-- Never push without explicit user approval.
-- Never force-push to `main`.
-- Pushing to `main` triggers production deployment on Netlify immediately.
+- When the agreed work scope is complete and ready for review, commit it, push the review branch, and create or update its PR without requesting separate approval. This also applies to follow-up fixes requested during PR review.
+- Never merge a PR without explicit user approval.
+- Never push directly to `main` or force-push to `main`. Changes reach `main` through an approved PR merge; a push to `main` triggers production deployment on Netlify immediately.
 
 ## Development Server
 
@@ -15,7 +14,7 @@
 
 ## Deployment Tracking
 
-Before pushing to `main`, update [docs/deployment_summary.md](/Users/phil/PVS-local/Projects/clients/kjones-pwashing-ui/docs/deployment_summary.md).
+Before an approved PR merge into `main`, update [docs/deployment_summary.md](/Users/phil/PVS-local/Projects/clients/kjones-pwashing-ui/docs/deployment_summary.md).
 
 Required sections:
 - Latest deploy summary: client-facing bullet points.
@@ -23,7 +22,7 @@ Required sections:
 - Changed URLs: full URLs that were modified.
 
 Notes:
-- The pre-push hook sends this file to the PVS API and then resets it.
+- The local pre-push hook sends this file to the PVS API and then resets it when a local push runs. GitHub PR merges do not run local hooks, so include deployment reporting in the approved merge workflow.
 - Relevant environment variables are stored in `.env.local`.
 
 ```env
