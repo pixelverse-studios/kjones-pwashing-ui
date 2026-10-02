@@ -30,21 +30,12 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     type: 'article',
-    url: '/services/holiday-lighting',
-    images: [
-      {
-        url: '/Holiday%20Lights%20Installation%20at%20Twilight.png',
-        width: 1200,
-        height: 630,
-        alt: 'Professional holiday lighting installed on a New Jersey home'
-      }
-    ]
+    url: '/services/holiday-lighting'
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: pageTitle,
-    description: pageDescription,
-    images: ['/Holiday%20Lights%20Installation%20at%20Twilight.png']
+    description: pageDescription
   },
   robots: {
     index: true,
@@ -85,8 +76,6 @@ const schema = {
   ],
   description:
     'Seasonal Christmas light installation, maintenance, removal, and storage for homeowners in Essex County and Bergen County through Paramus.',
-  image:
-    'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://www.jonespressurewashingnj.com/services/holiday-lighting'

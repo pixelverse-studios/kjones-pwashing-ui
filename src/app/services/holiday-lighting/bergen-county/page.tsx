@@ -24,21 +24,12 @@ export const metadata: Metadata = {
     title: pageTitle,
     description: pageDescription,
     type: 'article',
-    url: '/services/holiday-lighting/bergen-county',
-    images: [
-      {
-        url: '/Holiday%20Lights%20Installation%20at%20Twilight.png',
-        width: 1200,
-        height: 630,
-        alt: 'Bergen County home with custom holiday lighting'
-      }
-    ]
+    url: '/services/holiday-lighting/bergen-county'
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: pageTitle,
-    description: pageDescription,
-    images: ['/Holiday%20Lights%20Installation%20at%20Twilight.png']
+    description: pageDescription
   },
   robots: {
     index: true,
@@ -53,7 +44,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: 'Holiday Lighting Installation',
-  name: 'Bergen County Holiday Lighting Design & Installation',
+  name: 'Seasonal Christmas Light Installation in Bergen County, NJ',
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
@@ -75,8 +66,6 @@ const schema = {
   ],
   description:
     'Seasonal Christmas light installation, maintenance, removal, and storage for homeowners in Paramus and Bergen County communities south of Paramus.',
-  image:
-    'https://www.jonespressurewashingnj.com/Holiday%20Lights%20Installation%20at%20Twilight.png',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id':

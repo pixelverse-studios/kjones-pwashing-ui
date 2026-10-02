@@ -60,7 +60,7 @@ export default function BergenCountyContent() {
   return (
     <main className="bg-black text-white">
       <ServiceHero
-        img="/Holiday%20Lights%20Installation%20at%20Twilight.png"
+        img="/essex-holiday-lighting-illustration.jpg"
         h1={
           <>
             Christmas Light Installation in{' '}
