@@ -78,9 +78,14 @@ function ContactAnimatedContent({
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div
+          className={
+            isHolidayLighting
+              ? 'mx-auto grid max-w-[1240px] grid-cols-1 gap-8 lg:grid-cols-[minmax(0,780px)_minmax(0,1fr)] lg:gap-10'
+              : 'grid grid-cols-1 lg:grid-cols-3 gap-8'
+          }>
           <motion.div
-            className="lg:col-span-2"
+            className={isHolidayLighting ? 'min-w-0' : 'lg:col-span-2'}
             variants={variants.item}
             initial="hidden"
             whileInView="visible"
@@ -117,7 +122,7 @@ function ContactAnimatedContent({
                 src={`${formUrl}?embed=true`}
                 className={
                   isHolidayLighting
-                    ? 'block w-full rounded-xl border border-white/10 bg-[#f4f5f7]'
+                    ? 'block w-full max-w-[780px] rounded-xl border border-white/10 bg-[#f4f5f7]'
                     : 'block w-full border-0'
                 }
                 width="100%"
