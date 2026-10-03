@@ -99,7 +99,7 @@ function ContactAnimatedContent({
                 </p>
               ) : null}
               {!formLoaded ? (
-                <p role="status" className="mb-3 text-sm text-white">
+                <p role="status" className="sr-only">
                   Loading {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
                   form…
                 </p>
