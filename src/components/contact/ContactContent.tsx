@@ -28,6 +28,8 @@ function ContactAnimatedContent({
   const [formLoaded, setFormLoaded] = useState(false)
   const [holidayFormHeight, setHolidayFormHeight] = useState(600)
   const formRef = useRef<HTMLIFrameElement>(null)
+  // Lavo can include the iframe viewport in later height reports, so size once.
+  const hasSizedHolidayForm = useRef(false)
 
   useEffect(() => {
     if (!isHolidayLighting) return
@@ -43,7 +45,12 @@ function ContactAnimatedContent({
       }
 
       const height = Number(event.data.height)
-      if (Number.isFinite(height) && height > 0) {
+      if (
+        !hasSizedHolidayForm.current &&
+        Number.isFinite(height) &&
+        height > 600
+      ) {
+        hasSizedHolidayForm.current = true
         setHolidayFormHeight(Math.min(Math.max(height + 64, 600), 4000))
       }
     }
