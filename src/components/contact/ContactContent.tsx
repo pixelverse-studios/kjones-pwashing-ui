@@ -44,7 +44,7 @@ function ContactAnimatedContent({
 
       const height = Number(event.data.height)
       if (Number.isFinite(height) && height > 0) {
-        setHolidayFormHeight(Math.min(Math.max(height, 600), 4000))
+        setHolidayFormHeight(Math.min(Math.max(height + 64, 600), 4000))
       }
     }
 
