@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaLocationDot, FaClock } from 'react-icons/fa6'
@@ -17,6 +17,7 @@ const generalFormUrl =
   'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b'
 const holidayFormUrl =
   'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65'
+const lavoOrigin = new URL(holidayFormUrl).origin
 
 function ContactAnimatedContent({
   isHolidayLighting
@@ -25,6 +26,31 @@ function ContactAnimatedContent({
 }) {
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
+  const [holidayFormHeight, setHolidayFormHeight] = useState(600)
+  const formRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    if (!isHolidayLighting) return
+
+    const handleFormResize = (event: MessageEvent) => {
+      if (
+        event.origin !== lavoOrigin ||
+        event.source !== formRef.current?.contentWindow ||
+        !event.data ||
+        event.data.type !== 'lavo-resize'
+      ) {
+        return
+      }
+
+      const height = Number(event.data.height)
+      if (Number.isFinite(height) && height > 0) {
+        setHolidayFormHeight(Math.min(Math.max(height, 600), 4000))
+      }
+    }
+
+    window.addEventListener('message', handleFormResize)
+    return () => window.removeEventListener('message', handleFormResize)
+  }, [isHolidayLighting])
 
   const phone = PHONE_DISPLAY
   const email = ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
@@ -80,11 +106,16 @@ function ContactAnimatedContent({
               ) : null}
               <iframe
                 key={formUrl}
-                id="lavo-contact-iframe"
+                ref={formRef}
+                id={
+                  isHolidayLighting
+                    ? 'lavo-form-1f3dc471-2e9b-493e-b722-ee82b2341f65'
+                    : 'lavo-contact-iframe'
+                }
                 title={`Jones Pressure Washing ${isHolidayLighting ? 'holiday lighting' : 'contact'} request form`}
                 src={`${formUrl}?embed=true`}
                 width="100%"
-                height="800"
+                height={isHolidayLighting ? holidayFormHeight : 800}
                 onLoad={() => setFormLoaded(true)}
                 style={{ border: 'none' }}
               />
