@@ -85,14 +85,15 @@ function ContactAnimatedContent({
             initial="hidden"
             whileInView="visible"
             viewport={viewport}>
-            <div className="bg-gray rounded-lg p-6">
+            <div
+              className={isHolidayLighting ? 'pt-2' : 'bg-gray rounded-lg p-6'}>
               <h2 className="text-xl mb-4">
                 {isHolidayLighting
                   ? 'Tell Us About Your Holiday Lighting Project'
                   : 'Send Us a Message'}
               </h2>
               {isHolidayLighting ? (
-                <p className="mb-4 text-sm text-white">
+                <p className="mb-6 max-w-2xl text-sm leading-relaxed text-white">
                   Tell us about your home, the display you have in mind, and
                   your preferred timing. You can request a phone call on the
                   form.
@@ -114,22 +115,37 @@ function ContactAnimatedContent({
                 }
                 title={`Jones Pressure Washing ${isHolidayLighting ? 'holiday lighting' : 'contact'} request form`}
                 src={`${formUrl}?embed=true`}
+                className={
+                  isHolidayLighting
+                    ? 'block w-full rounded-xl border border-white/10 bg-[#f4f5f7]'
+                    : 'block w-full border-0'
+                }
                 width="100%"
                 height={isHolidayLighting ? holidayFormHeight : 800}
                 onLoad={() => setFormLoaded(true)}
-                style={{ border: 'none' }}
               />
-              <p className="mt-3 text-sm text-white">
-                Form not loading?{' '}
+              <p className="mt-4 text-sm text-white">
+                {isHolidayLighting
+                  ? 'Prefer a separate tab?'
+                  : 'Form not loading?'}{' '}
                 <a
                   href={formUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  Open the {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
-                  form in a new tab
+                  {`Open the ${isHolidayLighting ? 'holiday lighting' : 'contact'} form in a new tab`}
                 </a>{' '}
-                or call us instead.
+                or{' '}
+                {isHolidayLighting ? (
+                  <a
+                    href={PHONE_HREF}
+                    className="text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                    call {phone}
+                  </a>
+                ) : (
+                  'call us'
+                )}{' '}
+                instead.
               </p>
             </div>
           </motion.div>
@@ -153,7 +169,9 @@ function ContactAnimatedContent({
                     {phone}
                   </Link>
                   <p className="text-secondary-lite text-sm mt-1">
-                    Text or leave a voicemail for the fastest response.
+                    {isHolidayLighting
+                      ? 'Call or text us about your holiday lighting request.'
+                      : 'Text or leave a voicemail for the fastest response.'}
                   </p>
                 </div>
               </div>
@@ -183,8 +201,9 @@ function ContactAnimatedContent({
                 <div>
                   <h3 className="text-white text-lg mb-1">Service Area</h3>
                   <p className="text-secondary-lite">
-                    Bergen County, Essex County &amp; surrounding areas in New
-                    Jersey
+                    {isHolidayLighting
+                      ? 'Essex County, plus Paramus and Bergen County communities south of Paramus.'
+                      : 'Bergen County, Essex County & surrounding areas in New Jersey'}
                   </p>
                 </div>
               </div>
