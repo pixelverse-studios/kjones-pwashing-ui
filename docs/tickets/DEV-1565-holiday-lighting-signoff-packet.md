@@ -4,7 +4,7 @@ Prepared October 4, 2026. This is a review snapshot for Kyle, not a record of fi
 
 The website candidate combines [PR #33](https://github.com/pixelverse-studios/kjones-pwashing-ui/pull/33), [PR #34](https://github.com/pixelverse-studios/kjones-pwashing-ui/pull/34), and the copy corrections in this ticket's PR. This PR targets `dev-1346-holiday-lighting`; the work is not in production.
 
-Review the [Netlify draft preview](https://dev-1565-signoff--jonespressurewashingnj.netlify.app/services/holiday-lighting), built from website commit [`1c25732100ddc6535bdef09ec76f39f2d51705b7`](https://github.com/pixelverse-studios/kjones-pwashing-ui/commit/1c25732100ddc6535bdef09ec76f39f2d51705b7) (deploy `6ac29ce2fd3e3e5af01bf09c`). The four links below returned HTTP 200 on October 4. Kyle should review the rendered pages and form; an HTTP response does not confirm the embedded form works. If the preview is inaccessible, use the [direct Lavo form](https://link.lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65) for the form review and ask for a working page preview before approving the website copy.
+Review the [Netlify draft preview](https://dev-1565-signoff--jonespressurewashingnj.netlify.app/services/holiday-lighting), built from website commit [`fb91a7bb25702612500d03cbebb4baa29082354c`](https://github.com/pixelverse-studios/kjones-pwashing-ui/commit/fb91a7bb25702612500d03cbebb4baa29082354c) (deploy `6ac2a0c8139a0f47997677e9`). The four links below returned HTTP 200 and `X-Robots-Tag: noindex, nofollow` on October 4; the live site's home page did not receive that header. Kyle should review the rendered pages and form; an HTTP response does not confirm the embedded form works. If the preview is inaccessible, use the [direct Lavo form](https://link.lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65) for the form review and ask for a working page preview before approving the website copy.
 
 ## Pages for Kyle to review
 
@@ -48,7 +48,7 @@ The holiday-lighting pages and separate request form are ready for your factual 
 - Bergen County: https://dev-1565-signoff--jonespressurewashingnj.netlify.app/services/holiday-lighting/bergen-county
 - Request form: https://dev-1565-signoff--jonespressurewashingnj.netlify.app/contact?service=holiday-lighting
 
-These links show the draft built from website commit `1c25732100ddc6535bdef09ec76f39f2d51705b7`, not the live website.
+These links show the draft built from website commit `fb91a7bb25702612500d03cbebb4baa29082354c`, not the live website.
 
 Before we publish, could you confirm the business name, homeowner-only seasonal offer, service area, included work, phone number, and the wording around quotes and availability? The sign-off packet lists the current draft on each point.
 
