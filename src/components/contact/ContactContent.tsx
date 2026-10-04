@@ -20,6 +20,9 @@ const holidayFormUrl =
 const lavoOrigin = new URL(holidayFormUrl).origin
 const holidayFormHeightBuffer = 64
 const holidayFormResizeThreshold = 128
+const holidayConfirmationHeight = 600
+const holidayConfirmationReportedHeight = 1200
+const holidayExpandedFormHeight = 1300
 
 function ContactAnimatedContent({
   isHolidayLighting
@@ -28,7 +31,13 @@ function ContactAnimatedContent({
 }) {
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
-  const [holidayFormHeight, setHolidayFormHeight] = useState(600)
+  const [holidayFrame, setHolidayFrame] = useState<{
+    height: number
+    compactReportedHeight: number | null
+  }>({
+    height: 600,
+    compactReportedHeight: null
+  })
   const formRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -45,14 +54,48 @@ function ContactAnimatedContent({
       }
 
       const height = Number(event.data.height)
-      if (Number.isFinite(height) && height > 600) {
-        setHolidayFormHeight(currentHeight => {
-          // Lavo may report the iframe viewport after we grow it. Only a
-          // larger content change should trigger another resize.
+      if (Number.isFinite(height) && height > 0) {
+        setHolidayFrame(currentFrame => {
+          const nextHeight = Math.min(
+            Math.max(height + holidayFormHeightBuffer, 600),
+            4000
+          )
+
+          if (currentFrame.compactReportedHeight !== null) {
+            // A resize alone does not prove submission. Restore the full form
+            // if Lavo later reports content substantially taller than the
+            // height that triggered the compact viewport.
+            if (
+              height >
+              currentFrame.compactReportedHeight + holidayFormResizeThreshold
+            ) {
+              return { height: nextHeight, compactReportedHeight: null }
+            }
+            return currentFrame
+          }
+
+          // Lavo centers the short confirmation inside a tall canvas. After
+          // the expanded form reports a much shorter height, use a compact
+          // viewport rather than preserving that empty canvas.
+          if (
+            currentFrame.height > holidayExpandedFormHeight &&
+            height < holidayConfirmationReportedHeight
+          ) {
+            return {
+              height: holidayConfirmationHeight,
+              compactReportedHeight: height
+            }
+          }
+
+          // Lavo may report the iframe viewport after a resize. Ignore small
+          // changes so that adding the buffer cannot create a resize loop,
+          // while allowing meaningful changes in the form height.
           const threshold =
-            currentHeight === 600 ? 0 : holidayFormResizeThreshold
-          if (height <= currentHeight + threshold) return currentHeight
-          return Math.min(height + holidayFormHeightBuffer, 4000)
+            currentFrame.height === 600 ? 0 : holidayFormResizeThreshold
+          if (Math.abs(nextHeight - currentFrame.height) <= threshold) {
+            return currentFrame
+          }
+          return { ...currentFrame, height: nextHeight }
         })
       }
     }
@@ -139,7 +182,7 @@ function ContactAnimatedContent({
                     : 'block w-full border-0'
                 }
                 width="100%"
-                height={isHolidayLighting ? holidayFormHeight : 800}
+                height={isHolidayLighting ? holidayFrame.height : 800}
                 onLoad={() => setFormLoaded(true)}
               />
               <p className="mt-4 text-sm text-white">
