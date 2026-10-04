@@ -18,6 +18,8 @@ const generalFormUrl =
 const holidayFormUrl =
   'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65'
 const lavoOrigin = new URL(holidayFormUrl).origin
+const holidayFormHeightBuffer = 64
+const holidayFormResizeThreshold = 128
 
 function ContactAnimatedContent({
   isHolidayLighting
@@ -28,8 +30,6 @@ function ContactAnimatedContent({
   const [formLoaded, setFormLoaded] = useState(false)
   const [holidayFormHeight, setHolidayFormHeight] = useState(600)
   const formRef = useRef<HTMLIFrameElement>(null)
-  // Lavo can include the iframe viewport in later height reports, so size once.
-  const hasSizedHolidayForm = useRef(false)
 
   useEffect(() => {
     if (!isHolidayLighting) return
@@ -45,13 +45,15 @@ function ContactAnimatedContent({
       }
 
       const height = Number(event.data.height)
-      if (
-        !hasSizedHolidayForm.current &&
-        Number.isFinite(height) &&
-        height > 600
-      ) {
-        hasSizedHolidayForm.current = true
-        setHolidayFormHeight(Math.min(Math.max(height + 64, 600), 4000))
+      if (Number.isFinite(height) && height > 600) {
+        setHolidayFormHeight(currentHeight => {
+          // Lavo may report the iframe viewport after we grow it. Only a
+          // larger content change should trigger another resize.
+          const threshold =
+            currentHeight === 600 ? 0 : holidayFormResizeThreshold
+          if (height <= currentHeight + threshold) return currentHeight
+          return Math.min(height + holidayFormHeightBuffer, 4000)
+        })
       }
     }
 
@@ -112,7 +114,11 @@ function ContactAnimatedContent({
                 </p>
               ) : null}
               {!formLoaded ? (
-                <p role="status" className="sr-only">
+                <p
+                  role="status"
+                  className={
+                    isHolidayLighting ? 'sr-only' : 'mb-3 text-sm text-white'
+                  }>
                   Loading {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
                   form…
                 </p>
