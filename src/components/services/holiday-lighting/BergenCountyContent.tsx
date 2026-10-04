@@ -52,7 +52,7 @@ const faqs = [
   },
   {
     question: 'How can I request a quote or phone call?',
-    answer: `Use the contact form to describe your home, town, desired display, and timing. Ask for a phone call in the project description or call ${PHONE_DISPLAY} directly.`
+    answer: `Use the holiday lighting form to describe your home, desired display, and timing. Select the phone-call option or call ${PHONE_DISPLAY} directly.`
   }
 ]
 

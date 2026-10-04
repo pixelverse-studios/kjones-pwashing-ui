@@ -143,8 +143,8 @@ function SeasonalDetails() {
           </h3>
           <p>
             Share your town, property details, display ideas, and preferred
-            timing through the contact form. You can request a phone call in the
-            project description.
+            timing through the holiday lighting form. Select the phone-call
+            option if you would like us to call.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
