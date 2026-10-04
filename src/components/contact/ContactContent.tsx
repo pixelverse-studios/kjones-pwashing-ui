@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { FaPhone, FaEnvelope, FaLocationDot, FaClock } from 'react-icons/fa6'
@@ -13,6 +13,14 @@ import {
   viewport
 } from '@/lib/AnimationContext'
 
+const generalFormUrl =
+  'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b'
+const holidayFormUrl =
+  'https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/1f3dc471-2e9b-493e-b722-ee82b2341f65'
+const lavoOrigin = new URL(holidayFormUrl).origin
+const holidayFormHeightBuffer = 64
+const holidayFormResizeThreshold = 128
+
 function ContactAnimatedContent({
   isHolidayLighting
 }: {
@@ -20,9 +28,42 @@ function ContactAnimatedContent({
 }) {
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
+  const [holidayFormHeight, setHolidayFormHeight] = useState(600)
+  const formRef = useRef<HTMLIFrameElement>(null)
+
+  useEffect(() => {
+    if (!isHolidayLighting) return
+
+    const handleFormResize = (event: MessageEvent) => {
+      if (
+        event.origin !== lavoOrigin ||
+        event.source !== formRef.current?.contentWindow ||
+        !event.data ||
+        event.data.type !== 'lavo-resize'
+      ) {
+        return
+      }
+
+      const height = Number(event.data.height)
+      if (Number.isFinite(height) && height > 600) {
+        setHolidayFormHeight(currentHeight => {
+          // Lavo may report the iframe viewport after we grow it. Only a
+          // larger content change should trigger another resize.
+          const threshold =
+            currentHeight === 600 ? 0 : holidayFormResizeThreshold
+          if (height <= currentHeight + threshold) return currentHeight
+          return Math.min(height + holidayFormHeightBuffer, 4000)
+        })
+      }
+    }
+
+    window.addEventListener('message', handleFormResize)
+    return () => window.removeEventListener('message', handleFormResize)
+  }, [isHolidayLighting])
 
   const phone = PHONE_DISPLAY
   const email = ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
+  const formUrl = isHolidayLighting ? holidayFormUrl : generalFormUrl
 
   return (
     <section className="bg-black nav-offset">
@@ -46,53 +87,83 @@ function ContactAnimatedContent({
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div
+          className={
+            isHolidayLighting
+              ? 'mx-auto grid max-w-[1240px] grid-cols-1 gap-8 lg:grid-cols-[minmax(0,780px)_minmax(0,1fr)] lg:gap-10'
+              : 'grid grid-cols-1 lg:grid-cols-3 gap-8'
+          }>
           <motion.div
-            className="lg:col-span-2"
+            className={isHolidayLighting ? 'min-w-0' : 'lg:col-span-2'}
             variants={variants.item}
             initial="hidden"
             whileInView="visible"
             viewport={viewport}>
-            <div className="bg-gray rounded-lg p-6">
+            <div
+              className={isHolidayLighting ? 'pt-2' : 'bg-gray rounded-lg p-6'}>
               <h2 className="text-xl mb-4">
                 {isHolidayLighting
                   ? 'Tell Us About Your Holiday Lighting Project'
                   : 'Send Us a Message'}
               </h2>
               {isHolidayLighting ? (
-                <p className="mb-4 text-sm text-white">
-                  In the project description, mention Christmas or holiday
-                  lighting, your town, the display you have in mind, and when
-                  you hope to have it installed. If you would prefer a phone
-                  call, ask us to call you there. This request form is shared
-                  with our other services, so naming holiday lighting helps us
-                  route your inquiry.
+                <p className="mb-6 max-w-2xl text-sm leading-relaxed text-white">
+                  Tell us about your home, the display you have in mind, and
+                  your preferred timing. You can request a phone call on the
+                  form.
                 </p>
               ) : null}
               {!formLoaded ? (
-                <p role="status" className="mb-3 text-sm text-white">
-                  Loading contact form…
+                <p
+                  role="status"
+                  className={
+                    isHolidayLighting ? 'sr-only' : 'mb-3 text-sm text-white'
+                  }>
+                  Loading {isHolidayLighting ? 'holiday lighting' : 'contact'}{' '}
+                  form…
                 </p>
               ) : null}
               <iframe
-                id="lavo-contact-iframe"
-                title="Jones Pressure Washing contact request form"
-                src="https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b?embed=true"
+                key={formUrl}
+                ref={formRef}
+                id={
+                  isHolidayLighting
+                    ? 'lavo-form-1f3dc471-2e9b-493e-b722-ee82b2341f65'
+                    : 'lavo-contact-iframe'
+                }
+                title={`Jones Pressure Washing ${isHolidayLighting ? 'holiday lighting' : 'contact'} request form`}
+                src={`${formUrl}?embed=true`}
+                className={
+                  isHolidayLighting
+                    ? 'block w-full max-w-[780px] rounded-xl border border-white/10 bg-[#f4f5f7]'
+                    : 'block w-full border-0'
+                }
                 width="100%"
-                height="800"
+                height={isHolidayLighting ? holidayFormHeight : 800}
                 onLoad={() => setFormLoaded(true)}
-                style={{ border: 'none' }}
               />
-              <p className="mt-3 text-sm text-white">
-                Form not loading?{' '}
+              <p className="mt-4 text-sm text-white">
+                {isHolidayLighting
+                  ? 'Prefer a separate tab?'
+                  : 'Form not loading?'}{' '}
                 <a
-                  href="https://lavocrm.com/request/d0ea84e6-2337-48b9-8445-f93373361731/6b89109a-a584-4a83-8920-ea331b400a4b?embed=true"
+                  href={formUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  Open the contact form in a new tab
+                  {`Open the ${isHolidayLighting ? 'holiday lighting' : 'contact'} form in a new tab`}
                 </a>{' '}
-                or call us instead.
+                or{' '}
+                {isHolidayLighting ? (
+                  <a
+                    href={PHONE_HREF}
+                    className="text-primary underline underline-offset-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                    call {phone}
+                  </a>
+                ) : (
+                  'call us'
+                )}{' '}
+                instead.
               </p>
             </div>
           </motion.div>
@@ -116,7 +187,9 @@ function ContactAnimatedContent({
                     {phone}
                   </Link>
                   <p className="text-secondary-lite text-sm mt-1">
-                    Text or leave a voicemail for the fastest response.
+                    {isHolidayLighting
+                      ? 'Call or text us about your holiday lighting request.'
+                      : 'Text or leave a voicemail for the fastest response.'}
                   </p>
                 </div>
               </div>
@@ -146,8 +219,9 @@ function ContactAnimatedContent({
                 <div>
                   <h3 className="text-white text-lg mb-1">Service Area</h3>
                   <p className="text-secondary-lite">
-                    Bergen County, Essex County &amp; surrounding areas in New
-                    Jersey
+                    {isHolidayLighting
+                      ? 'Essex County, plus Paramus and Bergen County communities south of Paramus.'
+                      : 'Bergen County, Essex County & surrounding areas in New Jersey'}
                   </p>
                 </div>
               </div>
@@ -257,7 +331,10 @@ export default function ContactContent({
 }) {
   return (
     <AnimationProvider>
-      <ContactAnimatedContent isHolidayLighting={isHolidayLighting} />
+      <ContactAnimatedContent
+        key={isHolidayLighting ? 'holiday' : 'general'}
+        isHolidayLighting={isHolidayLighting}
+      />
     </AnimationProvider>
   )
 }
