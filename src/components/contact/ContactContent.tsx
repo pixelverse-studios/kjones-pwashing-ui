@@ -31,9 +31,12 @@ function ContactAnimatedContent({
 }) {
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
-  const [holidayFrame, setHolidayFrame] = useState({
+  const [holidayFrame, setHolidayFrame] = useState<{
+    height: number
+    compactReportedHeight: number | null
+  }>({
     height: 600,
-    confirmationShown: false
+    compactReportedHeight: null
   })
   const formRef = useRef<HTMLIFrameElement>(null)
 
@@ -53,7 +56,23 @@ function ContactAnimatedContent({
       const height = Number(event.data.height)
       if (Number.isFinite(height) && height > 0) {
         setHolidayFrame(currentFrame => {
-          if (currentFrame.confirmationShown) return currentFrame
+          const nextHeight = Math.min(
+            Math.max(height + holidayFormHeightBuffer, 600),
+            4000
+          )
+
+          if (currentFrame.compactReportedHeight !== null) {
+            // A resize alone does not prove submission. Restore the full form
+            // if Lavo later reports content substantially taller than the
+            // height that triggered the compact viewport.
+            if (
+              height >
+              currentFrame.compactReportedHeight + holidayFormResizeThreshold
+            ) {
+              return { height: nextHeight, compactReportedHeight: null }
+            }
+            return currentFrame
+          }
 
           // Lavo centers the short confirmation inside a tall canvas. After
           // the expanded form reports a much shorter height, use a compact
@@ -64,17 +83,13 @@ function ContactAnimatedContent({
           ) {
             return {
               height: holidayConfirmationHeight,
-              confirmationShown: true
+              compactReportedHeight: height
             }
           }
 
           // Lavo may report the iframe viewport after a resize. Ignore small
           // changes so that adding the buffer cannot create a resize loop,
           // while allowing meaningful changes in the form height.
-          const nextHeight = Math.min(
-            Math.max(height + holidayFormHeightBuffer, 600),
-            4000
-          )
           const threshold =
             currentFrame.height === 600 ? 0 : holidayFormResizeThreshold
           if (Math.abs(nextHeight - currentFrame.height) <= threshold) {
