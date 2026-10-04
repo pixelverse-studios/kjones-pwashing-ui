@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 
 import EssexCountyContent from '@/components/services/holiday-lighting/EssexCountyContent'
 import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
@@ -93,17 +92,19 @@ const breadcrumbSchema = {
 export default function EssexCountyHolidayLightingPage() {
   return (
     <>
-      <Script
+      <script
         id="jpw-holiday-lighting-essex-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, '\\u003c')
+        }}
       />
-      <Script
+      <script
         id="jpw-holiday-lighting-essex-breadcrumb-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
+        }}
       />
       <EssexCountyContent />
     </>

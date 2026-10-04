@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
 import Link from 'next/link'
 import { BusinessInfo, PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 import { FaLightbulb, FaRegSnowflake, FaStar } from 'react-icons/fa6'
@@ -167,17 +166,19 @@ function SeasonalDetails() {
 export default function HolidayLightingPage() {
   return (
     <>
-      <Script
+      <script
         id="jpw-holiday-lighting-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema).replace(/</g, '\\u003c')
+        }}
       />
-      <Script
+      <script
         id="jpw-holiday-lighting-breadcrumb-schema"
         type="application/ld+json"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
+        }}
       />
       <main>
         <ServiceHero
