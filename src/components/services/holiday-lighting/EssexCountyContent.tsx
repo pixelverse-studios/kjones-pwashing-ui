@@ -50,7 +50,7 @@ const faqs = [
   },
   {
     question: 'How do I request a quote or phone call?',
-    answer: `Use the contact form to describe your home, town, desired display, and timing. You can ask for a phone call in the project description or call ${PHONE_DISPLAY} directly.`
+    answer: `Use the holiday lighting form to describe your home, desired display, and timing. Select the phone-call option or call ${PHONE_DISPLAY} directly.`
   }
 ]
 
@@ -196,9 +196,8 @@ export default function EssexCountyContent() {
               current availability and the scope of a quote.
             </p>
             <p className="max-w-[55ch] leading-7 text-[#c9c9c5]">
-              The contact form is shared with our other services. Mention
-              Christmas or holiday lighting in the project description, and ask
-              for a phone call there if you would rather speak with us.
+              Use the dedicated holiday lighting form to describe your project.
+              Select the phone-call option if you would rather speak with us.
             </p>
           </div>
           <div>
