@@ -20,6 +20,9 @@ const holidayFormUrl =
 const lavoOrigin = new URL(holidayFormUrl).origin
 const holidayFormHeightBuffer = 64
 const holidayFormResizeThreshold = 128
+const holidayConfirmationHeight = 600
+const holidayConfirmationReportedHeight = 1200
+const holidayExpandedFormHeight = 1300
 
 function ContactAnimatedContent({
   isHolidayLighting
@@ -28,7 +31,10 @@ function ContactAnimatedContent({
 }) {
   const { variants } = useAnimation()
   const [formLoaded, setFormLoaded] = useState(false)
-  const [holidayFormHeight, setHolidayFormHeight] = useState(600)
+  const [holidayFrame, setHolidayFrame] = useState({
+    height: 600,
+    confirmationShown: false
+  })
   const formRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -46,20 +52,35 @@ function ContactAnimatedContent({
 
       const height = Number(event.data.height)
       if (Number.isFinite(height) && height > 0) {
-        setHolidayFormHeight(currentHeight => {
+        setHolidayFrame(currentFrame => {
+          if (currentFrame.confirmationShown) return currentFrame
+
+          // Lavo centers the short confirmation inside a tall canvas. After
+          // the expanded form reports a much shorter height, use a compact
+          // viewport rather than preserving that empty canvas.
+          if (
+            currentFrame.height > holidayExpandedFormHeight &&
+            height < holidayConfirmationReportedHeight
+          ) {
+            return {
+              height: holidayConfirmationHeight,
+              confirmationShown: true
+            }
+          }
+
           // Lavo may report the iframe viewport after a resize. Ignore small
           // changes so that adding the buffer cannot create a resize loop,
-          // while allowing the shorter confirmation screen to shrink it.
+          // while allowing meaningful changes in the form height.
           const nextHeight = Math.min(
             Math.max(height + holidayFormHeightBuffer, 600),
             4000
           )
           const threshold =
-            currentHeight === 600 ? 0 : holidayFormResizeThreshold
-          if (Math.abs(nextHeight - currentHeight) <= threshold) {
-            return currentHeight
+            currentFrame.height === 600 ? 0 : holidayFormResizeThreshold
+          if (Math.abs(nextHeight - currentFrame.height) <= threshold) {
+            return currentFrame
           }
-          return nextHeight
+          return { ...currentFrame, height: nextHeight }
         })
       }
     }
@@ -146,7 +167,7 @@ function ContactAnimatedContent({
                     : 'block w-full border-0'
                 }
                 width="100%"
-                height={isHolidayLighting ? holidayFormHeight : 800}
+                height={isHolidayLighting ? holidayFrame.height : 800}
                 onLoad={() => setFormLoaded(true)}
               />
               <p className="mt-4 text-sm text-white">
