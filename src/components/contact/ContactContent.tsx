@@ -45,14 +45,21 @@ function ContactAnimatedContent({
       }
 
       const height = Number(event.data.height)
-      if (Number.isFinite(height) && height > 600) {
+      if (Number.isFinite(height) && height > 0) {
         setHolidayFormHeight(currentHeight => {
-          // Lavo may report the iframe viewport after we grow it. Only a
-          // larger content change should trigger another resize.
+          // Lavo may report the iframe viewport after a resize. Ignore small
+          // changes so that adding the buffer cannot create a resize loop,
+          // while allowing the shorter confirmation screen to shrink it.
+          const nextHeight = Math.min(
+            Math.max(height + holidayFormHeightBuffer, 600),
+            4000
+          )
           const threshold =
             currentHeight === 600 ? 0 : holidayFormResizeThreshold
-          if (height <= currentHeight + threshold) return currentHeight
-          return Math.min(height + holidayFormHeightBuffer, 4000)
+          if (Math.abs(nextHeight - currentHeight) <= threshold) {
+            return currentHeight
+          }
+          return nextHeight
         })
       }
     }
