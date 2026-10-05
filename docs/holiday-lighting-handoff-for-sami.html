@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>Holiday Lighting SEO &amp; Design Handoff | Jones Pressure Washing</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #162329;
+        --muted: #53616a;
+        --line: #d8dfdc;
+        --paper: #fbfaf6;
+        --card: #ffffff;
+        --gold: #d4af37;
+        --deep: #123740;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 Arial, Helvetica, sans-serif; }
+      a { color: #075b70; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      a:hover, a:focus-visible { color: #073e4c; }
+      a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+      h1, h2, h3, p, ul, ol { margin-top: 0; }
+      h1, h2, h3 { line-height: 1.17; letter-spacing: -0.025em; }
+      h1 { max-width: 760px; margin-bottom: 18px; font-size: clamp(2.4rem, 5.3vw, 4.5rem); }
+      h2 { margin-bottom: 22px; font-size: clamp(1.55rem, 3vw, 2.2rem); }
+      h3 { margin-bottom: 10px; font-size: 1.12rem; }
+      p, li { max-width: 76ch; }
+      li + li { margin-top: 7px; }
+      .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+      .masthead { background: #111c21; color: #f8f8f2; border-top: 7px solid var(--gold); }
+      .masthead .wrap { padding: 36px 0 54px; }
+      .topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 70px; }
+      .brand { font-size: .87rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .date { color: #bcc9c8; font-size: .88rem; }
+      .eyebrow { margin-bottom: 14px; color: var(--gold); font-size: .83rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+      .lede { max-width: 740px; margin-bottom: 28px; color: #d9e1de; font-size: clamp(1.06rem, 2vw, 1.27rem); }
+      .hero-links { display: flex; flex-wrap: wrap; gap: 10px; }
+      .hero-links a { display: inline-flex; align-items: center; min-height: 42px; padding: 8px 14px; border: 1px solid #627575; border-radius: 4px; color: white; font-weight: 700; text-decoration: none; }
+      .hero-links a:first-child { border-color: var(--gold); background: var(--gold); color: #142025; }
+      main { padding: 52px 0 78px; }
+      section { margin-bottom: 64px; }
+      .section-head { display: flex; align-items: baseline; gap: 18px; border-bottom: 1px solid var(--line); padding-bottom: 13px; margin-bottom: 24px; }
+      .section-head h2 { margin: 0; }
+      .section-no { color: #9b771a; font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+      .summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+      .summary article, .page-card, .callout { background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+      .summary article { padding: 24px; border-top: 4px solid var(--gold); }
+      .summary p { margin-bottom: 0; color: var(--muted); }
+      .process { display: grid; gap: 0; padding: 0; list-style: none; counter-reset: step; }
+      .process li { position: relative; max-width: none; margin: 0; padding: 0 0 28px 58px; border-left: 1px solid #c5d1cc; margin-left: 16px; counter-increment: step; }
+      .process li:last-child { padding-bottom: 0; border-left-color: transparent; }
+      .process li::before { content: counter(step, decimal-leading-zero); position: absolute; top: 0; left: -17px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--deep); color: white; font-size: .73rem; font-weight: 800; }
+      .process h3 { padding-top: 3px; }
+      .process p { margin-bottom: 0; color: var(--muted); }
+      .pages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .page-card { padding: 23px 24px; }
+      .page-card .tag { display: block; margin-bottom: 8px; color: #7c631b; font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .page-card p { margin-bottom: 12px; color: var(--muted); }
+      .page-card a { font-weight: 700; }
+      .split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 32px; }
+      .callout { padding: 25px 28px; }
+      .callout h3 { color: var(--deep); }
+      .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+      .callout.caution { border-left: 5px solid var(--gold); }
+      .muted { color: var(--muted); }
+      .source-list { padding-left: 20px; }
+      footer { padding: 26px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+      footer p { margin-bottom: 0; }
+      @media (max-width: 760px) {
+        .wrap { width: min(100% - 32px, 560px); }
+        .topline { align-items: flex-start; flex-direction: column; margin-bottom: 52px; }
+        .summary, .pages, .split { grid-template-columns: 1fr; }
+        main { padding-top: 38px; }
+        section { margin-bottom: 48px; }
+      }
+      @media print {
+        @page { size: letter; margin: .65in; }
+        body { background: white; font-size: 10.5pt; }
+        .wrap { width: 100%; }
+        .masthead { background: white; color: var(--ink); border-top-width: 4px; }
+        .masthead .wrap { padding: 0 0 18px; }
+        .topline { margin-bottom: 20px; }
+        .date, .lede { color: var(--muted); }
+        .hero-links { display: none; }
+        h1 { font-size: 26pt; }
+        h2 { font-size: 16pt; }
+        section { margin-bottom: 25px; }
+        main { padding: 20px 0; }
+        .summary article, .page-card, .callout { break-inside: avoid; }
+        .process li { break-inside: avoid; padding-bottom: 16px; }
+        a { color: inherit; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="wrap">
+        <div class="topline">
+          <div class="brand">Jones Pressure Washing <span aria-hidden="true">/</span> Design handoff</div>
+          <div class="date">For Sami · October 4, 2026</div>
+        </div>
+        <p class="eyebrow">Holiday lighting · first production release</p>
+        <h1>What changed, and why we made those choices</h1>
+        <p class="lede">We rebuilt the holiday-lighting pages around the service Jones actually offers, the places it serves, and the questions a homeowner needs answered before requesting a quote. This brief gives you the reasoning behind the copy and page structure, plus the design work still ahead.</p>
+        <nav class="hero-links" aria-label="Key links">
+          <a href="https://www.jonespressurewashingnj.com/services/holiday-lighting">View live pages</a>
+          <a href="https://github.com/pixelverse-studios/kjones-pwashing-ui/pull/37">Release PR #37</a>
+          <a href="https://linear.app/pixelverse-studios/issue/DEV-1346/epic-update-the-holiday-lighting-content-and-conversion-flow">Epic DEV-1346</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section aria-labelledby="snapshot">
+        <div class="section-head"><span class="section-no">01 / SUMMARY</span><h2 id="snapshot">The release in three decisions</h2></div>
+        <div class="summary">
+          <article><h3>One defined service</h3><p>Seasonal Christmas and holiday light installation for homeowners. The confirmed high-level service includes Jones-supplied installation materials, maintenance, removal, and storage.</p></article>
+          <article><h3>One clear territory</h3><p>Essex County, plus Paramus and Bergen County communities south of Paramus. The Bergen page no longer suggests countywide coverage.</p></article>
+          <article><h3>One suitable lead path</h3><p>Holiday requests go to a dedicated Lavo form. The existing instant-quote tool serves pressure washing and was not suitable for this service.</p></article>
+        </div>
+      </section>
+
+      <section aria-labelledby="process-heading">
+        <div class="section-head"><span class="section-no">02 / PROCESS</span><h2 id="process-heading">How we arrived at the SEO and wording</h2></div>
+        <ol class="process">
+          <li><h3>Start with the existing pages and search evidence</h3><p>We audited the holiday hub and both county pages, then reviewed page-filtered Google Search Console exports. In the supplied prior-year window, Essex had 609 impressions and Bergen had 106, both with zero clicks. Much of the visible query mix was for broad outdoor, permanent, electrical, or security lighting, so clearer service boundaries mattered more than adding more copy.</p></li>
+          <li><h3>Check how customers describe the job</h3><p>We compared Search Console queries with Keyword Planner, Google Trends, and sampled search results and competitors. “Christmas light installation” was the clearest primary phrase for the Essex service page. “Holiday lighting” remains a natural supporting term across the site. We kept the existing county URLs and did not create thin town pages or target every phrase containing “lighting.”</p></li>
+          <li><h3>Confirm business facts with Kyle</h3><p>The September 27 meeting and ADM-42 established the homeowner-only seasonal offer, supplied materials, included work, service boundary, and quote-first pricing approach. We treated products, exact ownership terms, repair timing, guarantees, calendar capacity, and specific project claims as unknown unless supported separately.</p></li>
+          <li><h3>Write from a claim-and-proof brief</h3><p>The Essex content brief mapped each page section to a customer decision and a supported fact. We removed commercial and permanent-lighting positioning, unsupported Montclair and Maplewood stories, broad town-by-town filler, an unverified public price and price schema, and urgency or operational promises we could not substantiate.</p></li>
+          <li><h3>Validate the full request and search path</h3><p>We connected the dedicated Lavo form, tested a labeled submission and business receipt, checked mobile sizing and confirmation behavior, then verified the live pages’ status, index settings, canonicals, sitemap entries, and Service/Breadcrumb structured data. Search Console and CRM outcomes will be monitored separately; a page view or CTA click is not a completed lead.</p></li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="changes-heading">
+        <div class="section-head"><span class="section-no">03 / LIVE PAGES</span><h2 id="changes-heading">What changed on the site</h2></div>
+        <div class="pages">
+          <article class="page-card"><span class="tag">Service overview</span><h3>Holiday-lighting hub</h3><p>Defines the seasonal residential offer, included work, supported counties, and a clear route into the request form.</p><a href="https://www.jonespressurewashingnj.com/services/holiday-lighting">Open the overview</a></article>
+          <article class="page-card"><span class="tag">Primary search page</span><h3>Essex County</h3><p>Leads with “Christmas light installation,” answers buyer questions, and uses concise county coverage instead of unsupported local project narratives.</p><a href="https://www.jonespressurewashingnj.com/services/holiday-lighting/essex-county">Open the Essex page</a></article>
+          <article class="page-card"><span class="tag">Territory correction</span><h3>Bergen County</h3><p>Limits the public service area to Paramus and communities south of it, with the same seasonal service and request language.</p><a href="https://www.jonespressurewashingnj.com/services/holiday-lighting/bergen-county">Open the Bergen page</a></article>
+          <article class="page-card"><span class="tag">Conversion path</span><h3>Holiday request</h3><p>Collects contact, property, display, and timing details with an optional call request. The direct form and phone remain fallback options.</p><a href="https://www.jonespressurewashingnj.com/contact?service=holiday-lighting">Open the request page</a></article>
+        </div>
+      </section>
+
+      <section aria-labelledby="design-heading">
+        <div class="section-head"><span class="section-no">04 / FOR DESIGN</span><h2 id="design-heading">What matters for Sami’s next pass</h2></div>
+        <div class="split">
+          <div class="callout">
+            <h3>Design around the homeowner’s decision</h3>
+            <ul>
+              <li>Make the service, location boundary, inclusions, and request action obvious above the fold.</li>
+              <li>Let the Essex and Bergen pages feel related while giving each a distinct geographic role.</li>
+              <li>Account for the light-colored third-party Lavo form inside the dark site; its internal fields and consent styling are controlled in Lavo.</li>
+              <li>Keep the call option, keyboard focus, mobile layout, and form fallback easy to find.</li>
+            </ul>
+          </div>
+          <div class="callout caution">
+            <h3>Keep proof and claims honest</h3>
+            <p>We removed unverified project stories. Please do not present stock or generated lighting imagery as completed Jones work. Permissioned project photos, reviews, and job details can be added when Kyle provides them. The dedicated seasonal homepage promotion is also still open design work.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="open-heading">
+        <div class="section-head"><span class="section-no">05 / STATUS</span><h2 id="open-heading">Released now; still open</h2></div>
+        <p>The first release is live and technically ready for Google to crawl. That does not establish indexing, rankings, or leads yet. We will compare later Search Console visibility with the pre-release baseline and use Lavo as the source of truth for submitted and qualified requests.</p>
+        <p><strong>Approval distinction:</strong> Phil authorized the production release based on the narrower facts recorded from Kyle’s meeting. <a href="https://linear.app/pixelverse-studios/issue/DEV-1565/collect-kyles-final-holiday-lighting-factual-sign-off">DEV-1565</a> still tracks Kyle’s itemized approval of the exact public wording and form details. The broader M2 milestone also includes separate residential soft-washing and sitewide work.</p>
+      </section>
+
+      <section aria-labelledby="sources-heading">
+        <div class="section-head"><span class="section-no">06 / REFERENCES</span><h2 id="sources-heading">Source trail</h2></div>
+        <ul class="source-list">
+          <li><a href="https://linear.app/pixelverse-studios/issue/DEV-1346/epic-update-the-holiday-lighting-content-and-conversion-flow">DEV-1346</a> — scope, release decision, and remaining work</li>
+          <li><a href="https://linear.app/pixelverse-studios/issue/ADM-42/confirm-the-holiday-lighting-offer-service-area-and-operating-terms">ADM-42</a> — confirmed business offer and operating boundaries</li>
+          <li><a href="https://linear.app/pixelverse-studios/issue/DEV-1510/complete-holiday-lighting-keyword-gsc-and-seasonal-demand-research">DEV-1510</a> and <a href="https://linear.app/pixelverse-studios/issue/DEV-1511/draft-provisional-essex-county-holiday-lighting-page-brief">DEV-1511</a> — search evidence and Essex content brief</li>
+          <li><a href="https://linear.app/pixelverse-studios/issue/DEV-1354/implement-the-holiday-lighting-contact-flow-faqs-and-attribution">DEV-1354</a> — dedicated form and submission QA</li>
+          <li><a href="https://github.com/pixelverse-studios/kjones-pwashing-ui/pull/37">PR #37</a> — merged production implementation</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer><div class="wrap"><p>Prepared for Sami by PixelVerse Studios · October 4, 2026 · Shareable project handoff</p></div></footer>
+  </body>
+</html>
