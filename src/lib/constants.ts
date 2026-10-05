@@ -1,6 +1,8 @@
+const PHONE_DISPLAY = '(973) 486-4403'
+const PHONE_HREF = 'tel:+19734864403'
+
 const ContactMap = new Map()
 ContactMap.set('email', 'Hello@jonespressurewashingnj.com')
-ContactMap.set('phone', '(973) 486-4403')
 
 const BusinessInfo = {
   name: 'Jones Pressure Washing',
@@ -21,4 +23,4 @@ const BusinessInfo = {
   ]
 }
 
-export { ContactMap, BusinessInfo }
+export { ContactMap, BusinessInfo, PHONE_DISPLAY, PHONE_HREF }

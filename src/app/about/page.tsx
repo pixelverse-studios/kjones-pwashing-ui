@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import AboutContent from '@/components/about/AboutContent'
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'About Jones Pressure Washing | Bergen & Essex, NJ'
 const pageDescription =
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const businessPhone = PHONE_DISPLAY
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {

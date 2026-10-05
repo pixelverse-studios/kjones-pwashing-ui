@@ -31,6 +31,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Netlify CLI build output
+/.netlify/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Oko: machine-local Codex connection
+/.codex/config.toml
+/.env

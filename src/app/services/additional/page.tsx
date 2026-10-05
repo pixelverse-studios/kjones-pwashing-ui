@@ -7,7 +7,7 @@ import ServiceHero from '@/components/services/ServiceHero'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
 import additionalServices from '@/lib/services/additionalServices'
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Gutter & Roof Cleaning | Bergen & Essex County, NJ'
 const pageDescription =
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const businessPhone = PHONE_DISPLAY
 const baseUrl = 'https://www.jonespressurewashingnj.com'
 
 const schema = {

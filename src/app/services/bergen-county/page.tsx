@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import BergenCountyHubContent from '@/components/services/BergenCountyHubContent'
-import { BusinessInfo } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Bergen County Exterior Cleaning | Jones Pressure Washing'
 const pageDescription =
@@ -59,7 +59,7 @@ const schema = {
   provider: {
     '@type': 'LocalBusiness',
     name: 'Jones Pressure Washing',
-    telephone: '(973) 486-4403',
+    telephone: PHONE_DISPLAY,
     address: {
       '@type': 'PostalAddress',
       addressLocality: BusinessInfo.addressLocality,

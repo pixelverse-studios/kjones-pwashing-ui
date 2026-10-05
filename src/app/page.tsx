@@ -6,7 +6,7 @@ import HeroSection from '@/components/home/HeroSection'
 import ServicesSection from '@/components/home/Services'
 import TrustSection from '@/components/home/TrustSection'
 import ServiceAreas from '@/components/home/ServiceAreas'
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Jones Pressure Washing | Bergen & Essex County, NJ'
 const pageDescription =
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const businessPhone = PHONE_DISPLAY
 
 const professionalServiceSchema = {
   '@context': 'https://schema.org',

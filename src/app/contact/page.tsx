@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 
 import ContactContent from '@/components/contact/ContactContent'
-import { BusinessInfo, ContactMap } from '@/lib/constants'
+import { BusinessInfo, ContactMap, PHONE_DISPLAY } from '@/lib/constants'
 
 const pageTitle = 'Contact Jones Pressure Washing | Bergen & Essex, NJ'
 const pageDescription =
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   category: 'Professional Services'
 }
 
-const businessPhone = ContactMap.get('phone') ?? '(973) 486-4403'
+const businessPhone = PHONE_DISPLAY
 const businessEmail =
   ContactMap.get('email') ?? 'Hello@jonespressurewashingnj.com'
 const baseUrl = 'https://www.jonespressurewashingnj.com'
@@ -112,7 +112,13 @@ const breadcrumbSchema = {
   ]
 }
 
-export default function ContactPage() {
+export default function ContactPage({
+  searchParams
+}: {
+  searchParams?: { service?: string }
+}) {
+  const isHolidayLighting = searchParams?.service === 'holiday-lighting'
+
   return (
     <>
       <Script
@@ -128,7 +134,7 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <main>
-        <ContactContent />
+        <ContactContent isHolidayLighting={isHolidayLighting} />
       </main>
     </>
   )

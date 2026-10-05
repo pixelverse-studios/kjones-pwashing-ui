@@ -1,49 +1,40 @@
 # Deployment Summary
 
 ## Latest deploy summary
-- Added city-specific landing pages for pressure washing and soft washing (Ridgewood, Wyckoff, Fort Lee, Cliffside Park, Bloomfield, Montclair, Livingston)
-- Added Bergen County and Essex County general service hub pages
-- Added "Cities We Serve" sections on pressure washing and soft washing pages linking to all city landers
-- Added cross-city linking on every city lander page for improved navigation
-- Added "Explore Our Services" section on About page linking to all 4 service categories
-- Fixed favicon showing default React icon instead of business logo
-- Optimized title tags across all pages to stay within 50-60 character SEO best practice
-- Enhanced H1 headings with location keywords on Holiday Lighting and Additional Services pages
-- Fixed structured data schemas (geo coordinates, breadcrumbs, service types)
-- Added real Instagram and Facebook social links to footer and service CTAs
-- Fixed metadataBase URL to match production domain
+
+- Updated the holiday-lighting overview and Bergen and Essex County pages to describe Jones Pressure Washing's confirmed residential seasonal service and supported locations.
+- Added a dedicated holiday-lighting request path with a form that collects project details and offers a phone-call option.
+- Improved holiday-lighting navigation and calls to action, and removed unsupported project, pricing, and service claims.
 
 ## Notes for internal team
-- DEV-449 Epic: SEO & local service optimization — 9 commits covering DEV-471 through DEV-484
-- SEO audit score improved from 76/100 to 87/100
-- City lander pages use dynamic routes: /services/pressure-washing/[city] and /services/soft-washing/[city]
-- City data sourced from serviceCitySlugs.json (single source of truth)
-- Per-city geo coordinates added to LocalBusiness schema for each city lander
-- Social links updated from placeholder URLs to real Instagram (@jpw_nj) and Facebook profiles
-- Default Next.js favicon.ico deleted — logo-black.jpg now serves correctly via metadata config
-- SEO documentation created in docs/seo/ (scope, keywords, checklist, competitors, changelog)
+
+- Release: DEV-1346 holiday-lighting epic branch, including DEV-1357, DEV-1354, DEV-1565 packet, and the consolidated DEV-1557/DEV-1558/DEV-1358 corrections.
+- The dedicated Lavo form was verified by a labeled request: the request appeared in Lavo; Phil received the customer email and SMS confirmations; Kyle received the business alert. Desktop and narrow mobile validation, confirmation sizing, and fallback link were checked.
+- Holiday pages have self-referencing canonicals, index/follow metadata, server-rendered Service and BreadcrumbList JSON-LD, and sitemap entries. Netlify deploy previews receive an X-Robots-Tag noindex/nofollow header; production must not receive that header.
+- The business facts used in the narrow copy were recorded in ADM-42. DEV-1565 still tracks Kyle's separate itemized final public-copy sign-off; no unverified project proof, specific product promise, availability date, or public holiday price was added.
+- After deployment, verify production HTTP status, robots directives, canonical URLs, structured data, internal links, and the holiday form. Record the release in search and lead-measurement monitoring. Search indexing and rankings are not guaranteed by deployment.
 
 ## Changed URLs
+
 - https://www.jonespressurewashingnj.com/
 - https://www.jonespressurewashingnj.com/about
-- https://www.jonespressurewashingnj.com/services/pressure-washing
-- https://www.jonespressurewashingnj.com/services/soft-washing
+- https://www.jonespressurewashingnj.com/contact
 - https://www.jonespressurewashingnj.com/services/additional
+- https://www.jonespressurewashingnj.com/services/bergen-county
+- https://www.jonespressurewashingnj.com/services/essex-county
 - https://www.jonespressurewashingnj.com/services/holiday-lighting
-- https://www.jonespressurewashingnj.com/services/bergen-county (NEW)
-- https://www.jonespressurewashingnj.com/services/essex-county (NEW)
-- https://www.jonespressurewashingnj.com/services/pressure-washing/ridgewood (NEW)
-- https://www.jonespressurewashingnj.com/services/pressure-washing/wyckoff (NEW)
-- https://www.jonespressurewashingnj.com/services/pressure-washing/fort-lee (NEW)
-- https://www.jonespressurewashingnj.com/services/pressure-washing/cliffside-park (NEW)
-- https://www.jonespressurewashingnj.com/services/pressure-washing/bloomfield (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/montclair (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/livingston (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/ridgewood (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/fort-lee (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/cliffside-park (NEW)
-- https://www.jonespressurewashingnj.com/services/soft-washing/bloomfield (NEW)
 - https://www.jonespressurewashingnj.com/services/holiday-lighting/bergen-county
 - https://www.jonespressurewashingnj.com/services/holiday-lighting/essex-county
-- https://www.jonespressurewashingnj.com/contact
-- https://www.jonespressurewashingnj.com/faqs
+- https://www.jonespressurewashingnj.com/services/pressure-washing
+- https://www.jonespressurewashingnj.com/services/pressure-washing/bloomfield
+- https://www.jonespressurewashingnj.com/services/pressure-washing/cliffside-park
+- https://www.jonespressurewashingnj.com/services/pressure-washing/fort-lee
+- https://www.jonespressurewashingnj.com/services/pressure-washing/ridgewood
+- https://www.jonespressurewashingnj.com/services/pressure-washing/wyckoff
+- https://www.jonespressurewashingnj.com/services/soft-washing
+- https://www.jonespressurewashingnj.com/services/soft-washing/bloomfield
+- https://www.jonespressurewashingnj.com/services/soft-washing/cliffside-park
+- https://www.jonespressurewashingnj.com/services/soft-washing/fort-lee
+- https://www.jonespressurewashingnj.com/services/soft-washing/livingston
+- https://www.jonespressurewashingnj.com/services/soft-washing/montclair
+- https://www.jonespressurewashingnj.com/services/soft-washing/ridgewood
