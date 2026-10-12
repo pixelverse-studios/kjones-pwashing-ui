@@ -2,23 +2,26 @@
 
 ## Latest deploy summary
 
-- Updated the holiday-lighting overview and Bergen and Essex County pages to describe Jones Pressure Washing's confirmed residential seasonal service and supported locations.
-- Added a dedicated holiday-lighting request path with a form that collects project details and offers a phone-call option.
-- Improved holiday-lighting navigation and calls to action, and removed unsupported project, pricing, and service claims.
+- Added optional Google Analytics 4 tracking to help measure visits and contact interest across the website.
+- Added Microsoft Clarity for consented session insights and updated the existing SiteBehaviour tracking to honor the same choice.
+- Added a privacy page and a persistent way for visitors to change their analytics choice.
 
 ## Notes for internal team
 
-- Release: DEV-1346 holiday-lighting epic branch, including DEV-1357, DEV-1354, DEV-1565 packet, and the consolidated DEV-1557/DEV-1558/DEV-1358 corrections.
-- The dedicated Lavo form was verified by a labeled request: the request appeared in Lavo; Phil received the customer email and SMS confirmations; Kyle received the business alert. Desktop and narrow mobile validation, confirmation sizing, and fallback link were checked.
-- Holiday pages have self-referencing canonicals, index/follow metadata, server-rendered Service and BreadcrumbList JSON-LD, and sitemap entries. Netlify deploy previews receive an X-Robots-Tag noindex/nofollow header; production must not receive that header.
-- The business facts used in the narrow copy were recorded in ADM-42. DEV-1565 still tracks Kyle's separate itemized final public-copy sign-off; no unverified project proof, specific product promise, availability date, or public holiday price was added.
-- After deployment, verify production HTTP status, robots directives, canonical URLs, structured data, internal links, and the holiday form. Record the release in search and lead-measurement monitoring. Search indexing and rankings are not guaranteed by deployment.
+- Release: DEV-1568 / PR #39. GA4 stream `G-0QVSPPL0VG`; Clarity project `ywkxt0ztcm`.
+- The site sends sanitized page views and five intent events: `quote_modal_open`, `contact_click`, `phone_click`, `email_click`, and `form_outbound_click`. None represents a confirmed lead or form submission. Lavo outcomes remain separate.
+- GA4, Clarity, and SiteBehaviour load only after optional analytics consent. Clarity and SiteBehaviour also require a known, query-free entry route and a clean referrer so arbitrary inbound URL parameters do not start a session recording. Current internal URL parameters are fixed and nonpersonal.
+- Before interpreting GA4 counts, disable history-based enhanced page views and review automatic form/outbound events for duplicates. In Clarity, enable Consent Mode and review masking and captured URLs. Confirm account ownership and obtain Jones owner review of the privacy wording.
+- After deployment, verify accepted and rejected network behavior, GA4 DebugView events, Clarity/SiteBehaviour recording behavior, and actual URL parameters. Record the first verified production collection date as a new measurement baseline. Do not compare new GA4 or Clarity totals directly with historical SiteBehaviour totals.
+- A GitHub PR merge does not invoke the local pre-push reporting hook. Preserve these details for separate PVS API reporting if that workflow is required.
 
 ## Changed URLs
 
 - https://www.jonespressurewashingnj.com/
 - https://www.jonespressurewashingnj.com/about
 - https://www.jonespressurewashingnj.com/contact
+- https://www.jonespressurewashingnj.com/faqs
+- https://www.jonespressurewashingnj.com/privacy
 - https://www.jonespressurewashingnj.com/services/additional
 - https://www.jonespressurewashingnj.com/services/bergen-county
 - https://www.jonespressurewashingnj.com/services/essex-county
