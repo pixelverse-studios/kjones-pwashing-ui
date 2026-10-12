@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { Inter, Poppins } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import AnalyticsConsent from '@/components/analytics/AnalyticsConsent'
 import './globals.css'
 
 const inter = Inter({
@@ -85,30 +86,12 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <Script
-          id="sitebehavior-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (
-                function() {
-                  var sbSiteSecret = '368a4814-73ce-42ec-82ee-7d929fde4209';
-                  window.sitebehaviourTrackingSecret = sbSiteSecret;
-                  var scriptElement = document.createElement('script');
-                  scriptElement.async = true;
-                  scriptElement.id = 'site-behaviour-script-v2';
-                  scriptElement.src = 'https://sitebehaviour-cdn.fra1.cdn.digitaloceanspaces.com/index.min.js?sitebehaviour-secret=' + sbSiteSecret;
-                  document.head.appendChild(scriptElement); 
-                }
-            )();
-      `
-          }}
-        />
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-inter`}>
         <Navbar />
         {children}
         <Footer />
+        <AnalyticsConsent />
       </body>
     </html>
   )

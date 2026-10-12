@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
+import { trackIntent } from '@/lib/analytics'
 import { Button } from '../ui/button'
 import {
   Dialog,
@@ -25,7 +26,7 @@ export default function CtaModal({
   buttonClass
 }: CtaModalProps) {
   return (
-    <Dialog>
+    <Dialog onOpenChange={open => open && trackIntent('quote_modal_open')}>
       <DialogTrigger asChild>
         <Button variant={variant} className={cn(buttonClass)}>
           {label}

@@ -12,6 +12,7 @@ import {
   PHONE_HREF
 } from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
+import AnalyticsSettingsButton from './analytics/AnalyticsSettingsButton'
 
 const Footer = () => {
   const pathname = usePathname()
@@ -237,6 +238,8 @@ const Footer = () => {
             <Link href="/privacy" className="hover:text-primary">
               Privacy Policy
             </Link>
+            {' | '}
+            <AnalyticsSettingsButton />
           </p>
           <a
             href="https://www.pixelversestudios.io"
