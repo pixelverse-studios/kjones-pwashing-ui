@@ -25,13 +25,13 @@ export default function PrivacyPage() {
           <section>
             <h2 className="mb-3 text-primary">Optional website analytics</h2>
             <p>
-              With your choice, this website loads Google Analytics 4 and
-              SiteBehaviour to understand page visits and actions such as
-              opening the quote tool or selecting a contact link. SiteBehaviour
-              also provides heatmaps and session recordings. These actions are
-              recorded as interest, not as confirmed form submissions or calls.
-              We do not intentionally send contact form answers or customer
-              details to these analytics tools.
+              With your choice, this website loads Google Analytics 4, Microsoft
+              Clarity, and SiteBehaviour to understand page visits and actions
+              such as opening the quote tool or selecting a contact link.
+              Clarity and SiteBehaviour also provide heatmaps and session
+              recordings. These actions are recorded as interest, not as
+              confirmed form submissions or calls. We do not intentionally send
+              contact form answers or customer details to these analytics tools.
             </p>
           </section>
           <section>

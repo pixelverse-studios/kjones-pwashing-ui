@@ -1,7 +1,9 @@
 import citySlugs from '@/lib/data/serviceCitySlugs.json'
 
 export const GA4_MEASUREMENT_ID = 'G-0QVSPPL0VG'
-export const ANALYTICS_CHOICE_KEY = 'jpw-analytics-choice-v1'
+export const CLARITY_PROJECT_ID = 'ywkxt0ztcm'
+// A new vendor requires visitors to make a fresh informed choice.
+export const ANALYTICS_CHOICE_KEY = 'jpw-analytics-choice-v2'
 
 const campaignSources = new Set([
   'google',
@@ -47,6 +49,8 @@ declare global {
     // ESLint's base rule treats parameters in ambient signatures as unused.
     // eslint-disable-next-line no-unused-vars
     gtag?: (...args: unknown[]) => void
+    // eslint-disable-next-line no-unused-vars
+    clarity?: (...args: unknown[]) => void
   }
 }
 

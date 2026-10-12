@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 
 import {
   ANALYTICS_CHOICE_KEY,
+  CLARITY_PROJECT_ID,
   GA4_MEASUREMENT_ID,
   currentService,
   safeCampaignFields,
@@ -27,7 +28,7 @@ function removeAnalyticsCookies() {
   ]
   document.cookie.split(';').forEach(cookie => {
     const name = cookie.trim().split('=')[0]
-    if (!name.startsWith('_ga')) return
+    if (!name.startsWith('_ga') && name !== '_clck' && name !== '_clsk') return
     domains.forEach(domain => {
       document.cookie = `${name}=; Max-Age=0; path=/; domain=${domain}; SameSite=Lax`
     })
@@ -146,6 +147,10 @@ export default function AnalyticsConsent() {
     }
 
     if (nextChoice === 'rejected') {
+      window.clarity?.('consentv2', {
+        ad_Storage: 'denied',
+        analytics_Storage: 'denied'
+      })
       removeAnalyticsCookies()
       if (choice === 'accepted') {
         window.location.reload()
@@ -162,6 +167,20 @@ export default function AnalyticsConsent() {
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
             strategy="afterInteractive"
+          />
+          <Script
+            id="clarity-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  c[a]('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+                  t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, 'clarity', 'script', '${CLARITY_PROJECT_ID}');
+              `
+            }}
           />
           <Script
             id="sitebehavior-init"
@@ -187,8 +206,8 @@ export default function AnalyticsConsent() {
         <div className="fixed inset-x-4 bottom-4 z-[100] mx-auto max-w-3xl rounded-lg border border-primary bg-black p-5 text-white shadow-xl sm:inset-x-6 sm:flex sm:items-center sm:gap-6">
           <p className="flex-1 text-sm leading-relaxed">
             We use optional analytics to understand visits and contact actions.
-            You can choose whether Google Analytics and SiteBehaviour load. Read
-            our{' '}
+            You can choose whether Google Analytics, Microsoft Clarity, and
+            SiteBehaviour load. Read our{' '}
             <Link href="/privacy" className="text-primary underline">
               privacy policy
             </Link>

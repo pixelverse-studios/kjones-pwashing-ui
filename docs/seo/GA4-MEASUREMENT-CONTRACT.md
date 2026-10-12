@@ -2,6 +2,7 @@
 
 **Status:** Implementation prepared for review; production collection is not yet verified.
 **GA4 web stream:** `G-0QVSPPL0VG`
+**Clarity project:** `ywkxt0ztcm`
 **Website:** `https://www.jonespressurewashingnj.com`
 
 ## Question and sources
@@ -15,13 +16,17 @@ Measure which organic and local visits reach the priority service and location p
 | Confirmed form receipts, qualification, jobs, revenue | Lavo or owner-approved aggregate reporting |
 | Google Business Profile interactions | GBP Performance, separate from organic website visits |
 
-GA4 has no pre-install history. Annotate the first verified collection date as a measurement break. Keep SiteBehaviour history separate rather than comparing its totals directly with GA4.
+GA4 and Clarity have no pre-install history. Annotate the first verified collection date as a measurement break. Keep SiteBehaviour history separate rather than comparing its totals directly with GA4 or Clarity.
 
 ## Collection and consent
 
-The site loads neither GA4 nor SiteBehaviour until the visitor accepts optional analytics. A visitor can reject analytics and use the forms normally. The footer and privacy page provide a way to change the choice. A rejected choice removes first-party GA4 cookies that the site can access; it cannot erase data already received by the vendors.
+The site loads GA4, Clarity, and SiteBehaviour only after the visitor accepts optional analytics. A visitor can reject analytics and use the forms normally. The footer and privacy page provide a way to change the choice. Clarity receives an analytics-storage-granted, ad-storage-denied consent signal after acceptance; rejecting sends denied signals before reloading. A rejected choice removes first-party GA4 and Clarity cookies that the site can access; it cannot erase data already received by the vendors.
 
-The `/privacy` page contains a draft explanation of Lavo, GA4, and SiteBehaviour. The business owner must review that text and the consent behavior before a production merge. Review Lavo's own form consent settings separately.
+Adding Clarity resets the stored analytics choice so returning visitors see the updated three-provider disclosure before any of the scripts load.
+
+The `/privacy` page contains a draft explanation of Lavo, GA4, Clarity, and SiteBehaviour. The business owner must review that text and the consent behavior before a production merge. Review Lavo's own form consent settings separately.
+
+In the Clarity project, enable Consent Mode and confirm that ad storage remains denied. Review the masking mode and a real recording for exposed customer details. Clarity may capture page, referrer, and clicked URLs, including query parameters; the GA4 URL sanitizer does not govern Clarity. Avoid personal information in site URLs and request URL-parameter masking from Clarity support if needed. Clarity and SiteBehaviour both provide session recordings; review whether both are needed after observing their value.
 
 The site sends only known route paths to GA4. Unknown paths become `/404`; full query strings and hashes are not sent. For inbound tagged visits, it accepts allowlisted source, medium, and campaign values, then passes those as GA4 campaign fields. Other values are dropped. Source and medium are taken from GA4's observed acquisition data; do not classify missing data as direct or organic. Do not place UTMs on internal links. GBP-specific tagging and a broader campaign taxonomy need separate review.
 
@@ -50,7 +55,7 @@ Do not emit `generate_lead` until Lavo provides a documented and tested completi
 
 ## Verification before and after deployment
 
-- In a preview build, no GA4 or SiteBehaviour request occurs before a choice or after rejection. Both scripts load after acceptance. Changing the choice to reject stops future collection after reload.
+- In a preview build, no GA4, Clarity, or SiteBehaviour request occurs before a choice or after rejection. All three scripts load after acceptance. Changing the choice to reject stops future collection after reload. Confirm Clarity receives `analytics_storage: GRANTED` and `ad_storage: DENIED` after acceptance, then denied states on rejection, and that `_clck` and `_clsk` are removed.
 - In GA4 DebugView, one sanitized `page_view` appears for initial load and one for each client route change, including a holiday page, `/contact`, and a city page. No query string or customer data appears in event parameters.
 - Each quote open, contact link, phone link, email link, and Lavo outbound form link produces one correctly labeled intent event after acceptance and none after rejection.
 - Forms, quote modal, phone links, keyboard access, and mobile layout still work with analytics accepted, rejected, or blocked.
