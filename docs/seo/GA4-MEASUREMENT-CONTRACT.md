@@ -28,6 +28,8 @@ The `/privacy` page contains a draft explanation of Lavo, GA4, Clarity, and Site
 
 In the Clarity project, enable Consent Mode and confirm that ad storage remains denied. Review the masking mode and a real recording for exposed customer details. Clarity may capture page, referrer, and clicked URLs, including query parameters; the GA4 URL sanitizer does not govern Clarity. Avoid personal information in site URLs and request URL-parameter masking from Clarity support if needed. Clarity and SiteBehaviour both provide session recordings; review whether both are needed after observing their value.
 
+The Clarity loader now starts only on an allowlisted route with no query string or fragment and with a similarly clean referrer (or no referrer). An external referrer must be its origin homepage. This excludes inbound tagged URLs from Clarity while GA4 can still collect their allowlisted campaign fields. The gate applies when Clarity starts; it cannot sanitize later navigation or clicked links once the recorder is running. Keep personal information out of all site URLs and link destinations, and verify the actual captured URLs before release.
+
 The site sends only known route paths to GA4. Unknown paths become `/404`; full query strings and hashes are not sent. For inbound tagged visits, it accepts allowlisted source, medium, and campaign values, then passes those as GA4 campaign fields. Other values are dropped. Source and medium are taken from GA4's observed acquisition data; do not classify missing data as direct or organic. Do not place UTMs on internal links. GBP-specific tagging and a broader campaign taxonomy need separate review.
 
 ## Event contract
@@ -55,7 +57,7 @@ Do not emit `generate_lead` until Lavo provides a documented and tested completi
 
 ## Verification before and after deployment
 
-- In a preview build, no GA4, Clarity, or SiteBehaviour request occurs before a choice or after rejection. All three scripts load after acceptance. Changing the choice to reject stops future collection after reload. Confirm Clarity receives `analytics_storage: GRANTED` and `ad_storage: DENIED` after acceptance, then denied states on rejection, and that `_clck` and `_clsk` are removed.
+- In a preview build, no GA4, Clarity, or SiteBehaviour request occurs before a choice or after rejection. GA4 and SiteBehaviour load after acceptance; Clarity loads after acceptance only on a clean entry URL and referrer. Check that a URL with an arbitrary query parameter and a same-origin referrer containing a query parameter do not load Clarity. Changing the choice to reject stops future collection after reload. Confirm Clarity receives `analytics_storage: GRANTED` and `ad_storage: DENIED` after acceptance, then denied states on rejection, and that `_clck` and `_clsk` are removed.
 - In GA4 DebugView, one sanitized `page_view` appears for initial load and one for each client route change, including a holiday page, `/contact`, and a city page. No query string or customer data appears in event parameters.
 - Each quote open, contact link, phone link, email link, and Lavo outbound form link produces one correctly labeled intent event after acceptance and none after rejection.
 - Forms, quote modal, phone links, keyboard access, and mobile layout still work with analytics accepted, rejected, or blocked.

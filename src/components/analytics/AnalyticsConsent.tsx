@@ -48,10 +48,27 @@ function safeReferrer(referrer: string): string | undefined {
   }
 }
 
+function canStartClarity(): boolean {
+  const { pathname, search, hash, origin } = window.location
+  if (safePagePath(pathname) !== pathname || search || hash) return false
+  if (!document.referrer) return true
+
+  try {
+    const referrer = new URL(document.referrer)
+    if (referrer.search || referrer.hash) return false
+    return referrer.origin === origin
+      ? safePagePath(referrer.pathname) === referrer.pathname
+      : referrer.pathname === '/'
+  } catch {
+    return false
+  }
+}
+
 export default function AnalyticsConsent() {
   const pathname = usePathname()
   const [choice, setChoice] = useState<Choice>('pending')
   const [initialized, setInitialized] = useState(false)
+  const [clarityEligible, setClarityEligible] = useState(false)
   const previousPath = useRef<string | null>(null)
 
   useEffect(() => {
@@ -79,6 +96,7 @@ export default function AnalyticsConsent() {
       page_referrer: safeReferrer(document.referrer),
       ...safeCampaignFields(window.location.search)
     })
+    setClarityEligible(canStartClarity())
     setInitialized(true)
   }, [choice, initialized])
 
@@ -168,20 +186,22 @@ export default function AnalyticsConsent() {
             src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
             strategy="afterInteractive"
           />
-          <Script
-            id="clarity-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  c[a]('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
-                  t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                })(window, document, 'clarity', 'script', '${CLARITY_PROJECT_ID}');
-              `
-            }}
-          />
+          {clarityEligible ? (
+            <Script
+              id="clarity-init"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    c[a]('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+                    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                  })(window, document, 'clarity', 'script', '${CLARITY_PROJECT_ID}');
+                `
+              }}
+            />
+          ) : null}
           <Script
             id="sitebehavior-init"
             strategy="afterInteractive"
