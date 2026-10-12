@@ -48,7 +48,8 @@ function safeReferrer(referrer: string): string | undefined {
   }
 }
 
-function canStartClarity(): boolean {
+function canStartSessionRecorders(): boolean {
+  // Both vendors can observe the browser URL and referrer outside GA4's sanitizer.
   const { pathname, search, hash, origin } = window.location
   if (safePagePath(pathname) !== pathname || search || hash) return false
   if (!document.referrer) return true
@@ -68,7 +69,7 @@ export default function AnalyticsConsent() {
   const pathname = usePathname()
   const [choice, setChoice] = useState<Choice>('pending')
   const [initialized, setInitialized] = useState(false)
-  const [clarityEligible, setClarityEligible] = useState(false)
+  const [recordingEligible, setRecordingEligible] = useState(false)
   const previousPath = useRef<string | null>(null)
 
   useEffect(() => {
@@ -96,7 +97,7 @@ export default function AnalyticsConsent() {
       page_referrer: safeReferrer(document.referrer),
       ...safeCampaignFields(window.location.search)
     })
-    setClarityEligible(canStartClarity())
+    setRecordingEligible(canStartSessionRecorders())
     setInitialized(true)
   }, [choice, initialized])
 
@@ -186,39 +187,41 @@ export default function AnalyticsConsent() {
             src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
             strategy="afterInteractive"
           />
-          {clarityEligible ? (
-            <Script
-              id="clarity-init"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  (function(c,l,a,r,i,t,y){
-                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                    c[a]('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
-                    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
-                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                  })(window, document, 'clarity', 'script', '${CLARITY_PROJECT_ID}');
-                `
-              }}
-            />
+          {recordingEligible ? (
+            <>
+              <Script
+                id="clarity-init"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    (function(c,l,a,r,i,t,y){
+                      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                      c[a]('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
+                      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+                      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                    })(window, document, 'clarity', 'script', '${CLARITY_PROJECT_ID}');
+                  `
+                }}
+              />
+              <Script
+                id="sitebehavior-init"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    (function() {
+                      var sbSiteSecret = '368a4814-73ce-42ec-82ee-7d929fde4209';
+                      window.sitebehaviourTrackingSecret = sbSiteSecret;
+                      var scriptElement = document.createElement('script');
+                      scriptElement.async = true;
+                      scriptElement.id = 'site-behaviour-script-v2';
+                      scriptElement.src = 'https://sitebehaviour-cdn.fra1.cdn.digitaloceanspaces.com/index.min.js?sitebehaviour-secret=' + sbSiteSecret;
+                      document.head.appendChild(scriptElement);
+                    })();
+                  `
+                }}
+              />
+            </>
           ) : null}
-          <Script
-            id="sitebehavior-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function() {
-                  var sbSiteSecret = '368a4814-73ce-42ec-82ee-7d929fde4209';
-                  window.sitebehaviourTrackingSecret = sbSiteSecret;
-                  var scriptElement = document.createElement('script');
-                  scriptElement.async = true;
-                  scriptElement.id = 'site-behaviour-script-v2';
-                  scriptElement.src = 'https://sitebehaviour-cdn.fra1.cdn.digitaloceanspaces.com/index.min.js?sitebehaviour-secret=' + sbSiteSecret;
-                  document.head.appendChild(scriptElement);
-                })();
-              `
-            }}
-          />
         </>
       ) : null}
 
