@@ -17,6 +17,7 @@ import {
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet'
 import CtaModal from './cta/CtaModal'
 import { DialogTitle } from './ui/dialog'
+import { Button } from './ui/button'
 
 const navLinks = [
   { label: 'About', href: '/about' },
@@ -131,11 +132,11 @@ const Navbar = () => {
             </NavigationMenuList>
           </NavigationMenu>
           {isHolidayPage ? (
-            <Link
-              href="/contact?service=holiday-lighting"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors duration-200 hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Request Christmas Light Installation
-            </Link>
+            <Button asChild variant="ctaPrimary" size="cta">
+              <Link href="/contact?service=holiday-lighting">
+                Request Christmas Light Installation
+              </Link>
+            </Button>
           ) : isContactPage ? null : (
             <CtaModal
               label="Get a Quote"
@@ -218,12 +219,17 @@ const Navbar = () => {
                   )
                 })}
                 {isHolidayPage ? (
-                  <Link
-                    href="/contact?service=holiday-lighting"
-                    onClick={() => setOpen(false)}
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black">
-                    Request Christmas Light Installation
-                  </Link>
+                  <Button
+                    asChild
+                    variant="ctaPrimary"
+                    size="cta"
+                    className="w-full">
+                    <Link
+                      href="/contact?service=holiday-lighting"
+                      onClick={() => setOpen(false)}>
+                      Request Christmas Light Installation
+                    </Link>
+                  </Button>
                 ) : isContactPage ? null : (
                   <CtaModal
                     label="Get a Quote"

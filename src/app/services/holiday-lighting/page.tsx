@@ -7,6 +7,7 @@ import { FaLightbulb, FaRegSnowflake, FaStar } from 'react-icons/fa6'
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
+import { Button } from '@/components/ui/button'
 import { ServiceHighlightType } from '@/lib/types/services'
 
 const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
@@ -147,16 +148,14 @@ function SeasonalDetails() {
             option if you would like us to call.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/contact?service=holiday-lighting"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 text-center font-semibold text-black hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Request Christmas Light Installation
-            </Link>
-            <a
-              href={PHONE_HREF}
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-primary px-6 text-center font-semibold text-primary hover:bg-primary hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Call {PHONE_DISPLAY}
-            </a>
+            <Button asChild variant="ctaPrimary" size="cta">
+              <Link href="/contact?service=holiday-lighting">
+                Request Christmas Light Installation
+              </Link>
+            </Button>
+            <Button asChild variant="ctaOutline" size="cta">
+              <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
+            </Button>
           </div>
         </div>
       </div>

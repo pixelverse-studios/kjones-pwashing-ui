@@ -13,6 +13,7 @@ import {
 } from '@/lib/constants'
 import CtaModal from './cta/CtaModal'
 import AnalyticsSettingsButton from './analytics/AnalyticsSettingsButton'
+import { Button } from './ui/button'
 
 const Footer = () => {
   const pathname = usePathname()
@@ -210,19 +211,33 @@ const Footer = () => {
               </div>
               <div className="flex flex-col sm:flex-row md:justify-end gap-3">
                 {isHolidayPage ? (
-                  <Link
-                    href="/contact?service=holiday-lighting"
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors duration-200 hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                    Request Christmas Light Installation
-                  </Link>
+                  <Button
+                    asChild
+                    variant="ctaPrimary"
+                    size="cta"
+                    className="w-full sm:w-fit">
+                    <Link href="/contact?service=holiday-lighting">
+                      Request Christmas Light Installation
+                    </Link>
+                  </Button>
                 ) : isContactPage ? null : (
                   <CtaModal variant="default" label="Get an Instant Quote" />
                 )}
-                <Link
-                  href={isHolidayPage ? PHONE_HREF : '/contact'}
-                  className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
-                  {isHolidayPage ? `Call ${PHONE_DISPLAY}` : 'Contact Us'}
-                </Link>
+                {isHolidayPage ? (
+                  <Button
+                    asChild
+                    variant="ctaOutline"
+                    size="cta"
+                    className="w-full sm:w-fit">
+                    <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
+                  </Button>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center rounded-full h-12 px-6 border border-primary text-primary hover:bg-primary hover:text-black transition-colors">
+                    Contact Us
+                  </Link>
+                )}
               </div>
             </div>
           </div>

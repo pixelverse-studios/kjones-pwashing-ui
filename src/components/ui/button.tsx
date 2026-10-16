@@ -13,6 +13,10 @@ const buttonVariants = cva(
           'bg-primary text-black border border-primary font-bold transition-all shadow-lg rounded-md duration-200 hover:bg-transparent hover:text-primary',
         ghost:
           'bg-transparent text-white border border-primary font-bold shadow-lg rounded-md transition-all duration-200 hover:bg-primary hover:text-black',
+        ctaPrimary:
+          'whitespace-normal rounded-full border border-primary bg-primary text-center text-base font-semibold leading-tight text-black duration-200 ease-out hover:bg-black hover:text-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black',
+        ctaOutline:
+          'whitespace-normal rounded-full border border-primary bg-transparent text-center text-base font-semibold leading-tight text-primary duration-200 ease-out hover:bg-primary hover:text-black focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-black',
         destructive:
           'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
         outline:
@@ -23,6 +27,7 @@ const buttonVariants = cva(
       },
       size: {
         default: 'h-12 w-fit px-6',
+        cta: 'h-auto min-h-12 px-6 py-3',
         sm: 'h-8 rounded-md px-3 text-xs',
         lg: 'h-10 rounded-md px-8',
         icon: 'h-9 w-9'
@@ -47,8 +52,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         className={cn(
-          buttonVariants({ variant, size, className }),
-          'w-full lg:w-fit'
+          buttonVariants({ variant, size }),
+          size === 'cta' ? 'w-fit max-w-full' : 'w-full lg:w-fit',
+          className
         )}
         ref={ref}
         {...props}
