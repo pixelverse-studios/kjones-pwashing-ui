@@ -44,7 +44,7 @@ export default function HolidayLightingPromo({
     return (
       <aside
         aria-label="Holiday lighting promotion"
-        className="flex min-h-[58px] w-full items-center gap-2 rounded-lg border border-black border-l-[3px] border-l-primary bg-[#1b1b1b] px-2 py-0.5 text-white shadow-[0_12px_28px_-16px_rgba(0,0,0,0.75)]">
+        className="holiday-promo-glow flex min-h-[58px] w-full items-center gap-2 rounded-lg bg-[#1b1b1b] px-2 py-0.5 text-white shadow-[0_12px_28px_-16px_rgba(0,0,0,0.75)]">
         <span
           aria-hidden={!countdownActive}
           className={`shrink-0 font-poppins text-[2.25rem] font-bold leading-none tabular-nums text-primary ${numberVisibility}`}>
@@ -68,7 +68,7 @@ export default function HolidayLightingPromo({
   return (
     <aside
       aria-label="Holiday lighting promotion"
-      className="w-full max-w-xs shrink-0 rounded-xl border border-black border-l-[3px] border-l-primary bg-[#1b1b1b] p-2 text-white shadow-[0_18px_38px_-20px_rgba(0,0,0,0.8)] lg:mb-2 lg:max-w-[340px] lg:p-6">
+      className="holiday-promo-glow w-full max-w-xs shrink-0 rounded-xl bg-[#1b1b1b] p-2 text-white shadow-[0_18px_38px_-20px_rgba(0,0,0,0.8)] lg:mb-2 lg:max-w-[340px] lg:p-6">
       <div className="flex min-h-[96px] items-center gap-2 lg:min-h-0 lg:flex-col lg:items-start lg:gap-0">
         <span
           aria-hidden={!countdownActive}
