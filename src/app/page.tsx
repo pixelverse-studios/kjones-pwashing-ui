@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/Homepage.jpg',
+        url: '/Sidingwash.jpg',
         width: 1200,
         height: 630,
-        alt: 'Jones Pressure Washing technician cleaning a New Jersey home exterior'
+        alt: 'Exterior siding being cleaned with a pressure washing spray'
       }
     ]
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/Homepage.jpg']
+    images: ['/Sidingwash.jpg']
   },
   robots: {
     index: true,

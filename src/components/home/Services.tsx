@@ -19,7 +19,7 @@ export default function ServicesSection() {
           </p>
           <h2
             id="home-services-heading"
-            className="mb-5 text-3xl leading-tight text-white md:text-5xl">
+            className="mb-5 scroll-mt-28 text-3xl leading-tight text-white md:text-5xl">
             The right care for every surface.
           </h2>
           <p className="text-lg leading-relaxed text-white/80">

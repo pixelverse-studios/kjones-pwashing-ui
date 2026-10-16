@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import HolidayLightingPromo from '@/components/home/HolidayLightingPromo'
+import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 
 import CtaModal from '../cta/CtaModal'
@@ -11,48 +13,57 @@ const HeroSection = () => {
   const { variants, refreshKey } = useAnimation()
 
   return (
-    <div className="relative page nav-offset flex min-h-screen flex-col">
+    <div className="relative page nav-offset flex min-h-[700px] flex-col md:min-h-[760px]">
+      <Image
+        src="/Sidingwash.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{
-          backgroundImage: "url('/Homepage.jpg')"
-        }}
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-[#121212]/95 via-[#121212]/65 to-[#121212]/20 lg:bg-gradient-to-r lg:from-[#121212]/95 lg:via-[#121212]/60 lg:to-[#121212]/10"
       />
 
       <HolidayLightingPromo />
-      <div className="text-white relative z-10 max-w-custom w-full mx-auto flex flex-1 items-center px-6 py-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-custom flex-1 items-center px-6 py-12 lg:py-16">
         <motion.div
           key={`hero-${refreshKey}`}
-          className="flex h-fit w-full max-w-xl flex-col justify-center rounded-lg bg-black-clear p-6 shadow-xl sm:p-8"
+          className="flex w-full max-w-[620px] flex-col items-start"
           variants={variants.container}
           initial="hidden"
           animate="visible">
-          <motion.h1 className="text-white mb-2" variants={variants.item}>
-            Professional <span className="text-primary">Pressure</span>
-            <span className="text-primary"> & Soft Washing</span> for homes and
-            businesses in New Jersey
+          <motion.h1
+            className="mb-5 max-w-[17ch] text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.25rem]"
+            variants={variants.item}>
+            <span className="text-primary">Pressure Washing</span> &amp; Soft
+            Washing in North Jersey
           </motion.h1>
 
           <motion.p
-            className="text-white/90 my-4 text-lg max-w-lg"
+            className="max-w-lg text-lg leading-relaxed text-white/90"
             variants={variants.item}>
-            We treat your property like it&apos;s our own — Proudly serving our
-            neighbors in Bergen & Essex County.
+            Residential and commercial exterior cleaning across Bergen and Essex
+            County. We treat your property like it&apos;s our own.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 mt-4"
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
             variants={variants.item}>
             <CtaModal
               label="Get an Instant Quote"
               variant="default"
               buttonClass="rounded-full h-12"
             />
-            <Link
-              href="/about"
-              className="bg-transparent border border-primary hover:bg-primary text-white hover:text-black font-medium py-3 px-6 rounded-full transition-all duration-200 text-center">
-              Learn More About Us
-            </Link>
+            <Button
+              asChild
+              variant="ctaOutline"
+              size="cta"
+              className="shrink-0 whitespace-nowrap">
+              <Link href="#home-services-heading">Explore Services</Link>
+            </Button>
           </motion.div>
         </motion.div>
       </div>
