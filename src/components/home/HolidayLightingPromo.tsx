@@ -1,7 +1,27 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
-export default function HolidayLightingPromo() {
+export default function HolidayLightingPromo({
+  compact = false
+}: {
+  compact?: boolean
+}) {
+  if (compact) {
+    return (
+      <aside aria-label="Holiday lighting promotion" className="text-white">
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-primary">
+          Seasonal service
+        </p>
+        <Link
+          href="/services/holiday-lighting"
+          className="inline-flex min-h-11 items-center gap-1 font-poppins text-sm font-semibold text-primary underline decoration-primary underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+          Holiday lighting for your home
+          <ArrowRight aria-hidden="true" size={16} />
+        </Link>
+      </aside>
+    )
+  }
+
   return (
     <aside
       aria-label="Holiday lighting promotion"

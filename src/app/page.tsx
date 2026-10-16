@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/Driveway.jpg',
-        width: 1200,
-        height: 630,
+        width: 4950,
+        height: 2774,
         alt: 'A residential driveway being pressure washed'
       }
     ]

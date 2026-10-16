@@ -39,21 +39,25 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible">
           <motion.h1
-            className="mb-5 max-w-[17ch] text-4xl leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.25rem]"
+            className="mb-3 max-w-[17ch] text-[2rem] leading-[1.08] tracking-tight text-white min-[360px]:mb-5 min-[360px]:text-4xl sm:text-5xl lg:text-[3.25rem]"
             variants={variants.item}>
             <span className="text-primary">Pressure Washing</span> &amp; Soft
             Washing in North Jersey
           </motion.h1>
 
           <motion.p
-            className="max-w-lg text-lg leading-relaxed text-white/90"
+            className="max-w-lg text-base leading-relaxed text-white/90 min-[360px]:text-lg"
             variants={variants.item}>
             Residential and commercial exterior cleaning across Bergen and Essex
             County. We treat your property like it&apos;s our own.
           </motion.p>
 
+          <div className="mt-2 min-[360px]:hidden">
+            <HolidayLightingPromo compact />
+          </div>
+
           <motion.div
-            className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row"
+            className="mt-3 flex flex-col gap-3 min-[360px]:mt-6 sm:mt-8 sm:flex-row"
             variants={variants.item}>
             <CtaModal
               label="Get an Instant Quote"
@@ -69,7 +73,9 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
-        <HolidayLightingPromo />
+        <div className="max-[359px]:hidden">
+          <HolidayLightingPromo />
+        </div>
       </div>
     </div>
   )
