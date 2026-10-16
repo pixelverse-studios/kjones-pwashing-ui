@@ -120,7 +120,7 @@ module.exports = {
   },
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
-    additionalSitemaps: []
+    includeNonIndexSitemaps: true
   },
   additionalPaths: async () => {
     const lastmod = new Date().toISOString()
