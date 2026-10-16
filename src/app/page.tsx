@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/Sidingwash.jpg',
+        url: '/Driveway.jpg',
         width: 1200,
         height: 630,
-        alt: 'Exterior siding being cleaned with a pressure washing spray'
+        alt: 'A residential driveway being pressure washed'
       }
     ]
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/Sidingwash.jpg']
+    images: ['/Driveway.jpg']
   },
   robots: {
     index: true,

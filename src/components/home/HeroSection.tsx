@@ -13,9 +13,9 @@ const HeroSection = () => {
   const { variants, refreshKey } = useAnimation()
 
   return (
-    <div className="relative page nav-offset flex min-h-[700px] flex-col md:min-h-[760px]">
+    <div className="relative page flex min-h-[700px] flex-col pt-[104px] md:min-h-[760px]">
       <Image
-        src="/Sidingwash.jpg"
+        src="/Driveway.jpg"
         alt=""
         fill
         priority
