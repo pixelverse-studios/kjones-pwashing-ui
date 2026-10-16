@@ -52,7 +52,7 @@ const HeroSection = () => {
             County. We treat your property like it&apos;s our own.
           </motion.p>
 
-          <div className="mt-2 min-[360px]:hidden">
+          <div className="mt-2 min-[375px]:hidden">
             <HolidayLightingPromo compact />
           </div>
 
@@ -73,7 +73,7 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
-        <div className="max-[359px]:hidden">
+        <div className="max-[374px]:hidden">
           <HolidayLightingPromo />
         </div>
       </div>
