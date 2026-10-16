@@ -4,7 +4,6 @@ import Script from 'next/script'
 import HomeWrapper from '@/components/home/HomeWrapper'
 import HeroSection from '@/components/home/HeroSection'
 import ServicesSection from '@/components/home/Services'
-import HolidayLightingPromo from '@/components/home/HolidayLightingPromo'
 import TrustSection from '@/components/home/TrustSection'
 import ServiceAreas from '@/components/home/ServiceAreas'
 import { BusinessInfo, PHONE_DISPLAY } from '@/lib/constants'
@@ -148,7 +147,6 @@ export default function Home() {
         <main>
           <HeroSection />
           <ServicesSection />
-          <HolidayLightingPromo />
           <TrustSection />
           <ServiceAreas />
         </main>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import HolidayLightingPromo from '@/components/home/HolidayLightingPromo'
 import { motion } from 'framer-motion'
 
 import CtaModal from '../cta/CtaModal'
@@ -10,7 +11,7 @@ const HeroSection = () => {
   const { variants, refreshKey } = useAnimation()
 
   return (
-    <div className="relative page nav-offset flex items-center">
+    <div className="relative page nav-offset flex min-h-screen flex-col">
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
@@ -18,18 +19,18 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="text-white relative z-10 max-w-custom w-full mx-auto px-6 py-8">
+      <HolidayLightingPromo />
+      <div className="text-white relative z-10 max-w-custom w-full mx-auto flex flex-1 items-center px-6 py-8">
         <motion.div
           key={`hero-${refreshKey}`}
-          className="h-fit w-fit max-w-xl flex flex-col justify-center shadow-xl rounded-lg p-8 bg-black-clear"
+          className="flex h-fit w-full max-w-xl flex-col justify-center rounded-lg bg-black-clear p-6 shadow-xl sm:p-8"
           variants={variants.container}
           initial="hidden"
           animate="visible">
           <motion.h1 className="text-white mb-2" variants={variants.item}>
             Professional <span className="text-primary">Pressure</span>
-            <span className="text-primary"> & Soft Washing</span> For <br />
-            Homes and Businesses <br />
-            in New Jersey
+            <span className="text-primary"> & Soft Washing</span> for homes and
+            businesses in New Jersey
           </motion.h1>
 
           <motion.p
