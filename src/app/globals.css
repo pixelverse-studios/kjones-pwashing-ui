@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --site-nav-height: 104px;
   --gold: #d4af37;
   --black: #121212;
   --white: #f5f5f5;
@@ -126,7 +127,7 @@
   }
 
   .nav-offset {
-    @apply pt-[7rem];
+    padding-top: var(--site-nav-height);
   }
 
   /* Enhanced accordion animations */
