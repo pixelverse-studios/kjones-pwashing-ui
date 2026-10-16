@@ -26,9 +26,12 @@ const HeroSection = () => {
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-t from-[#121212]/95 via-[#121212]/65 to-[#121212]/20 lg:bg-gradient-to-r lg:from-[#121212]/95 lg:via-[#121212]/60 lg:to-[#121212]/10"
       />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-[#121212]/70 via-transparent to-transparent"
+      />
 
-      <HolidayLightingPromo />
-      <div className="relative z-10 mx-auto flex w-full max-w-custom flex-1 items-center px-6 py-12 lg:py-16">
+      <div className="relative z-10 mx-auto flex w-full max-w-custom flex-1 flex-col justify-center gap-9 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:py-16">
         <motion.div
           key={`hero-${refreshKey}`}
           className="flex w-full max-w-[620px] flex-col items-start"
@@ -66,6 +69,7 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
+        <HolidayLightingPromo />
       </div>
     </div>
   )
