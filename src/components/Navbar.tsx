@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { Menu } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   NavigationMenu,
@@ -31,9 +31,20 @@ const Navbar = () => {
   const isContactPage = pathname === '/contact'
 
   const [open, setOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const updateScrolled = () => setIsScrolled(window.scrollY > 8)
+
+    updateScrolled()
+    window.addEventListener('scroll', updateScrolled, { passive: true })
+
+    return () => window.removeEventListener('scroll', updateScrolled)
+  }, [])
 
   return (
-    <header className="bg-nav text-white w-full font-inter z-50 fixed top-0">
+    <header
+      className={`${isScrolled ? 'bg-black' : 'bg-[rgba(18,18,18,0.75)]'} text-white w-full font-inter z-50 fixed top-0 transition-[background-color] duration-300 ease-in-out`}>
       <div className="flex items-center justify-between side-padding max-w-custom mx-auto py-4 px-6">
         <Link href="/" className="flex items-center">
           <Image
