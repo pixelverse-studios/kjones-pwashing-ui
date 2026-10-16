@@ -14,6 +14,16 @@ Make the existing holiday lighting pages clearer and more relevant to homeowners
 4. **Confirmed the offer and implemented it.** Kyle confirmed Essex County coverage and Bergen County coverage through Paramus and communities south of it. The release rewrote the overview and county pages around the confirmed offer, improved navigation and internal links, and updated titles, canonicals, index/follow metadata, Service and BreadcrumbList structured data, and sitemap entries. We removed unverified project stories, public pricing, and unsupported promises.
 5. **Fixed the conversion path.** The existing instant-quote tool did not support holiday lighting, so the site gained a dedicated Lavo holiday request form with project details and an optional phone-call request. A labeled test appeared in Lavo and produced the expected customer confirmations and business alert. The form and mobile flow were checked before release.
 
+## Keyword-to-page matrix used in the release
+
+| Page | Search role | Keywords in the released page metadata |
+| --- | --- | --- |
+| Holiday lighting overview | General seasonal service hub; routes visitors to the county pages | `holiday lighting installation`; `Christmas light installation Bergen County`; `Christmas light installation Essex County`; `holiday lighting NJ`; `Jones Pressure Washing holiday lighting` |
+| Essex County | Primary owner of residential Christmas light installation intent in Essex County | `Essex County Christmas light installation`; `Essex County holiday lighting` |
+| Bergen County | County-specific seasonal service page for Paramus and supported communities south of it | `Bergen County holiday lighting`; `Bergen County Christmas light installation`; `Paramus Christmas light installation`; `Bergen County seasonal holiday lighting` |
+
+The research also grouped **professional installer** and **near me** wording with the same hiring task rather than creating separate pages. **Cost** became a quote-process question without a public price. **Maintenance, removal, and storage** were included only at the confirmed high level. Commercial, permanent, DIY, and unrelated lighting searches were outside this release's target intent. This matrix describes page ownership and wording; it is not a ranking report or a list of separate pages to index.
+
 ## Priority URLs for Search Console URL Inspection
 
 These were the **three primary SEO pages** to check and request indexing for after release:
