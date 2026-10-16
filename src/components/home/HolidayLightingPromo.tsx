@@ -1,16 +1,33 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { getChristmasCountdownLabel } from '@/lib/christmasCountdown'
 
 export default function HolidayLightingPromo({
   compact = false
 }: {
   compact?: boolean
 }) {
+  const [countdownLabel, setCountdownLabel] = useState<string | null>(null)
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      setCountdownLabel(getChristmasCountdownLabel(new Date()))
+    }
+
+    updateCountdown()
+    const interval = window.setInterval(updateCountdown, 60_000)
+
+    return () => window.clearInterval(interval)
+  }, [])
+
   if (compact) {
     return (
       <aside aria-label="Holiday lighting promotion" className="text-white">
         <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-primary">
-          Seasonal service
+          {countdownLabel ?? 'Seasonal service'}
         </p>
         <Link
           href="/services/holiday-lighting"
@@ -28,7 +45,7 @@ export default function HolidayLightingPromo({
       className="w-full max-w-xs shrink-0 text-white lg:mb-2 lg:self-end">
       <div aria-hidden="true" className="mb-2 h-0.5 w-12 bg-primary lg:mb-4" />
       <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary lg:mb-2">
-        Seasonal service
+        {countdownLabel ?? 'Seasonal service'}
       </p>
       <p className="mb-1 font-poppins text-lg font-bold leading-snug text-white md:text-xl">
         Holiday lighting for your home
