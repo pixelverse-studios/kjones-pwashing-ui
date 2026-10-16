@@ -6,8 +6,8 @@ export default function HolidayLightingPromo() {
     <aside
       aria-label="Holiday lighting promotion"
       className="w-full max-w-xs shrink-0 text-white lg:mb-2 lg:self-end">
-      <div aria-hidden="true" className="mb-4 h-0.5 w-12 bg-primary" />
-      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+      <div aria-hidden="true" className="mb-2 h-0.5 w-12 bg-primary lg:mb-4" />
+      <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary lg:mb-2">
         Seasonal service
       </p>
       <p className="mb-1 font-poppins text-lg font-bold leading-snug text-white md:text-xl">

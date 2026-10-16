@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <header
       className={`${isScrolled ? 'bg-black' : 'bg-[rgba(18,18,18,0.75)]'} text-white w-full font-inter z-50 fixed top-0 transition-[background-color] duration-300 ease-in-out`}>
-      <div className="flex h-[104px] items-center justify-between side-padding max-w-custom mx-auto px-6">
+      <div className="flex h-[var(--site-nav-height)] items-center justify-between side-padding max-w-custom mx-auto px-6">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo-gray.png"

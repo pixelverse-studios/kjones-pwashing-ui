@@ -13,7 +13,7 @@ const HeroSection = () => {
   const { variants, refreshKey } = useAnimation()
 
   return (
-    <div className="relative page flex min-h-[700px] flex-col pt-[104px] md:min-h-[760px]">
+    <div className="relative page nav-offset flex min-h-[700px] flex-col md:min-h-[760px]">
       <Image
         src="/Driveway.jpg"
         alt=""
@@ -31,7 +31,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-gradient-to-t from-[#121212]/70 via-transparent to-transparent"
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-custom flex-1 flex-col justify-center gap-9 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:py-16">
+      <div className="relative z-10 mx-auto flex w-full max-w-custom flex-1 flex-col justify-center gap-5 px-6 py-6 sm:py-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16 lg:py-16">
         <motion.div
           key={`hero-${refreshKey}`}
           className="flex w-full max-w-[620px] flex-col items-start"
@@ -53,7 +53,7 @@ const HeroSection = () => {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
+            className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row"
             variants={variants.item}>
             <CtaModal
               label="Get an Instant Quote"
