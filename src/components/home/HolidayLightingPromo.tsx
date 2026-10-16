@@ -3,18 +3,20 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { getChristmasCountdownLabel } from '@/lib/christmasCountdown'
+import { getDaysUntilChristmas } from '@/lib/christmasCountdown'
 
 export default function HolidayLightingPromo({
   compact = false
 }: {
   compact?: boolean
 }) {
-  const [countdownLabel, setCountdownLabel] = useState<string | null>(null)
+  const [daysUntilChristmas, setDaysUntilChristmas] = useState<number | null>(
+    null
+  )
 
   useEffect(() => {
     const updateCountdown = () => {
-      setCountdownLabel(getChristmasCountdownLabel(new Date()))
+      setDaysUntilChristmas(getDaysUntilChristmas(new Date()))
     }
 
     updateCountdown()
@@ -23,18 +25,42 @@ export default function HolidayLightingPromo({
     return () => window.clearInterval(interval)
   }, [])
 
+  const countdownActive = daysUntilChristmas !== null && daysUntilChristmas > 0
+  const countdownNumber = daysUntilChristmas
+  let countdownCaption = 'Seasonal service'
+  if (daysUntilChristmas === 0) {
+    countdownCaption = 'Christmas Day'
+  } else if (countdownActive) {
+    countdownCaption =
+      daysUntilChristmas === 1 ? 'Day until Christmas' : 'Days until Christmas'
+  }
+  const numberVisibility = countdownActive
+    ? ''
+    : daysUntilChristmas === null
+      ? 'invisible'
+      : 'hidden'
+
   if (compact) {
     return (
-      <aside aria-label="Holiday lighting promotion" className="text-white">
-        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-primary">
-          {countdownLabel ?? 'Seasonal service'}
-        </p>
-        <Link
-          href="/services/holiday-lighting"
-          className="inline-flex min-h-11 items-center gap-1 font-poppins text-sm font-semibold text-primary underline decoration-primary underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-          Holiday lighting for your home
-          <ArrowRight aria-hidden="true" size={16} />
-        </Link>
+      <aside
+        aria-label="Holiday lighting promotion"
+        className="flex min-h-[58px] items-center gap-3 text-white">
+        <span
+          aria-hidden={!countdownActive}
+          className={`shrink-0 font-poppins text-[2.5rem] font-bold leading-none tabular-nums text-primary drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] ${numberVisibility}`}>
+          {countdownNumber ?? '00'}
+        </span>
+        <div className="min-w-0">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-primary">
+            {countdownCaption}
+          </p>
+          <Link
+            href="/services/holiday-lighting"
+            className="inline-flex min-h-11 items-center gap-1 font-poppins text-sm font-semibold text-primary underline decoration-primary underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
+            Holiday lighting for your home
+            <ArrowRight aria-hidden="true" className="shrink-0" size={16} />
+          </Link>
+        </div>
       </aside>
     )
   }
@@ -42,20 +68,28 @@ export default function HolidayLightingPromo({
   return (
     <aside
       aria-label="Holiday lighting promotion"
-      className="w-full max-w-xs shrink-0 text-white lg:mb-2 lg:self-end">
-      <div aria-hidden="true" className="mb-2 h-0.5 w-12 bg-primary lg:mb-4" />
-      <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-primary lg:mb-2">
-        {countdownLabel ?? 'Seasonal service'}
-      </p>
-      <p className="mb-1 font-poppins text-lg font-bold leading-snug text-white md:text-xl">
-        Holiday lighting for your home
-      </p>
-      <Link
-        href="/services/holiday-lighting"
-        className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary underline decoration-primary underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-        Explore holiday lighting
-        <ArrowRight aria-hidden="true" size={18} />
-      </Link>
+      className="w-full max-w-xs shrink-0 text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] lg:mb-2 lg:self-end">
+      <div className="flex min-h-[106px] items-center gap-3">
+        <span
+          aria-hidden={!countdownActive}
+          className={`shrink-0 font-poppins text-[4.5rem] font-bold leading-none tabular-nums text-primary lg:text-[4rem] xl:text-[5rem] ${numberVisibility}`}>
+          {countdownNumber ?? '00'}
+        </span>
+        <div className="min-w-0">
+          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-primary">
+            {countdownCaption}
+          </p>
+          <p className="font-poppins text-base font-bold leading-snug text-white lg:text-sm xl:text-base">
+            Holiday lighting for your home
+          </p>
+          <Link
+            href="/services/holiday-lighting"
+            className="inline-flex min-h-11 items-center gap-1 font-semibold text-primary underline decoration-primary underline-offset-4 transition-colors hover:text-white hover:decoration-white focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:text-sm xl:text-base">
+            Explore holiday lighting
+            <ArrowRight aria-hidden="true" className="shrink-0" size={18} />
+          </Link>
+        </div>
+      </div>
     </aside>
   )
 }
