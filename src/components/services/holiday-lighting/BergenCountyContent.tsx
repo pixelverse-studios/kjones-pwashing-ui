@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import ServiceCta from '@/components/services/ServiceCta'
 import ServiceHero from '@/components/services/ServiceHero'
+import { Button } from '@/components/ui/button'
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 
 const contactHref = '/contact?service=holiday-lighting'
@@ -123,11 +124,11 @@ export default function BergenCountyContent() {
               current availability with you. This page covers seasonal lighting
               for homeowners; it does not offer permanent lighting.
             </p>
-            <Link
-              href={contactHref}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 text-center font-semibold text-black hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Request Christmas Light Installation
-            </Link>
+            <Button asChild variant="ctaPrimary" size="cta">
+              <Link href={contactHref}>
+                Request Christmas Light Installation
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { ReactNode, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 import CtaModal from '../cta/CtaModal'
 
 // Cascade variants (slide up with stagger)
@@ -77,11 +78,9 @@ const ServiceHero = ({
             </div>
             <motion.div variants={item}>
               {ctaHref ? (
-                <Link
-                  href={ctaHref}
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  {cta}
-                </Link>
+                <Button asChild variant="ctaPrimary" size="cta">
+                  <Link href={ctaHref}>{cta}</Link>
+                </Button>
               ) : (
                 <CtaModal
                   label={cta}

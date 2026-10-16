@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { BusinessInfo, PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 import { FaLightbulb, FaRegSnowflake, FaStar } from 'react-icons/fa6'
@@ -6,6 +7,7 @@ import { FaLightbulb, FaRegSnowflake, FaStar } from 'react-icons/fa6'
 import ServiceHero from '@/components/services/ServiceHero'
 import ServiceHighlights from '@/components/services/ServiceHighlights'
 import ServiceCta from '@/components/services/ServiceCta'
+import { Button } from '@/components/ui/button'
 import { ServiceHighlightType } from '@/lib/types/services'
 
 const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
@@ -146,16 +148,14 @@ function SeasonalDetails() {
             option if you would like us to call.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link
-              href="/contact?service=holiday-lighting"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-6 text-center font-semibold text-black hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Request Christmas Light Installation
-            </Link>
-            <a
-              href={PHONE_HREF}
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-primary px-6 text-center font-semibold text-primary hover:bg-primary hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Call {PHONE_DISPLAY}
-            </a>
+            <Button asChild variant="ctaPrimary" size="cta">
+              <Link href="/contact?service=holiday-lighting">
+                Request Christmas Light Installation
+              </Link>
+            </Button>
+            <Button asChild variant="ctaOutline" size="cta">
+              <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
+            </Button>
           </div>
         </div>
       </div>
@@ -212,24 +212,46 @@ export default function HolidayLightingPage() {
               page for details, then contact us to confirm coverage and current
               availability for your home.
             </p>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Link
-                href="/services/holiday-lighting/bergen-county"
-                className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20">
-                <h3 className="text-primary">Bergen County Holiday Lighting</h3>
-                <p className="mt-3 text-sm md:text-base">
-                  Seasonal installation for homeowners in Paramus and Bergen
-                  County communities south of Paramus.
-                </p>
-              </Link>
-              <Link
-                href="/services/holiday-lighting/essex-county"
-                className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20">
-                <h3 className="text-primary">Essex County Holiday Lighting</h3>
-                <p className="mt-3 text-sm md:text-base">
-                  Seasonal installation for homeowners throughout Essex County.
-                </p>
-              </Link>
+            <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-12">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Link
+                  href="/services/holiday-lighting/bergen-county"
+                  className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  <h3 className="text-primary">
+                    Bergen County Holiday Lighting
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base">
+                    Seasonal installation for homeowners in Paramus and Bergen
+                    County communities south of Paramus.
+                  </p>
+                </Link>
+                <Link
+                  href="/services/holiday-lighting/essex-county"
+                  className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  <h3 className="text-primary">
+                    Essex County Holiday Lighting
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base">
+                    Seasonal installation for homeowners throughout Essex
+                    County.
+                  </p>
+                </Link>
+              </div>
+              <figure className="mx-auto max-w-56 text-center">
+                <Image
+                  src="/NjGraphic.png"
+                  alt=""
+                  width={285}
+                  height={508}
+                  sizes="(min-width: 1024px) 176px, 112px"
+                  loading="lazy"
+                  className="mx-auto h-auto w-28 brightness-0 invert opacity-25 lg:w-44"
+                />
+                <figcaption className="mt-4 text-sm text-white/70">
+                  Essex County, plus Paramus and communities south in Bergen
+                  County
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
