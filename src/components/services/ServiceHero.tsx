@@ -3,7 +3,9 @@
 import { ReactNode, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 import CtaModal from '../cta/CtaModal'
 
 // Cascade variants (slide up with stagger)
@@ -28,6 +30,8 @@ const item = {
 
 interface ServiceHeroProps {
   img: string
+  imgAlt?: string
+  imageOverlayClassName?: string
   h1: string | ReactNode
   description: string
   cta?: string
@@ -44,6 +48,8 @@ const ServiceHero = ({
   explanation,
   h1,
   img,
+  imgAlt,
+  imageOverlayClassName,
   dimHeroContent = false,
   height = 'h-screen'
 }: ServiceHeroProps) => {
@@ -52,12 +58,28 @@ const ServiceHero = ({
   return (
     <section className="page bg-black">
       <div className={cn('relative min-h-fit', height)}>
-        <div
-          className="absolute inset-0 bg-cover bg-center z-0 transform"
-          style={{
-            backgroundImage: `url('${img}')`
-          }}>
-          <div className="bg-black-clear h-full w-full"></div>
+        <div className="absolute inset-0 z-0">
+          {imgAlt !== undefined ? (
+            <Image
+              src={img}
+              alt={imgAlt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${img}')` }}
+            />
+          )}
+          <div
+            className={cn(
+              'absolute inset-0',
+              imageOverlayClassName ?? 'bg-black-clear'
+            )}
+          />
         </div>
 
         <div className="nav-offset z-10 relative side-padding h-fit max-w-custom mx-auto">
@@ -77,11 +99,9 @@ const ServiceHero = ({
             </div>
             <motion.div variants={item}>
               {ctaHref ? (
-                <Link
-                  href={ctaHref}
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-                  {cta}
-                </Link>
+                <Button asChild variant="ctaPrimary" size="cta">
+                  <Link href={ctaHref}>{cta}</Link>
+                </Button>
               ) : (
                 <CtaModal
                   label={cta}

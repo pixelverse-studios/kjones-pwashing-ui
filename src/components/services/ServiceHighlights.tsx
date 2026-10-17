@@ -21,7 +21,7 @@ export default function ServiceHighlights({
       <div className="max-w-custom mx-auto flex flex-col gap-6 px-6 py-10">
         <h2 className="max-w-2xl mx-auto">{h2}</h2>
         <p className="max-w-2xl mx-auto">{description}</p>
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(20rem,1fr))] gap-6">
+        <section className="grid grid-cols-1 gap-6 sm:grid-cols-[repeat(auto-fit,minmax(20rem,1fr))]">
           {highlights.map(highlight => (
             <div
               key={highlight.header}

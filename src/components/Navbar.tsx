@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { Menu } from 'lucide-react'
-import { useState } from 'react'
+import { Menu, Phone } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 import {
   NavigationMenu,
@@ -17,6 +17,8 @@ import {
 import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet'
 import CtaModal from './cta/CtaModal'
 import { DialogTitle } from './ui/dialog'
+import { Button } from './ui/button'
+import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 
 const navLinks = [
   { label: 'About', href: '/about' },
@@ -31,10 +33,21 @@ const Navbar = () => {
   const isContactPage = pathname === '/contact'
 
   const [open, setOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const updateScrolled = () => setIsScrolled(window.scrollY > 8)
+
+    updateScrolled()
+    window.addEventListener('scroll', updateScrolled, { passive: true })
+
+    return () => window.removeEventListener('scroll', updateScrolled)
+  }, [])
 
   return (
-    <header className="bg-nav text-white w-full font-inter z-50 fixed top-0">
-      <div className="flex items-center justify-between side-padding max-w-custom mx-auto py-4 px-6">
+    <header
+      className={`${isScrolled ? 'bg-black' : 'bg-[rgba(18,18,18,0.75)]'} text-white w-full font-inter z-50 fixed top-0 transition-[background-color] duration-300 ease-in-out`}>
+      <div className="flex h-[var(--site-nav-height)] items-center justify-between side-padding max-w-custom mx-auto px-6">
         <Link href="/" className="flex items-center">
           <Image
             src="/logo-gray.png"
@@ -47,9 +60,9 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden items-center gap-3 lg:flex xl:gap-5">
           <NavigationMenu>
-            <NavigationMenuList className="flex gap-6">
+            <NavigationMenuList className="flex gap-2 xl:gap-4">
               {navLinks.map(link => {
                 if (link.label === 'Services') {
                   return (
@@ -119,12 +132,26 @@ const Navbar = () => {
               })}
             </NavigationMenuList>
           </NavigationMenu>
+          <Button
+            asChild
+            variant="ctaOutline"
+            size="cta"
+            className="shrink-0 px-4 text-sm">
+            <a href={PHONE_HREF} aria-label={`Call ${PHONE_DISPLAY}`}>
+              <Phone aria-hidden="true" size={16} />
+              {PHONE_DISPLAY}
+            </a>
+          </Button>
           {isHolidayPage ? (
-            <Link
-              href="/contact?service=holiday-lighting"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black transition-colors duration-200 hover:bg-secondary hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
-              Request Christmas Light Installation
-            </Link>
+            <Button
+              asChild
+              variant="ctaPrimary"
+              size="cta"
+              className="max-w-[190px] px-4 text-sm">
+              <Link href="/contact?service=holiday-lighting">
+                Request Christmas Light Installation
+              </Link>
+            </Button>
           ) : isContactPage ? null : (
             <CtaModal
               label="Get a Quote"
@@ -135,9 +162,21 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          <Button
+            asChild
+            variant="ctaOutline"
+            size="sm"
+            className="h-11 w-auto min-w-11 shrink-0 rounded-full px-2.5 text-xs">
+            <a href={PHONE_HREF} aria-label={`Call ${PHONE_DISPLAY}`}>
+              <Phone aria-hidden="true" size={16} />
+              <span className="hidden min-[375px]:inline">{PHONE_DISPLAY}</span>
+            </a>
+          </Button>
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger className="text-white">
+            <SheetTrigger
+              aria-label="Open navigation menu"
+              className="inline-flex h-11 w-11 items-center justify-center text-white">
               <Menu size={28} />
             </SheetTrigger>
             <SheetContent
@@ -206,13 +245,28 @@ const Navbar = () => {
                     </Link>
                   )
                 })}
+                <Button
+                  asChild
+                  variant="ctaOutline"
+                  size="cta"
+                  className="w-full">
+                  <a href={PHONE_HREF} onClick={() => setOpen(false)}>
+                    <Phone aria-hidden="true" size={18} />
+                    Call {PHONE_DISPLAY}
+                  </a>
+                </Button>
                 {isHolidayPage ? (
-                  <Link
-                    href="/contact?service=holiday-lighting"
-                    onClick={() => setOpen(false)}
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-6 font-semibold text-black">
-                    Request Christmas Light Installation
-                  </Link>
+                  <Button
+                    asChild
+                    variant="ctaPrimary"
+                    size="cta"
+                    className="w-full">
+                    <Link
+                      href="/contact?service=holiday-lighting"
+                      onClick={() => setOpen(false)}>
+                      Request Christmas Light Installation
+                    </Link>
+                  </Button>
                 ) : isContactPage ? null : (
                   <CtaModal
                     label="Get a Quote"

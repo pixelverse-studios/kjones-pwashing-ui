@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/Homepage.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Jones Pressure Washing technician cleaning a New Jersey home exterior'
+        url: '/Driveway.jpg',
+        width: 4950,
+        height: 2774,
+        alt: 'A residential driveway being pressure washed'
       }
     ]
   },
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: pageTitle,
     description: pageDescription,
-    images: ['/Homepage.jpg']
+    images: ['/Driveway.jpg']
   },
   robots: {
     index: true,

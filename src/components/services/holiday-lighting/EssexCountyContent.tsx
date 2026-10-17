@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Button } from '@/components/ui/button'
 import { PHONE_DISPLAY, PHONE_HREF } from '@/lib/constants'
 
 const contactHref = '/contact?service=holiday-lighting'
@@ -57,16 +58,12 @@ const faqs = [
 function ContactActions() {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-      <Link
-        href={contactHref}
-        className="inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-3 text-center text-sm font-semibold text-black transition-[background-color,color,transform] duration-200 hover:bg-secondary hover:text-white active:translate-y-px focus-visible:bg-secondary focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-        Request Christmas Light Installation
-      </Link>
-      <a
-        href={PHONE_HREF}
-        className="inline-flex min-h-12 items-center justify-center border-b border-primary/70 text-center text-sm font-semibold text-white transition-colors duration-200 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-        Call {PHONE_DISPLAY}
-      </a>
+      <Button asChild variant="ctaPrimary" size="cta">
+        <Link href={contactHref}>Request Christmas Light Installation</Link>
+      </Button>
+      <Button asChild variant="ctaOutline" size="cta">
+        <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
+      </Button>
     </div>
   )
 }

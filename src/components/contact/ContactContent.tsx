@@ -226,7 +226,7 @@ function ContactAnimatedContent({
                   <h3 className="text-white text-lg mb-1">Phone</h3>
                   <Link
                     href={PHONE_HREF}
-                    className="text-secondary-lite hover:text-primary transition-colors">
+                    className="text-secondary-lite underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors">
                     {phone}
                   </Link>
                   <p className="text-secondary-lite text-sm mt-1">
@@ -247,7 +247,7 @@ function ContactAnimatedContent({
                   <h3 className="text-white text-lg mb-1">Email</h3>
                   <Link
                     href={`mailto:${email}`}
-                    className="text-secondary-lite hover:text-primary transition-colors break-all">
+                    className="text-secondary-lite underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-colors break-all">
                     {email}
                   </Link>
                 </div>
