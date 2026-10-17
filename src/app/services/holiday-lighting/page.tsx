@@ -10,9 +10,9 @@ import ServiceCta from '@/components/services/ServiceCta'
 import { Button } from '@/components/ui/button'
 import { ServiceHighlightType } from '@/lib/types/services'
 
-const pageTitle = 'Residential Holiday Lighting | Jones Pressure Washing'
+const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
 const pageDescription =
-  'Seasonal Christmas and holiday light installation for homes, with materials, maintenance, removal, and storage. Explore our service areas and request a quote.'
+  'Seasonal Christmas light installation for homeowners in Essex County and the Bergen County area through Paramus. Contact Jones Pressure Washing to discuss your display.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   },
   keywords: [
     'holiday lighting installation',
-    'Christmas light installation',
+    'Christmas light installation Bergen County',
+    'Christmas light installation Essex County',
+    'holiday lighting NJ',
     'Jones Pressure Washing holiday lighting'
   ],
   openGraph: {
