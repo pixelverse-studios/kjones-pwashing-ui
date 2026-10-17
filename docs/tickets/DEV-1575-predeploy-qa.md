@@ -43,6 +43,7 @@ The release is ready for PR review. Local rendering, navigation, crawl controls,
 - https://www.jonespressurewashingnj.com/services/holiday-lighting
 - https://www.jonespressurewashingnj.com/services/holiday-lighting/bergen-county
 - https://www.jonespressurewashingnj.com/services/holiday-lighting/essex-county
+- https://www.jonespressurewashingnj.com/contact
 - https://www.jonespressurewashingnj.com/contact?service=holiday-lighting
 - https://www.jonespressurewashingnj.com/robots.txt
 - https://www.jonespressurewashingnj.com/sitemap.xml
