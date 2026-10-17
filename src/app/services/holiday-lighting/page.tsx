@@ -182,7 +182,9 @@ export default function HolidayLightingPage() {
       />
       <main>
         <ServiceHero
-          img="/Homepage.jpg"
+          img="/holiday-lighting-hero.jpg"
+          imgAlt="Two-story home decorated with colorful roofline lights and warm holiday wreaths at dusk"
+          imageOverlayClassName="bg-black/40 lg:bg-gradient-to-r lg:from-black/65 lg:via-black/40 lg:to-black/20"
           h1={
             <>
               Seasonal <span className="text-primary">Holiday Lighting</span>{' '}
