@@ -120,6 +120,7 @@ module.exports = {
   },
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
+    includeNonIndexSitemaps: true,
     additionalSitemaps: []
   },
   additionalPaths: async () => {
