@@ -10,9 +10,9 @@ import ServiceCta from '@/components/services/ServiceCta'
 import { Button } from '@/components/ui/button'
 import { ServiceHighlightType } from '@/lib/types/services'
 
-const pageTitle = 'Holiday Lighting | Bergen & Essex County, NJ'
+const pageTitle = 'Residential Holiday Lighting | Jones Pressure Washing'
 const pageDescription =
-  'Seasonal Christmas light installation for homeowners in Essex County and the Bergen County area through Paramus. Contact Jones Pressure Washing to discuss your display.'
+  'Seasonal Christmas and holiday light installation for homes, with materials, maintenance, removal, and storage. Explore our service areas and request a quote.'
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -22,9 +22,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     'holiday lighting installation',
-    'Christmas light installation Bergen County',
-    'Christmas light installation Essex County',
-    'holiday lighting NJ',
+    'Christmas light installation',
     'Jones Pressure Washing holiday lighting'
   ],
   openGraph: {
@@ -76,7 +74,7 @@ const schema = {
     }
   ],
   description:
-    'Seasonal Christmas light installation, maintenance, removal, and storage for homeowners in Essex County and Bergen County through Paramus.',
+    'Seasonal Christmas and holiday light installation, maintenance, removal, and storage for homeowners.',
   mainEntityOfPage: {
     '@type': 'WebPage',
     '@id': 'https://www.jonespressurewashingnj.com/services/holiday-lighting'
@@ -128,10 +126,9 @@ function SeasonalDetails() {
             <span className="text-primary">for your home</span>
           </h2>
           <p>
-            We install seasonal Christmas and holiday lights for homeowners in
-            Essex County and Bergen County communities through Paramus and south
-            of Paramus. The service includes company-supplied materials,
-            installation, maintenance, removal, and storage.
+            We provide the installation materials and handle installation,
+            in-season maintenance, removal, and storage for residential
+            displays.
           </p>
           <p>
             Tell us about your home and the display you have in mind. We will
@@ -188,10 +185,10 @@ export default function HolidayLightingPage() {
           h1={
             <>
               Seasonal <span className="text-primary">Holiday Lighting</span>{' '}
-              for Bergen &amp; Essex County Homes
+              for Your Home
             </>
           }
-          description="Jones Pressure Washing installs seasonal Christmas and holiday lights for homeowners in Essex County and Bergen County through Paramus. Materials, maintenance, removal, and storage are included."
+          description="Jones Pressure Washing installs seasonal Christmas and holiday lights for homeowners. Materials, maintenance, removal, and storage are included."
           cta="Request Christmas Light Installation"
           ctaHref="/contact?service=holiday-lighting"
           dimHeroContent
@@ -207,36 +204,42 @@ export default function HolidayLightingPage() {
         />
         <section className="bg-black">
           <div className="max-w-custom mx-auto px-6 py-16 space-y-6">
-            <h2>Holiday Lighting Service Areas</h2>
+            <h2>Find Holiday Lighting in Your Area</h2>
             <p>
               We serve homeowners throughout Essex County and in Paramus and
               Bergen County communities south of Paramus. Choose your county
-              page for details, then contact us to confirm coverage and current
-              availability for your home.
+              page for local details, then contact us to confirm coverage and
+              current availability for your home.
             </p>
             <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-12">
               <div className="grid gap-4 sm:grid-cols-2">
                 <Link
                   href="/services/holiday-lighting/bergen-county"
-                  className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  className="group rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                   <h3 className="text-primary">
                     Bergen County Holiday Lighting
                   </h3>
                   <p className="mt-3 text-sm md:text-base">
-                    Seasonal installation for homeowners in Paramus and Bergen
-                    County communities south of Paramus.
+                    For homes in Paramus and communities south of Paramus. Check
+                    local coverage and service details.
                   </p>
+                  <span className="mt-5 inline-block font-semibold text-primary underline underline-offset-4 group-hover:text-white">
+                    View service area →
+                  </span>
                 </Link>
                 <Link
                   href="/services/holiday-lighting/essex-county"
-                  className="rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+                  className="group rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-primary hover:bg-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
                   <h3 className="text-primary">
                     Essex County Holiday Lighting
                   </h3>
                   <p className="mt-3 text-sm md:text-base">
-                    Seasonal installation for homeowners throughout Essex
-                    County.
+                    For homeowners throughout the county. Check local coverage
+                    and service details.
                   </p>
+                  <span className="mt-5 inline-block font-semibold text-primary underline underline-offset-4 group-hover:text-white">
+                    View service area →
+                  </span>
                 </Link>
               </div>
               <figure className="mx-auto max-w-56 text-center">
@@ -250,8 +253,7 @@ export default function HolidayLightingPage() {
                   className="mx-auto h-auto w-28 brightness-0 invert opacity-25 lg:w-44"
                 />
                 <figcaption className="mt-4 text-sm text-white/70">
-                  Essex County, plus Paramus and communities south in Bergen
-                  County
+                  Check the county pages for coverage details.
                 </figcaption>
               </figure>
             </div>
