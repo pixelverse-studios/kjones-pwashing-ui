@@ -244,20 +244,17 @@ export default function HolidayLightingPage() {
                   </span>
                 </Link>
               </div>
-              <figure className="mx-auto max-w-56 text-center">
+              <div className="mx-auto max-w-56">
                 <Image
                   src="/NjGraphic.png"
-                  alt=""
+                  alt="Map of New Jersey with Bergen County highlighted in gold"
                   width={285}
                   height={508}
                   sizes="(min-width: 1024px) 176px, 112px"
                   loading="lazy"
-                  className="mx-auto h-auto w-28 brightness-0 invert opacity-25 lg:w-44"
+                  className="mx-auto h-auto w-28 lg:w-44"
                 />
-                <figcaption className="mt-4 text-sm text-white/70">
-                  Check the county pages for coverage details.
-                </figcaption>
-              </figure>
+              </div>
             </div>
           </div>
         </section>
