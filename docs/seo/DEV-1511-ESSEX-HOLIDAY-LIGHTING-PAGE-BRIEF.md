@@ -238,6 +238,8 @@ The statuses below reflect the September 27 meeting record and ADM-42. `Approved
 | HL-C20 | Every Essex County municipality is served | Approved with narrower wording | Kyle stated all of Essex County is served; no project history in each town was confirmed | State county coverage without implying a local office, completed job, or specialized town expertise | Kyle; visible copy and `areaServed` |
 | HL-C21 | Exact public and Google Business Profile name is `Jones Pressure Washing` | Unknown | Meeting shorthand reads `JonesPressureWashing`; current site and logo use spaced `Jones Pressure Washing` | Keep the existing spaced brand in draft copy; verify exact official formatting before publication | Kyle; GBP and controlled brand surfaces |
 
+**November 2, 2026 update (Kyle via Phil; see [SEO-36-KYLE-QUESTIONS.md](SEO-36-KYLE-QUESTIONS.md)):** HL-C05 is now approved as "free estimate, usually virtual, no charge before agreeing to the job"; still no design-consultation claim. HL-C08 is approved for one public date: request by December 10 (no capacity or takedown dates). HL-C11 is approved as "fully insured for all services". Decorated features are approved as rooflines, windows, and doors and entryways (narrows HL-C03/HL-C13; no product list). HL-C18 is unchanged: no verified Jones install photo yet.
+
 No protected contracts, customer records, addresses, or private financial details should be copied into the repository. The register should record where authorized evidence can be rechecked.
 
 ## 8. Internal-link and site role
