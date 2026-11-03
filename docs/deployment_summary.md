@@ -2,18 +2,18 @@
 
 ## Latest deploy summary
 
-- Added the residential soft-washing research for Essex County, Nutley, Livingston, and Verona: competitor findings, Google Search data for key pages, and keyword estimates by area.
-- Added the proposed next-phase soft-washing plan and a meeting agenda for Kyle's review.
-- No website pages, content, or settings changed in this release.
+- Expanded the holiday-lighting overview page into a general guide to seasonal Christmas light installation in New Jersey: how the season works from request to takedown, tips for planning a display, and answers to common questions.
+- Made it easier to choose between the Essex County and Bergen County holiday-lighting pages.
+- The county holiday-lighting pages are unchanged.
 
 ## Notes for internal team
 
-- Release: R3 residential soft-washing research and plan (SEO-37, SEO-38, SEO-39, SEO-40, SEO-42), promoted from `dev/r3-residential-soft-washing-research-and-plan` (PRs #49 and #50). Documentation only. Merging to `main` still triggers a Netlify production build; the site's pages and sitemap output are unchanged.
-- Raw Search Console exports are deliberately not in the repository because it is public; they are kept locally in the git-excluded `docs/seo/data/private/` folder. Keyword Planner exports are committed under `docs/seo/data/raw/r3-soft-washing/`.
-- Nothing in the plan is approved for implementation. The next website change (soft-washing page brief and release) waits on Kyle's answers to `docs/seo/R3-SOFT-WASHING-KYLE-AGENDA.md`.
-- Open follow-ups outside this release: SEO-36 holiday-lighting overview content fix (due November 6), URL Inspection for `/services/essex-county` (zero impressions in 12 months), and confirming GA4 production collection.
+- Release: SEO-36 follow-up. `/services/holiday-lighting` has never been indexed ("URL is unknown to Google") despite passing the live test, being in the sitemap, and being linked from the homepage. The likely cause is thin content; main text grows from about 286 to about 737 words, with 2–7% shared text with the county pages.
+- Title, meta description, H1, canonical, and the Service and BreadcrumbList schema are unchanged. A FAQPage schema now mirrors the visible FAQ.
+- All copy uses only owner-approved facts from the DEV-1511 claim register. No prices, dates, capacity, product, insurance, or design-process claims. Open questions for Kyle are in `docs/seo/SEO-36-KYLE-QUESTIONS.md`; answers can be added in a later change.
+- After deployment: record the deploy time in SEO-36, run one URL Inspection live test and one indexing request for the overview, and do not resubmit. Re-inspect about 7 days later; if it is still not indexed, record the exact status and escalate in SEO-32.
 - GitHub PR merges do not invoke a local pre-push hook. Send this release summary through the PVS deployment reporting workflow separately if that hook did not run.
 
 ## Changed URLs
 
-- None. Documentation-only release.
+- https://www.jonespressurewashingnj.com/services/holiday-lighting

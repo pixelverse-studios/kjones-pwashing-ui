@@ -127,17 +127,16 @@ const seasonSteps = [
   {
     title: 'Review and quote',
     description:
-      'We review your home and display ideas, discuss current availability, and prepare a quote for your property. Pricing depends on the home and the display, so it is not listed on the site.'
+      'We discuss your request, display ideas, and current availability, then prepare a quote for your property. Pricing depends on the home and the display, so it is not listed on the site.'
   },
   {
-    title: 'Installation and the season',
+    title: 'Installation',
     description:
-      'We supply the materials and install your lights. Maintenance is included while the lights are up, so contact us if any part of the display needs attention.'
+      'We supply the materials and install the lights. If something needs attention while the display is up, contact us.'
   },
   {
-    title: 'Removal and storage',
-    description:
-      'After the holidays, removal and storage are included. We will explain the terms for your project when we prepare your quote.'
+    title: 'End of season',
+    description: 'After the holidays, we take the display down and store it.'
   }
 ]
 
@@ -145,22 +144,17 @@ const planningTips = [
   {
     title: 'Decide what you want lit',
     description:
-      'Walk around the front of your home and note the features you want to highlight, such as the roofline, front windows, entryway, or trees. We will confirm what works for your property.'
+      'Walk around the front of your home and note the features you want to highlight, such as the roofline, front windows, entryway, or trees. Include them in your request.'
   },
   {
     title: 'Note your outdoor outlets',
     description:
-      'Knowing where your exterior outlets are helps us plan the display. Mention them in your request if you know.'
+      'If you know where your exterior outlets are, you can mention them in your request.'
   },
   {
-    title: 'Check neighborhood rules',
+    title: 'Ask about availability',
     description:
-      'If your neighborhood or homeowners association has rules about decorations, review them before you book so the display fits.'
-  },
-  {
-    title: 'Ask early',
-    description:
-      'Schedules generally get busier closer to the holidays. Asking early gives you more options for installation timing.'
+      'Availability changes during the season. Contact us to ask about current availability for your home.'
   }
 ]
 
@@ -168,7 +162,7 @@ const faqs = [
   {
     question: 'Where do you install Christmas lights in New Jersey?',
     answer:
-      'We install seasonal holiday lighting for homeowners throughout Essex County, and in Paramus and Bergen County communities south of Paramus. If your town is not covered, tell us where you are and we will let you know.'
+      'We install seasonal holiday lighting for homeowners throughout Essex County, and in Paramus and Bergen County communities south of Paramus. If your town is not listed, include it in your request and ask about coverage.'
   },
   {
     question: 'Do you decorate businesses or commercial properties?',
@@ -183,7 +177,7 @@ const faqs = [
   {
     question: 'Do I need to know exactly what I want before I ask?',
     answer:
-      'No. Share your ideas, even rough ones, and we will discuss options for your home when we review your request.'
+      'No. Share your ideas, even rough ones, in your request and we will discuss them with you.'
   },
   {
     question: 'Which page should I use, Bergen or Essex?',
@@ -222,7 +216,9 @@ function SeasonSteps() {
             <li
               key={step.title}
               className="rounded-lg border border-white/10 bg-white/5 p-6">
-              <span className="font-poppins text-sm font-semibold text-primary">
+              <span
+                aria-hidden="true"
+                className="font-poppins text-sm font-semibold text-primary">
                 {String(index + 1).padStart(2, '0')}
               </span>
               <h3 className="mt-2 text-white">{step.title}</h3>
