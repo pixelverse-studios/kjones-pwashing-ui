@@ -125,14 +125,14 @@ const seasonSteps = [
       'Use the holiday lighting form to tell us your town, the parts of your home you want lit, and your preferred timing. Select the phone-call option if you would rather talk it through.'
   },
   {
-    title: 'Review and quote',
+    title: 'Free estimate',
     description:
-      'We discuss your request, display ideas, and current availability, then prepare a quote for your property. Pricing depends on the home and the display, so it is not listed on the site.'
+      'We review your request and prepare a free estimate. Most estimates can be done virtually, without a visit, and there is no charge until you agree to the job.'
   },
   {
     title: 'Installation',
     description:
-      'We supply the materials and install the lights. If something needs attention while the display is up, contact us.'
+      'We supply the materials and install lights on your rooflines, windows, and doors and entryways. If something needs attention while the display is up, contact us.'
   },
   {
     title: 'End of season',
@@ -144,7 +144,7 @@ const planningTips = [
   {
     title: 'Decide what you want lit',
     description:
-      'Walk around the front of your home and note the features you want to highlight, such as the roofline, front windows, entryway, or trees. Include them in your request.'
+      'Walk around the front of your home and note which rooflines, windows, and doors or entryways you want lit. Include them in your request.'
   },
   {
     title: 'Note your outdoor outlets',
@@ -152,9 +152,9 @@ const planningTips = [
       'If you know where your exterior outlets are, you can mention them in your request.'
   },
   {
-    title: 'Ask about availability',
+    title: 'Book by December 10',
     description:
-      'Availability changes during the season. Contact us to ask about current availability for your home.'
+      'To have lights installed this season, send your request by December 10.'
   }
 ]
 
@@ -165,6 +165,25 @@ const faqs = [
       'We install seasonal holiday lighting for homeowners throughout Essex County, and in Paramus and Bergen County communities south of Paramus. If your town is not listed, include it in your request and ask about coverage.'
   },
   {
+    question: 'What parts of my home do you decorate?',
+    answer: 'We install lights on rooflines, windows, and doors and entryways.'
+  },
+  {
+    question: 'When do I need to book by?',
+    answer:
+      'Send your request by December 10 to have lights installed this season.'
+  },
+  {
+    question: 'Is the estimate free?',
+    answer:
+      'Yes. Estimates are free, most can be done virtually, and there is no charge until you agree to the job.'
+  },
+  {
+    question: 'Are you insured?',
+    answer:
+      'Yes. Jones Pressure Washing is fully insured for all of its services, including holiday lighting.'
+  },
+  {
     question: 'Do you decorate businesses or commercial properties?',
     answer:
       'Our holiday lighting service is for homeowners. It does not cover commercial, storefront, or event lighting.'
@@ -172,7 +191,7 @@ const faqs = [
   {
     question: 'How much does Christmas light installation cost?',
     answer:
-      'Every home and display is different, so we do not publish prices. Send us your town, the areas you want lit, and your timing, and we will discuss a quote for your property.'
+      'Every home and display is different, so we do not publish prices. Send us your town, the areas you want lit, and your timing, and we will prepare a free estimate for your property.'
   },
   {
     question: 'Do I need to know exactly what I want before I ask?',
