@@ -5,6 +5,7 @@
 **Status:** Research in progress; not an implementation plan  
 **Client:** Jones Pressure Washing  
 **Website:** [jonespressurewashingnj.com](https://www.jonespressurewashingnj.com/)  
+**Follow-up:** Location-pinned map and local-pack research for residential soft washing (2026-11-02) is in [R3-SOFT-WASHING-COMPETITORS-2026-11-02.md](R3-SOFT-WASHING-COMPETITORS-2026-11-02.md).  
 
 ## Scope used for this phase
 
