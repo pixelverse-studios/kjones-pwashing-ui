@@ -18,12 +18,13 @@ Go through Part A quickly: these are things we already believe and only need Kyl
 | --- | --- | --- | --- |
 | A1 | Residential soft washing is the main year-round campaign; holiday lighting stays seasonal | Campaign plan | |
 | A2 | Service area: all of Essex County, plus Bergen County from Paramus south | Kyle, Sept 27 (said for holiday lighting) | Same for soft washing? |
-| A3 | Homeowners are the audience. September's plan also listed residential HOAs and property managers, but Kyle later said "no commercial anything for now" | Sept 17 plan; Sept 27 meeting | Homeowners only, or HOAs/property managers too? |
+| A3 | Homeowners are the audience. Kyle said "homeowners only" on Sept 27 for holiday lighting; September's soft-washing plan also listed residential HOAs and property managers | Sept 17 plan; Sept 27 meeting (holiday context) | Same for soft washing? Homeowners only, or HOAs/property managers too? |
 | A4 | The quote form is the preferred way for customers to reach Jones, not phone calls | Kyle, Sept 27 | Still true for soft washing? |
-| A5 | A qualified lead is a homeowner who submits the contact form or gets a quote | Kyle, Sept 27 | |
+| A5 | A qualified lead is a homeowner who submits the contact form or gets a quote | Kyle, Sept 27 (holiday context) | Same for soft washing? |
 | A6 | Lavo records quotes and booked work, and soft-washing jobs can be separated from holiday lighting | Kyle, Sept 27 | |
 | A7 | Kyle approves every service claim, photo, and project before it's published | Sept plan | |
-| A8 | No commercial, storefront, or fleet promotion in this campaign | Kyle, Sept 27 | |
+| A8 | No commercial promotion in this campaign (we read this as including storefront and fleet work) | Kyle, Sept 27: "no commercial anything for now" | |
+| A9 | Spring is the busiest time for exterior washing | Assumption, not yet checked | Which months bring the most soft-washing jobs? |
 
 ## Part B — Decisions that change the plan (20 minutes)
 
@@ -54,7 +55,7 @@ Check each one Kyle wants promoted, and note any limits (for example, "not on pa
 
 | Answer | Page plan | URL change |
 | --- | --- | --- |
-| (a) Add-on | Roof section on the soft-washing page | None |
+| (a) Add-on | Roof section on the soft-washing page; trim duplicate roof claims from Additional Services | None |
 | (b) Core | Roof section, and roof cleaning named in the soft-washing page title and headings | None |
 | (c) Standalone, with proof | Roof section now; dedicated roof page considered in a later phase with its own approval | Later only |
 
@@ -68,7 +69,7 @@ Either way, both current URLs stay as they are until a later approval. *Evidence
 | Livingston (page exists) | | | |
 | Verona | | | |
 
-*Why it matters:* Keyword Planner reports no town-level data (KWP-02), so a town page depends on real jobs and Kyle's interest, not search volume.
+*Why it matters:* Keyword Planner reports no town-level data (KWP-02), so the case for a town page has to come from Search Console, what the search results show, real completed jobs, and Kyle's interest. The September plan's town-page gates still apply.
 
 ### B4. Gutter cleaning
 
@@ -94,6 +95,23 @@ Either way, both current URLs stay as they are until a later approval. *Evidence
 - Answer:
 
 *Why it matters:* cost questions are one of the clearest customer needs in the keyword data (KWP-06). Nothing about price is published without approval.
+
+### B7. Reporting and access
+
+- What can Lavo show or export for soft washing: quote requests, quotes sent, accepted and completed jobs, invoiced and collected amounts? Does it record where the customer came from (website, Google, referral)?
+  - Answer:
+- Can Kyle (or Phil from Lavo) send a monthly summary with counts only, no customer details? Who sends it, and when?
+  - Answer:
+- Who has access to Search Console, GA4, and the Business Profile, and does anyone else need it?
+  - Answer:
+
+*Why it matters:* the website can see quote-form opens but not whether the form inside the Lavo window was submitted, so Lavo is the only place real leads and booked jobs can be counted.
+
+### B8. Approve the research findings and the plan
+
+- [ ] Kyle has seen the main findings (plan §3): near-invisible on Maps, the soft-washing page as the main foothold, the homepage and Essex County page issues, roof and gutter signals, the cost questions.
+- [ ] Kyle agrees with the page ownership in plan §4, or notes changes:
+- [ ] Kyle agrees that a written brief for the soft-washing page is the next step, and that nothing on the site changes until he approves it.
 
 ## Part C — Proof needed for each page
 
