@@ -3,6 +3,7 @@
 **Status:** Proposed for review; no implementation approved  
 **Prepared:** 2026-09-17  
 **Last updated:** 2026-09-25  
+**November 2026 update:** The September execution calendar in §7 is superseded by [R3-SOFT-WASHING-PLAN-2026-11.md](R3-SOFT-WASHING-PLAN-2026-11.md), which uses the November 2 evidence. Scope, gates, and the measurement contract here still apply.  
 **Campaign:** Residential soft washing  
 **Primary market:** Essex County, New Jersey  
 **Priority towns:** Nutley, Livingston, and Verona
