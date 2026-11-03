@@ -118,6 +118,165 @@ const lightingHighlights: ServiceHighlightType[] = [
   }
 ]
 
+const seasonSteps = [
+  {
+    title: 'Send your request',
+    description:
+      'Use the holiday lighting form to tell us your town, the parts of your home you want lit, and your preferred timing. Select the phone-call option if you would rather talk it through.'
+  },
+  {
+    title: 'Review and quote',
+    description:
+      'We discuss your request, display ideas, and current availability, then prepare a quote for your property. Pricing depends on the home and the display, so it is not listed on the site.'
+  },
+  {
+    title: 'Installation',
+    description:
+      'We supply the materials and install the lights. If something needs attention while the display is up, contact us.'
+  },
+  {
+    title: 'End of season',
+    description: 'After the holidays, we take the display down and store it.'
+  }
+]
+
+const planningTips = [
+  {
+    title: 'Decide what you want lit',
+    description:
+      'Walk around the front of your home and note the features you want to highlight, such as the roofline, front windows, entryway, or trees. Include them in your request.'
+  },
+  {
+    title: 'Note your outdoor outlets',
+    description:
+      'If you know where your exterior outlets are, you can mention them in your request.'
+  },
+  {
+    title: 'Ask about availability',
+    description:
+      'Availability changes during the season. Contact us to ask about current availability for your home.'
+  }
+]
+
+const faqs = [
+  {
+    question: 'Where do you install Christmas lights in New Jersey?',
+    answer:
+      'We install seasonal holiday lighting for homeowners throughout Essex County, and in Paramus and Bergen County communities south of Paramus. If your town is not listed, include it in your request and ask about coverage.'
+  },
+  {
+    question: 'Do you decorate businesses or commercial properties?',
+    answer:
+      'Our holiday lighting service is for homeowners. It does not cover commercial, storefront, or event lighting.'
+  },
+  {
+    question: 'How much does Christmas light installation cost?',
+    answer:
+      'Every home and display is different, so we do not publish prices. Send us your town, the areas you want lit, and your timing, and we will discuss a quote for your property.'
+  },
+  {
+    question: 'Do I need to know exactly what I want before I ask?',
+    answer:
+      'No. Share your ideas, even rough ones, in your request and we will discuss them with you.'
+  },
+  {
+    question: 'Which page should I use, Bergen or Essex?',
+    answer:
+      'Use the Essex County page if you live anywhere in Essex County. Use the Bergen County page if you live in Paramus or a Bergen County community south of Paramus. Both lead to the same holiday lighting request form.'
+  }
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+  }))
+}
+
+function SeasonSteps() {
+  return (
+    <section className="bg-black" aria-labelledby="season-heading">
+      <div className="max-w-custom mx-auto px-6 py-16 space-y-8">
+        <div className="space-y-4">
+          <h2 id="season-heading">
+            How a holiday lighting season{' '}
+            <span className="text-primary">works with us</span>
+          </h2>
+          <p className="max-w-3xl">
+            Christmas light installation is more than putting lights up once.
+            Here is what happens from your first request to the end of the
+            season.
+          </p>
+        </div>
+        <ol className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {seasonSteps.map((step, index) => (
+            <li
+              key={step.title}
+              className="rounded-lg border border-white/10 bg-white/5 p-6">
+              <span
+                aria-hidden="true"
+                className="font-poppins text-sm font-semibold text-primary">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <h3 className="mt-2 text-white">{step.title}</h3>
+              <p className="mt-3 text-sm md:text-base">{step.description}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
+function PlanningTips() {
+  return (
+    <section className="bg-secondary" aria-labelledby="planning-heading">
+      <div className="max-w-custom mx-auto px-6 py-16 space-y-8">
+        <div className="space-y-4">
+          <h2 id="planning-heading">
+            Planning your <span className="text-primary">holiday display</span>
+          </h2>
+          <p className="max-w-3xl">
+            A few minutes of planning makes your request easier to quote and
+            helps the display suit your home.
+          </p>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {planningTips.map(tip => (
+            <div key={tip.title} className="border-l-2 border-primary pl-5">
+              <h3 className="text-white">{tip.title}</h3>
+              <p className="mt-2">{tip.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function HolidayFaqs() {
+  return (
+    <section className="bg-black" aria-labelledby="holiday-faq-heading">
+      <div className="max-w-custom mx-auto px-6 py-16 space-y-8">
+        <h2 id="holiday-faq-heading">
+          Holiday lighting <span className="text-primary">questions</span>
+        </h2>
+        <div className="divide-y divide-white/10 border-y border-white/10">
+          {faqs.map(faq => (
+            <div key={faq.question} className="py-6">
+              <h3 className="text-xl text-primary">{faq.question}</h3>
+              <p className="mt-3">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function SeasonalDetails() {
   return (
     <section className="bg-black">
@@ -179,6 +338,13 @@ export default function HolidayLightingPage() {
           __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c')
         }}
       />
+      <script
+        id="jpw-holiday-lighting-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c')
+        }}
+      />
       <main>
         <ServiceHero
           img="/holiday-lighting-hero.jpg"
@@ -204,6 +370,8 @@ export default function HolidayLightingPage() {
           altCard
           altBg
         />
+        <SeasonSteps />
+        <PlanningTips />
         <section className="bg-black">
           <div className="max-w-custom mx-auto px-6 py-16 space-y-6">
             <h2>Find Holiday Lighting in Your Area</h2>
@@ -258,6 +426,7 @@ export default function HolidayLightingPage() {
             </div>
           </div>
         </section>
+        <HolidayFaqs />
         <ServiceCta
           header="Discuss Holiday Lighting for Your Home"
           description="Tell us about your location, display ideas, and preferred timing so we can discuss the service and current availability."
